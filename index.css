@@ -12,7 +12,6 @@ main {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  padding: ;
 }
 
 .project-card {
