@@ -1,0 +1,36 @@
+.box1 {
+  background-color: lightcoral;
+  width: 100px;
+  height: 100px;
+}
+
+.box2 {
+  background-color: lightblue;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+}
+/*Padding collapses vertically (in other words, it overlays the two paddings from the element on top and bottom, instead of combining. It combines for horizontal elements)*/
+.box3 {
+  background-color: yellow;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  margin: 10px;
+}
+.box4 {
+  background-color: purple;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  margin: 10px;
+  border: 5px solid black;
+}
+span {
+  width: 50px;
+  /*The hieght is not followed with span*/
+  height: 1000px;
+  padding: 20px;
+  margin: 30px;
+  border: 5px solid black;
+}
