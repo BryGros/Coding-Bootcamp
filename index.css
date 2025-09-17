@@ -12,10 +12,13 @@ main {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .project-card {
   border: 1px solid black;
   border-radius: 20px;
   width: 300px;
+  align-content: center;
 }
