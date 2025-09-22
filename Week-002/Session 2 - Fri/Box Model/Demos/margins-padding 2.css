@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .center {
   width: 100px;
   /* auto applies to the left and right in this particular instance (since only 2 variables defined, the 0 applies to top and bottom), and splits the content into the exact center */
@@ -25,31 +24,3 @@ main {
 * {
   box-sizing: border-box;
 }
-=======
-.center {
-  width: 100px;
-  /* auto applies to the left and right in this particular instance (since only 2 variables defined, the 0 applies to top and bottom), and splits the content into the exact center */
-  margin: 0 auto;
-}
-
-.set-padding {
-  padding: 10px 30px 20px 40px;
-}
-
-/* If we want to make a standard box exactly a specific size, we would have to consider parts of the box model: content, border, padding... HARD! */
-
-/* Instaed... */
-
-main {
-  /* By default, context box is basing size off content.  But switching to border box sizes the specific size to the border instead*/
-  box-sizing: border-box;
-  height: 300px;
-  width: 300px;
-  /* the box above is exactly 300x300, regardless of the content, border, padding */
-}
-
-/* Adding the below code at the start of the CSS will make the default box-sizing to border box */
-* {
-  box-sizing: border-box;
-}
->>>>>>> 047484b (Post Calc Project commit)
