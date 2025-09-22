@@ -1,0 +1,65 @@
+<<<<<<< HEAD
+body {
+  font-size: 20px;
+}
+
+p {
+  /* long hand */
+  font-size: 32px;
+  /* bold */
+  font-weight: bold;
+  /* font color */
+  color: blue;
+  /* font family - iterates through the fonts in order until it finds a font on the device used to render the content*/
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Relative and Fixed */
+/* If you set something to 16px, it always displays as 16px, despite your pixel density */
+.px {
+  color: black;
+  font-size: 20px;
+}
+
+.em {
+  color: black;
+  font-size: 2em;
+}
+
+.rem {
+  color: black;
+  font-size: 2rem;
+}
+=======
+body {
+  font-size: 20px;
+}
+
+p {
+  /* long hand */
+  font-size: 32px;
+  /* bold */
+  font-weight: bold;
+  /* font color */
+  color: blue;
+  /* font family - iterates through the fonts in order until it finds a font on the device used to render the content*/
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Relative and Fixed */
+/* If you set something to 16px, it always displays as 16px, despite your pixel density */
+.px {
+  color: black;
+  font-size: 20px;
+}
+
+.em {
+  color: black;
+  font-size: 2em;
+}
+
+.rem {
+  color: black;
+  font-size: 2rem;
+}
+>>>>>>> 047484b (Post Calc Project commit)

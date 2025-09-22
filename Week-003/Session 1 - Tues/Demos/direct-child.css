@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+.flex-container {
+  display: flex;
+  /* flex-direction: row; <-- Defaults this way*/
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+  margin: 50px;
+  background-color: teal;
+}
+=======
+.flex-container {
+  display: flex;
+  /* flex-direction: row; <-- Defaults this way*/
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+  margin: 50px;
+  background-color: teal;
+}
+>>>>>>> 047484b (Post Calc Project commit)

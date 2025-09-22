@@ -1,0 +1,75 @@
+<<<<<<< HEAD
+h1 {
+  /* change color*/
+  color: rebeccapurple;
+  background-color: aquamarine;
+  /* : - seperate property from value*/
+  /* ; - seperate property values*/
+}
+
+p {
+  color: red;
+  padding: 50px;
+}
+
+/*Dot targets a classification (i.e. "Class")*/
+
+.second-p {
+  color: blueviolet;
+  border: 1px solid;
+  padding-left: 10px;
+  border-top-left-radius: 20px;
+}
+
+/* # targets ids */
+
+#header-two {
+  color: aliceblue;
+  background-color: black;
+}
+
+div {
+  color: red;
+  background-color: beige;
+  width: 50px;
+  height: 50px;
+  border: 5px solid green;
+}
+=======
+h1 {
+  /* change color*/
+  color: rebeccapurple;
+  background-color: aquamarine;
+  /* : - seperate property from value*/
+  /* ; - seperate property values*/
+}
+
+p {
+  color: red;
+  padding: 50px;
+}
+
+/*Dot targets a classification (i.e. "Class")*/
+
+.second-p {
+  color: blueviolet;
+  border: 1px solid;
+  padding-left: 10px;
+  border-top-left-radius: 20px;
+}
+
+/* # targets ids */
+
+#header-two {
+  color: aliceblue;
+  background-color: black;
+}
+
+div {
+  color: red;
+  background-color: beige;
+  width: 50px;
+  height: 50px;
+  border: 5px solid green;
+}
+>>>>>>> 047484b (Post Calc Project commit)

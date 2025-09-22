@@ -1,0 +1,201 @@
+<<<<<<< HEAD
+div {
+  margin-bottom: 50px;
+  border: 1px solid black;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  /* this points to our keyframes - we can name it waht we want to */
+  animation-name: fade-in;
+  /* Total time for the animation so complete */
+  animation-duration: 3s;
+}
+
+@keyframes fade-in {
+  /* initial state for our properties */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 1s;
+  background-color: purple;
+  /* delay animation start */
+  animation-delay: 3s;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.repeat {
+  animation-name: glow;
+  animation-duration: 2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 1px blue;
+  }
+  50% {
+    box-shadow: 0 0 20px blue;
+  }
+  100% {
+    box-shadow: 0 0 1px blue;
+  }
+}
+
+.infinite {
+  animation-name: pulse;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+/* linear timing function */
+
+.linear-sizing {
+  animation-name: size-change;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes size-change {
+  from {
+    width: 50px;
+  }
+  to {
+    width: 100px;
+  }
+}
+
+.custom {
+  animation-name: size-change;
+  animation-duration: 3s;
+  /* CSS function call passing in values to "randomize" */
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  animation-iteration-count: infinite;
+}
+
+.shorthand {
+  /* name, duration, timing function, delay, iteration count,  */
+  animation: complex-animation 4s ease-in-out 1s infinite;
+}
+=======
+div {
+  margin-bottom: 50px;
+  border: 1px solid black;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  /* this points to our keyframes - we can name it waht we want to */
+  animation-name: fade-in;
+  /* Total time for the animation so complete */
+  animation-duration: 3s;
+}
+
+@keyframes fade-in {
+  /* initial state for our properties */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 1s;
+  background-color: purple;
+  /* delay animation start */
+  animation-delay: 3s;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.repeat {
+  animation-name: glow;
+  animation-duration: 2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 1px blue;
+  }
+  50% {
+    box-shadow: 0 0 20px blue;
+  }
+  100% {
+    box-shadow: 0 0 1px blue;
+  }
+}
+
+.infinite {
+  animation-name: pulse;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+/* linear timing function */
+
+.linear-sizing {
+  animation-name: size-change;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes size-change {
+  from {
+    width: 50px;
+  }
+  to {
+    width: 100px;
+  }
+}
+
+.custom {
+  animation-name: size-change;
+  animation-duration: 3s;
+  /* CSS function call passing in values to "randomize" */
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  animation-iteration-count: infinite;
+}
+
+.shorthand {
+  /* name, duration, timing function, delay, iteration count,  */
+  animation: complex-animation 4s ease-in-out 1s infinite;
+}
+>>>>>>> 047484b (Post Calc Project commit)

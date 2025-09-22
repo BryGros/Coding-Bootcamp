@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+.translate {
+  transition: transform 0.5s ease;
+  background-color: gold;
+  width: 50px;
+}
+
+.translate:hover {
+  transform: translateX(-50px);
+}
+=======
+.translate {
+  transition: transform 0.5s ease;
+  background-color: gold;
+  width: 50px;
+}
+
+.translate:hover {
+  transform: translateX(-50px);
+}
+>>>>>>> 047484b (Post Calc Project commit)

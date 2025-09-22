@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+.mag-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-columns: 25% 50% 25%; ^ Similar to the code above, but harder if you want to adjust later (sicne you have to do the math) */
+  grid-template-rows: 1fr 2fr;
+  gap: 10px 10px;
+}
+
+article {
+  border: black solid 2px;
+}
+=======
+.mag-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-columns: 25% 50% 25%; ^ Similar to the code above, but harder if you want to adjust later (sicne you have to do the math) */
+  grid-template-rows: 1fr 2fr;
+  gap: 10px 10px;
+}
+
+article {
+  border: black solid 2px;
+}
+>>>>>>> 047484b (Post Calc Project commit)
