@@ -1,4 +1,4 @@
-# Todo List App Development Plan
+<!-- # Todo List App Development Plan
 
 ## Project Overview
 
@@ -27,7 +27,7 @@ Build a fully functional Todo List application using advanced JavaScript and DOM
   </div>
   <button id="clear-completed">Clear Completed</button>
 </div>
-```
+``` -->
 
 **Your JavaScript must:**
 - Connect to these specific element IDs and classes
@@ -39,10 +39,10 @@ Build a fully functional Todo List application using advanced JavaScript and DOM
 
 **IMPORTANT:** Your todo app needs to track state between user interactions. Create these variables:
 
-- `todos`: Array to store all todo objects
-- `currentFilter`: String to track current view ('all', 'active', 'completed')
+<!-- - `todos`: Array to store all todo objects
+- `currentFilter`: String to track current view ('all', 'active', 'completed') -->
 
-**Todo Object Structure:**
+<!-- **Todo Object Structure:**
 ```javascript
 {
   id: "unique-id",           // Use Date.now() or similar
@@ -50,7 +50,7 @@ Build a fully functional Todo List application using advanced JavaScript and DOM
   completed: false,          // Boolean completion status
   createdAt: "timestamp"     // Optional: when todo was created
 }
-```
+``` -->
 
 ## Core Functionality Requirements
 
