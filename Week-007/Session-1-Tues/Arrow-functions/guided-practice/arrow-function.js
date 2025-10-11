@@ -77,6 +77,19 @@ function processStudentGrades(students, passingGrade) {
 // TODO: Convert the processStudentGrades function above into a named arrow function
 // Requirements:
 // - Use const to declare the function
+const processStudentGradesArrow = (students, passingGrade) => {
+  const results = [];
+  for (let i = 0; i < students.length; i++) {
+    const student = students[i];
+    const status = student.grade >= passingGrade ? "PASS" : "FAIL";
+    results.push({
+      name: student.name,
+      grade: student.grade,
+      status: status,
+    });
+  }
+  return results;
+};
 // - Keep the same parameters (students, passingGrade)
 // - Use curly braces for the function body
 // - Keep all the logic (loop, conditional, array operations)
@@ -86,15 +99,15 @@ function processStudentGrades(students, passingGrade) {
 // Write your arrow function here:
 
 // Test data (uncomment to test):
-// const testStudents = [
-//     { name: "John", grade: 85 },
-//     { name: "Sarah", grade: 92 },
-//     { name: "Mike", grade: 67 },
-//     { name: "Emma", grade: 78 }
-// ];
+const testStudents = [
+  { name: "John", grade: 85 },
+  { name: "Sarah", grade: 92 },
+  { name: "Mike", grade: 67 },
+  { name: "Emma", grade: 78 },
+];
 
 // Test your function (uncomment to test):
-// console.log(processStudentGradesArrow(testStudents, 70));
+console.log(processStudentGradesArrow(testStudents, 70));
 
 // ============================================
 // BONUS CHALLENGE
