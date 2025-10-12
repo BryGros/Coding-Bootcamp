@@ -2,8 +2,10 @@
 
 const todos = [];
 let currentFilter = "all";
+
 const toDoList = document.getElementById("todo-list");
 const toDoText = document.getElementById("todo-input");
+const submitBtn = document.querySelector(".add-btn");
 
 // Create new To-Do
 const addToDo = (task) => {
@@ -23,31 +25,28 @@ const addToDo = (task) => {
 
 // Render the todos as HTML elements from todos objects array
 const renderList = () => {
-  clearList();
+  toDoList.innerHTML = "";
   todos.forEach((object) => {
     const { id, text, completed } = object;
-    const newToDoItem = document.createElement("li");
+    const li = document.createElement("li");
+    li.classList.add("todo-item");
     if (completed) {
-      newToDoItem.classList.add("todo-item completed");
-    } else {
-      newToDoItem.classList.add("todo-item");
+      li.classList.add("completed");
     }
-    newToDoItem.setAttribute("id", id);
-    newToDoItem.innerHTML = `
+    li.setAttribute("id", id);
+    li.innerHTML = `
   <input type='checkbox' class='todo-checkbox' />
   <div class='todo-text'>${text}</div>
   <div class='todo-actions'>
     <button class='edit-btn'>Edit</button>
     <button class='delete-btn'>Delete</button>
   </div>`;
-    toDoList.appendChild(newToDoItem);
+    toDoList.appendChild(li);
   });
 };
 
-// Clear the todo list elements
-const clearList = () => {
-  toDoList.innerHTML = "";
-};
+// Init
+renderList();
 
 // Override Default Submit button behavior (page refresh) and run add function
 const overrideDefault = (event) => {
@@ -55,22 +54,46 @@ const overrideDefault = (event) => {
   addToDo(toDoText.value);
 };
 
-// Set item to complete
-const setToComplete = (event) => {
-  const checkBox = document.querySelector(".todo-checkbox");
-  if (this.checked) {
-    todos.forEach((object) => {});
-  }
-};
-
 // Delete To-Do object where the "delete" button was clicked
 
 // Event Listener for submit button
-const submitBtn = document.querySelector(".add-btn");
 submitBtn.addEventListener("click", overrideDefault);
 
-// Event Listener for todo item checkbox
-const submitBtn = document.querySelector(".todo-checkbox");
-submitBtn.addEventListener("click", setToComplete);
+// Event Listener and updates when user interacts with todo item
+toDoList.addEventListener("click", (event) => {
+  // Checkbox checked or unchecked
+  if (event.target.classList.contains("todo-checkbox")) {
+    const li = event.target.closest(".todo-item");
+    // Toggle "completed" class
+    li.classList.toggle("completed");
+    // Change object data
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].id == li.id && todos[i].completed == false) {
+        todos[i].completed = true;
+      } else if (todos[i].id == li.id) {
+        todos[i].completed = false;
+      }
+    }
+    // Delete Button
+  } else if (event.target.classList.contains("delete-btn")) {
+    // Change object data
+    const li = event.target.parentElement.parentElement;
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].id == li.id) {
+        todos.splice(i, 1);
+      }
+      renderList();
+    }
+    // Update todo-item innerHTML to todo-edit-input
+  } else if (event.target.classList.contains("edit-btn")) {
+    const li = event.target.parentElement.parentElement;
+    const div = li.querySelector(".todo-text");
+    const currTextVal = div.textContent;
+    li.innerHTML = `
+    <input type='checkbox' class='todo-checkbox' />
+    <input type='text' class='todo-edit-input' value='${currTextVal}' />
+    `;
+  }
+});
 
 // <input type="text" value="${text}" class="todo-edit-input" readonly />;
