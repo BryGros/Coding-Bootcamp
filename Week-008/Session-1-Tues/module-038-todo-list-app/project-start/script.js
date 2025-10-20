@@ -8,11 +8,6 @@ const toDoText = document.getElementById("todo-input");
 const submitBtn = document.querySelector(".add-btn");
 const clearBtn = document.querySelector(".clear-btn");
 
-// Initial actions (helps push localStorage data to html page)
-const pullFromLocal = JSON.parse(localString);
-todos.push(pullFromLocal);
-renderList("all");
-
 // Create new To-Do
 const addToDo = (task) => {
   // Add to object array
@@ -23,12 +18,12 @@ const addToDo = (task) => {
     createdAt: Date(), // Optional: when todo was created
   };
   todos.push(newObject);
-  // Save to local storage
-  saveToLocal();
   // Render the todos li elements
   renderList();
   // Update count
   calculateCount();
+  // Save to local storage
+  localStorage.setItem("todoList", JSON.stringify(todos));
   // Clear input box value
   toDoText.value = "";
 };
@@ -51,15 +46,26 @@ const renderList = (filter) => {
       }
       li.setAttribute("id", id);
       // Add li element internal elements
-      li.innerHTML = `
+      if (completed) {
+        li.innerHTML = `
+      <input type='checkbox' class='todo-checkbox' checked />
+      <div class='todo-text'>${text}</div>
+      <div class='todo-actions'>
+        <button class='edit-btn'>Edit</button>
+        <button class='delete-btn'>Delete</button>
+      </div>`;
+      } else {
+        li.innerHTML = `
       <input type='checkbox' class='todo-checkbox' />
       <div class='todo-text'>${text}</div>
       <div class='todo-actions'>
         <button class='edit-btn'>Edit</button>
         <button class='delete-btn'>Delete</button>
       </div>`;
+      }
       // Attach the newly created li to the ul element
       toDoList.appendChild(li);
+      const checkbox = li.querySelector(".todo-checkbox");
     });
   } else if (filter === "completed") {
     todos.forEach((object) => {
@@ -73,7 +79,7 @@ const renderList = (filter) => {
         li.setAttribute("id", id);
         // Add li element internal elements
         li.innerHTML = `
-      <input type='checkbox' class='todo-checkbox' />
+      <input type='checkbox' class='todo-checkbox' checked />
       <div class='todo-text'>${text}</div>
       <div class='todo-actions'>
         <button class='edit-btn'>Edit</button>
@@ -133,6 +139,9 @@ toDoList.addEventListener("click", (event) => {
     }
     // Render list again, in case the checked/unchecked item no longer fits the active filter
     renderList(currentFilter);
+    // CLear Local Storage and reapply
+    localStorage.removeItem("toDoList");
+    localStorage.setItem("todoList", JSON.stringify(todos));
     // Update counter
     calculateCount();
     // Delete Button
@@ -142,9 +151,14 @@ toDoList.addEventListener("click", (event) => {
     for (let i = 0; i < todos.length; i++) {
       if (todos[i].id == li.id) {
         todos.splice(i, 1);
+        localStorage.removeItem(toDoList[i]);
       }
+
       // Render li elements for each object in the to-do arrays
       renderList();
+      // CLear Local Storage and reapply
+      localStorage.removeItem("toDoList");
+      localStorage.setItem("todoList", JSON.stringify(todos));
       // Update counter
       calculateCount();
     }
@@ -157,6 +171,9 @@ toDoList.addEventListener("click", (event) => {
     <input type='checkbox' class='todo-checkbox' />
     <input type='text' class='todo-edit-input' value='${currTextVal}' />
     `;
+    // CLear Local Storage and reapply
+    localStorage.removeItem("toDoList");
+    localStorage.setItem("todoList", JSON.stringify(todos));
   }
 });
 
@@ -231,6 +248,10 @@ clearBtn.addEventListener("click", () => {
   }
 });
 
-const saveToLocal = () => {
-  localString = JSON.stringify(todos);
-};
+// Initial actions (helps push localStorage data to html page)
+const savedToDos = JSON.parse(localStorage.getItem("todoList"));
+savedToDos.forEach((object) => {
+  todos.push(object);
+});
+renderList("all");
+calculateCount();
