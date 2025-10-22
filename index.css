@@ -1,0 +1,25 @@
+header {
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+main {
+  text-align: center;
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 300px;
+  align-content: center;
+  padding: 1rem;
+}
