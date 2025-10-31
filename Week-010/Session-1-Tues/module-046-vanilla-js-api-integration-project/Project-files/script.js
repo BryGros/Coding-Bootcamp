@@ -67,17 +67,42 @@ const updatePriceData = (object) => {
 
 // API call that pulls back the company and ticker data for the input that the user looks up
 const runSearchInput = async (input) => {
+  const errorElement = document.getElementById("error-message");
+  const mainElement = document.querySelector("main");
+  const loadingBar = document.getElementById("loading-bar");
   const search = `?search=${input}`;
   const urlToGet = baseURL + tickersListEP + search + "&" + apiKey;
+  errorElement.style.display = "none";
+  mainElement.style.display = "none";
   try {
+    loadingBar.innerHTML = '<div class="loader"></div>';
     const response = await fetch(urlToGet);
+    //
+    if (!response.ok) {
+      loadingBar.textContent = "";
+      errorElement.textContent = `Something went wrong while getting the stonk (Error: ${response.status}). Try again later.`;
+      errorElement.style.display = "block";
+      return;
+    }
     const stockDeets = await response.json();
-    const ticker = stockDeets.data[0].ticker;
+    const stockObject = stockDeets.data[0];
+    if (stockObject === undefined) {
+      loadingBar.innerHTML = "";
+      errorElement.textContent =
+        "Hmm, can't find that stonk. Is it the right ticker symbol or company name?";
+      errorElement.style.display = "block";
+      return;
+    }
+    const ticker = stockObject.ticker;
+    loadingBar.innerHTML = "";
+    mainElement.style.display = "block";
     updateCompanyDeets(stockDeets);
     runSearchTicker(ticker);
   } catch (error) {
+    loadingBar.textContent = "";
     console.log(error);
-    return "Could not find a stonk from the search.  Try a different company name or ticker symbol";
+    errorElement.textContent = `Something went wrong (Error: ${error}). Try again later.`;
+    errorElement.style.display = "block";
   }
 };
 

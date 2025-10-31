@@ -33,7 +33,9 @@
       </div>
       <button type="submit" id="submit">Search Stonk</button>
     </section>
-    <section class="error-message"></section>
+    <section id="error-message"></section>
+    <section id="loading-bar">
+    </section>
     <main>
       <div class="stock-details-head">
         <div class="stock-name">
@@ -73,7 +75,7 @@
       </div>
       <div class="portfolio-manage">
         <h3>Portfolio Management</h3>
-        <h3>Number of shares owned:</h3>
+        <h4>Number of shares owned:</h4>
         <div class="holdings">
           <input
             type="number"
@@ -81,15 +83,15 @@
             placeholder="Insert the # of shares you own"
           />
           <button class="update-btn">Update Shares</button>
-          <div class="holdings-cont">
-            <div class="curr-holdings">
-              <h3 class="label">Current Holdings:</h3>
-              <h3 class="high-num">0 shares</h3>
-            </div>
-            <div class="curr-value">
-              <h3 class="label">Position Value:</h3>
-              <h3 class="high-num">$0.00</h3>
-            </div>
+        </div>
+        <div class="holdings-cont">
+          <div class="curr-holdings">
+            <h3 class="label">Current Holdings:</h3>
+            <h3 class="high-num">0 shares</h3>
+          </div>
+          <div class="curr-value">
+            <h3 class="label">Position Value:</h3>
+            <h3 class="high-num">$0.00</h3>
           </div>
         </div>
       </div>
@@ -98,15 +100,15 @@
       <h2><i class="fa-solid fa-star"></i> Your Watchlist</h2>
     </section>
     <section class="portfolio-section">
-      <h2><i class="fa-solid fa-briefcase"></i> Porfolio Summary</h2>
+      <h2><i class="fa-solid fa-briefcase"></i> Portfolio Summary</h2>
       <div class="summary">
         <div class="portfolio-value">
-          <p>Total Porfolio Value</p>
-          <p class="total">$0.00</p>
+          <h3>Total Portfolio Value</h3>
+          <p id="port-total">$0.00</p>
         </div>
         <div class="owned-value">
-          <p>Number of Positions</p>
-          <p class="shares">0</p>
+          <h3>Number of Positions</h3>
+          <p id="share-total">0</p>
         </div>
       </div>
     </section>

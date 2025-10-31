@@ -120,7 +120,9 @@ body {
   margin-bottom: 0;
 }
 
-.error-message {
+#error-message {
+  display: none;
+  padding: 1em;
   background-color: lightcoral;
   font-weight: bold;
   font-size: medium;
@@ -132,35 +134,151 @@ main {
   box-shadow: grey 1px 1px 1px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  display: none;
 }
 
 .portfolio-manage {
   background-color: lightgrey;
   padding-left: 2em;
   padding-top: 5px;
+  padding-right: 2em;
 }
 
 .holdings-cont {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+h4 {
+  margin-bottom: 0.5rem;
+}
+
+#shares-owned {
+  width: 75%;
+  margin-bottom: 2rem;
+  box-shadow: grey 1px 1px 2px;
+  border-radius: 5px;
+  height: 2.5em;
+  text-indent: 10px;
 }
 
 .curr-holdings {
   display: flex;
   background-color: white;
   border: grey 1px solid;
+  border-radius: 10px;
   gap: 2em;
-  width: 30%;
+  flex: 1 1 240px;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  height: 2rem;
+  max-width: 320px;
+  box-shadow: grey 1px 1px 2px;
 }
 
 .curr-value {
   display: flex;
   background-color: white;
   border: grey 1px solid;
+  border-radius: 10px;
   gap: 2em;
-
-  width: 30%;
+  flex: 1 1 240px;
   justify-content: center;
+  margin-bottom: 2rem;
+  height: 2rem;
+  align-items: center;
+  max-width: 320px;
+  box-shadow: grey 1px 1px 2px;
+}
+
+.update-btn {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 1rem;
+  width: 10em;
+  box-shadow: grey 1px 1px 2px;
+}
+
+.watchlist {
+  padding-left: 2em;
+}
+
+.watchlist i {
+  color: blue;
+}
+
+.portfolio-section {
+  padding-left: 2em;
+}
+
+.portfolio-section i {
+  color: blue;
+}
+
+.portfolio-section h2 {
+  margin-bottom: 40px;
+}
+
+.portfolio-value {
+  border: solid 1px grey;
+  background-color: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: grey 1px 1px 2px;
+}
+
+.summary {
+  display: flex;
+  justify-content: center;
+  padding: 0 2em;
+  gap: 20%;
+}
+
+.watchlist h2 {
+  margin-bottom: 40px;
+}
+
+.owned-value {
+  border: solid 1px grey;
+  background-color: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: grey 1px 1px 2px;
+}
+
+#loading-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  width: 60px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
 }
