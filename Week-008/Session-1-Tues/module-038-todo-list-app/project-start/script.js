@@ -116,8 +116,8 @@ const renderList = (filter) => {
 // Override Default Submit button behavior (page refresh) and run add to-do function
 const overrideDefault = (event) => {
   event.preventDefault();
-  addToDo(toDoText.value);
 };
+addToDo(toDoText.value);
 
 // Event Listener for submit button
 submitBtn.addEventListener("click", overrideDefault);

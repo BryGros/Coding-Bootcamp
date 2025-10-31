@@ -16,9 +16,9 @@
       <h1 class="site-name">StonkTracker Pro</h1>
       <div class="portfolio">
         <div class="value">
-          Portfolio Value: <span class="total">$0.00</span>
+          Portfolio Value: <span class="total" id="totalHead">$0.00</span>
         </div>
-        <div class="owned">Stocks Owned: <span class="shares">0</span></div>
+        <div class="owned">Stocks Owned: <span class="shares" id="sharesHead">0</span></div>
       </div>
     </header>
     <section class="search-bar">
@@ -82,16 +82,16 @@
             id="shares-owned"
             placeholder="Insert the # of shares you own"
           />
-          <button class="update-btn">Update Shares</button>
+          <button id="update-btn">Update Shares</button>
         </div>
         <div class="holdings-cont">
           <div class="curr-holdings">
             <h3 class="label">Current Holdings:</h3>
-            <h3 class="high-num">0 shares</h3>
+            <h3 class="high-num" id="port-man-shares">0 share(s)</h3>
           </div>
           <div class="curr-value">
             <h3 class="label">Position Value:</h3>
-            <h3 class="high-num">$0.00</h3>
+            <h3 class="high-num" id="pos-man-value">$0.00</h3>
           </div>
         </div>
       </div>
