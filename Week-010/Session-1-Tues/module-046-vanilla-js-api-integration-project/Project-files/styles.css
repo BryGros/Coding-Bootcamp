@@ -1,0 +1,166 @@
+.top-bar {
+  display: flex;
+  background-color: blue;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 25px;
+  box-shadow: grey 1px 1px 2px;
+}
+
+header img {
+  width: 100px;
+  height: 100px;
+}
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+  gap: 30px;
+  background-color: white;
+  margin: 2rem;
+  border-radius: 10px;
+  box-shadow: grey 1px 1px 2px;
+}
+
+.search-area {
+  position: relative;
+  display: inline-block;
+}
+
+#submit {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: 10em;
+}
+
+#search {
+  width: 45em;
+  height: 2.5em;
+  border-radius: 5px;
+  text-indent: 40px; /* space for icon */
+  border-color: blue;
+  box-shadow: grey 1px 1px 2px;
+}
+
+#mag-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-52%);
+  color: grey;
+  font-size: 1.1em;
+  pointer-events: none;
+}
+
+.stock-details-head {
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#add-to-watchlist {
+  background-color: blue;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  padding: 1.2em;
+  border-color: white;
+}
+
+#ticker {
+  color: white;
+  background-color: green;
+  text-align: center;
+  border: 2px white solid;
+  width: 75px;
+  border-radius: 50px;
+  margin-top: 5px;
+}
+
+.stock-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 1) 0%, #f8f8f8 100%);
+}
+
+.price-stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3em;
+}
+
+#company-name {
+  margin-bottom: 0;
+}
+
+.error-message {
+  background-color: lightcoral;
+  font-weight: bold;
+  font-size: medium;
+  text-align: center;
+}
+
+main {
+  margin: auto 2rem;
+  box-shadow: grey 1px 1px 1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.portfolio-manage {
+  background-color: lightgrey;
+  padding-left: 2em;
+  padding-top: 5px;
+}
+
+.holdings-cont {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.curr-holdings {
+  display: flex;
+  background-color: white;
+  border: grey 1px solid;
+  gap: 2em;
+  width: 30%;
+  justify-content: center;
+}
+
+.curr-value {
+  display: flex;
+  background-color: white;
+  border: grey 1px solid;
+  gap: 2em;
+
+  width: 30%;
+  justify-content: center;
+}
