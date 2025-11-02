@@ -14,13 +14,14 @@ const currPrice = document.getElementById("curr-price");
 const portManShares = document.getElementById("port-man-shares");
 const posManvalue = document.getElementById("pos-man-value");
 const sharesField = document.getElementById("shares-owned");
+const wlSection = document.querySelector(".watchlist");
+const wlContain = wlSection.querySelector(".wl-cards");
 const watchlist = [];
 const portfolio = [];
 
 // Calculate the Difference between yesterday and today's close
 const calcDifference = (yesterdayClose, todayClose) => {
   const difference = Math.round((todayClose - yesterdayClose) * 100) / 100;
-  console.log(difference);
   if (difference < 0) {
     return `-$${Math.abs(difference)}`;
   } else {
@@ -32,7 +33,6 @@ const calcDifference = (yesterdayClose, todayClose) => {
 const calcPercent = (yesterdayClose, todayClose) => {
   const difference = Math.round((todayClose - yesterdayClose) * 100) / 100;
   const percentage = Math.round((difference / todayClose) * 100 * 100) / 100;
-  console.log(percentage);
   if (percentage < 0) {
     return `(-${Math.abs(percentage)}%)`;
   } else {
@@ -59,6 +59,7 @@ const setPortMan = (ticker) => {
       if (object.ticker == ticker) {
         portManShares.textContent = `${object.shares} share(s)`;
         posManvalue.textContent = `$${object.value}`;
+        sharesField.value = object.shares;
       }
     });
   }
@@ -113,9 +114,6 @@ const updateShares = () => {
       existIndex = index;
     }
   }
-  // Adds the stock to portfolio if it's empty
-  // if (portfolio.length === 0) {
-  //   addToPortfolio(ticker, Number(numToUpdate));
 
   // Adds the stock if it doesn't already exist in our portfolio
   if (existIndex == null) {
@@ -128,8 +126,11 @@ const updateShares = () => {
   } else {
     deleteFromPortfolio(ticker);
   }
+  // Update Local Storage
+  localStorage.removeItem("Portfolio");
+  localStorage.setItem("Portfolio", JSON.stringify(portfolio));
   // Set Position Value and Share Numbers
-  setPortMan(tickerToAdd);
+  setPortMan(ticker);
   // Recalculate Portfolio totals
   calculateTotals();
 };
@@ -141,17 +142,20 @@ const calculateTotals = () => {
   // Initial totals
   let totalValue = 0;
   let totalShares = 0;
+  let totalCompanies = 0;
   // Total em up, baby (from our portfolio)!
   portfolio.forEach((object) => {
     totalValue += Number(object.value);
     totalShares += Number(object.shares);
+    totalCompanies++;
   });
   // Set DOM items to totals
   portTotal.textContent = `$${totalValue}`;
   totalHead.textContent = `$${totalValue}`;
   shareTotal.textContent = totalShares;
-  sharesHead.textContent = totalShares;
+  sharesHead.textContent = totalCompanies;
 };
+
 // Updates the DOM with company details pulled from the API
 const updateCompanyDeets = (object) => {
   // Set variables
@@ -167,7 +171,7 @@ const updateCompanyDeets = (object) => {
   setPortMan(ticker);
 };
 
-// Function that updates the DOM with price data pulled from API
+// Updates the DOM with price data pulled from API
 const updatePriceData = (object) => {
   // Set variables
   const { close, open, high, low, volume } = object.data[0];
@@ -240,12 +244,27 @@ const runSearchTicker = async (ticker) => {
   try {
     const response = await fetch(urlToGet);
     const priceDeets = await response.json();
-    console.log(priceDeets);
     updatePriceData(priceDeets);
   } catch (error) {
     console.log(error);
     return "An error occured... is your stock ticker correct?";
   }
+};
+
+// Renders the Watchlist by adding to the DOM
+const renderWatchlist = () => {
+  // Clear elements first
+  wlContain.innerHTML = "";
+  watchlist.forEach((object) => {
+    const { company, ticker } = object;
+    const wlCard = document.createElement("div");
+    wlCard.classList.add("stonk-card");
+    wlCard.innerHTML = `
+      <h3 class="company-name">${company}</h3>
+      <h3 class="stonk-ticker">${ticker}</h3>        <button class="view"><i class="fa-solid fa-magnifying-glass" id="mag-glass"></i> View Stonk</button>
+      <button class="remove"><i class="fa-solid fa-trash"></i> Remove</button>`;
+    wlContain.appendChild(wlCard);
+  });
 };
 
 // Override that prevents page refresh from submit and runs the search
@@ -256,6 +275,23 @@ const overrideDefault = (event) => {
   input.value = "";
 };
 
+// Add stonk to watchlist
+const addToWatchlist = () => {
+  const companyName = document.getElementById("company-name");
+  const tickerSymbol = document.getElementById("ticker");
+  const newObject = {
+    ticker: tickerSymbol.textContent,
+    company: companyName.textContent,
+  };
+  watchlist.push(newObject);
+  console.log(watchlist);
+  // Adjust Local Storage
+  localStorage.removeItem("Watchlist");
+  localStorage.setItem("Watchlist", JSON.stringify(watchlist));
+  // Render Watchlist
+  renderWatchlist();
+};
+
 // Event listener for search Button
 submitBtn.addEventListener("click", overrideDefault);
 
@@ -263,13 +299,33 @@ submitBtn.addEventListener("click", overrideDefault);
 updBtn.addEventListener("click", updateShares);
 
 // Event listener for Watchlist Button
-// wlBtn.addEventListener("click", addToWatchlist);
+wlBtn.addEventListener("click", addToWatchlist);
 
-// Init (help push localStorage data to html page)
-const initialize = () => {
+// Event Listener for deleting or viewing stonk from watchlist (put on parent element since they don't work on elements added via the DOM)
+wlContain.addEventListener("click", (event) => {
+  card = event.target.closest(".stonk-card");
+  tickerElement = card.querySelector(".stonk-ticker");
+  ticker = tickerElement.textContent;
+  // Check which button was clicked
+  if (event.target.classList.contains("view")) {
+    runSearchInput(ticker);
+  } else if (event.target.classList.contains("remove")) {
+    const stonkCard = event.target.parentElement;
+    for (let i = 0; i < watchlist.length; i++) {
+      if (watchlist[i].ticker == ticker) {
+        watchlist.splice(i, 1);
+        localStorage.removeItem("Watchlist");
+        localStorage.setItem("Watchlist", JSON.stringify(watchlist));
+        renderWatchlist();
+      }
+    }
+  }
+});
+
+// Init Portfolio (help push localStorage data to html page)
+const initializePort = () => {
   const savedPortfolio = JSON.parse(localStorage.getItem("Portfolio"));
   if (savedPortfolio == null) {
-    console.log(portfolio);
     return;
   } else {
     savedPortfolio.forEach((object) => {
@@ -277,6 +333,23 @@ const initialize = () => {
     });
     calculateTotals();
   }
-  console.log(portfolio);
+  console.log("Loaded Portfolio: ", portfolio);
 };
-initialize();
+
+// Init Watchlist (help push localStorage data to html page)
+const initializeWL = () => {
+  const savedWatchlist = JSON.parse(localStorage.getItem("Watchlist"));
+  if (savedWatchlist == null) {
+    return;
+  } else {
+    savedWatchlist.forEach((object) => {
+      watchlist.push(object);
+    });
+  }
+  console.log("Loaded Watchlist: ", watchlist);
+  renderWatchlist();
+};
+
+// Initialize Data
+initializePort();
+initializeWL();

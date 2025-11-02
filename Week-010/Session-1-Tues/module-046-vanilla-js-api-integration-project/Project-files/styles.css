@@ -170,7 +170,7 @@ h4 {
   background-color: white;
   border: grey 1px solid;
   border-radius: 10px;
-  gap: 2em;
+  gap: 1em;
   flex: 1 1 240px;
   justify-content: center;
   align-items: center;
@@ -185,7 +185,7 @@ h4 {
   background-color: white;
   border: grey 1px solid;
   border-radius: 10px;
-  gap: 2em;
+  gap: 1em;
   flex: 1 1 240px;
   justify-content: center;
   margin-bottom: 2rem;
@@ -216,6 +216,7 @@ h4 {
 
 .portfolio-section {
   padding-left: 2em;
+  margin-bottom: 3em;
 }
 
 .portfolio-section i {
@@ -224,6 +225,10 @@ h4 {
 
 .portfolio-section h2 {
   margin-bottom: 40px;
+}
+
+.stonk-ticker {
+  color: green;
 }
 
 .portfolio-value {
@@ -244,6 +249,67 @@ h4 {
 
 .watchlist h2 {
   margin-bottom: 40px;
+}
+
+.watchlist {
+  margin-bottom: 3rem;
+}
+
+.wl-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.stonk-card {
+  box-shadow: grey 1px 1px 2px;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.2s linear;
+}
+
+.stonk-card:hover {
+  transform: translateY(-10px);
+  box-shadow: grey 2px 2px 4px;
+}
+
+.stonk-card i {
+  color: lightcoral;
+}
+
+#mag-glass {
+  color: grey;
+}
+
+.view {
+  background-color: white;
+  color: blue;
+  border: 1px solid blue;
+  padding: 1em;
+  border-radius: 20px;
+  margin-right: 20px;
+  transition: all 0.2s linear;
+}
+
+.view:hover {
+  background-color: blue;
+  color: white;
+}
+
+.remove {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+  padding: 1em;
+  border-radius: 20px;
+  transition: all 0.2s linear;
+}
+
+.remove:hover {
+  background-color: red;
+  color: white;
 }
 
 .owned-value {

@@ -21,8 +21,8 @@ Build an application that fetches stock data via an API, displays with search fu
 
 - [x] **Stock Search Functionality** - Users can search for stocks by symbol or company name
 - [x] **Real-Time Price Display** - Shows current stock prices, daily change, and percentage change
-- [ ] Users can enter how many shares of a stock they own and this is stored in local storage and track performance (shows total value of stocks owned)
-- [ ] **Portfolio Tracking** - Allow users to add stocks to watchlist
+- [x] Users can enter how many shares of a stock they own and this is stored in local storage and track performance (shows total value of stocks owned)
+- [x] **Portfolio Tracking** - Allow users to add stocks to watchlist
 - [ ] **Optional - Picker Modal** - User can pick from multiple items when there is a partial match
 - [x] **Optional - More Stock Data** - Volume, High, Low, Open, or other data available
 
@@ -36,7 +36,7 @@ Build an application that fetches stock data via an API, displays with search fu
 
 ## Security
 
-- [ ] Any API tokens needed are not commited or included in code base
+- [x] Any API tokens needed are not commited or included in code base
 
 ### **API Integration and HTTP Fundamentals**
 
@@ -62,19 +62,19 @@ Build an application that fetches stock data via an API, displays with search fu
 
 - [x] **HTTP Status Validation** - Checks response status codes before processing data
 - [x] **Network Error Management** - Handles network connectivity failures and timeout errors
-- [ ] **User-Friendly Messaging** - Displays appropriate error messages to users
+- [x] **User-Friendly Messaging** - Displays appropriate error messages to users
 
 ### **User Interface and Experience**
 
 - [x] **Dynamic Content Display** - Creates dynamic HTML elements to display API data
-- [ ] **User Input Handling** - Processes user input and validates data before API calls
+- [x] **User Input Handling** - Processes user input and validates data before API calls
 - [x] **Responsive Design** - Interface works properly on different screen sizes
 - [x] **Interactive Elements** - User interactions trigger appropriate API calls
 - [x] **Search and Filtering** - Provides search functionality for API data as required by both project options
 
 ### **Data Persistence and Authentication**
 
-- [ ] **Local Storage Integration** - Uses localStorage for favorites tracking and user preferences as required by both project options
+- [x] **Local Storage Integration** - Uses localStorage for favorites tracking and user preferences as required by both project options
 
 ---
 
