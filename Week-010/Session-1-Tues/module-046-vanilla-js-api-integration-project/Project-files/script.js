@@ -1,7 +1,7 @@
 // i found this on the web: stock market APIs with free endpoints that is easy on authentication. 1- Alpha Vantage, link:Free Stock APIs in JSON & Excel | Alpha Vantage - https://www.alphavantage.co/
 
 // Base variable creation
-const apiKey = "access_key=dc2e95f6a9f661de9daf8d23e2bd2856";
+const apiKey = "access_key=----";
 const baseURL = "http://api.marketstack.com/v2";
 const eodEndPoint = "/eod";
 const tickersListEP = "/tickerslist";
@@ -52,7 +52,9 @@ const findValue = (numofShares) => {
 const setPortMan = (ticker) => {
   // Ensure 0 values if no stonks saved to portfolio yet
   if (portfolio.length == 0) {
-    return;
+    portManShares.textContent = "0 share(s)";
+    posManvalue.textContent = "$0.00";
+    sharesField.value = 0;
     // Find the stock in your portfolio and set your position numbers accordingly
   } else {
     portfolio.forEach((object) => {
