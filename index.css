@@ -1,6 +1,23 @@
+/*   --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #10b981;
+  --color-accent: #f59e0b;
+  --color-danger: #ef4444;
+
+  --color-background: #f9fafb;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+
+  --color-text: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-light: #9ca3af; */
+body {
+  background-color: #f9fafb;
+}
+
 header {
   text-align: center;
-  background-color: black;
+  background-color: #2563eb;
   color: white;
 }
 
@@ -22,4 +39,5 @@ main {
   width: 300px;
   align-content: center;
   padding: 1rem;
+  flex: 1 1 240px
 }
