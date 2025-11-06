@@ -1,0 +1,165 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #fafafa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.add-wrapper {
+  border: 1px black solid;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: lightgrey 0 0 10px 5px;
+  margin: 0 5%;
+  margin-bottom: 2rem;
+}
+
+.counter-wrapper {
+  border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: lightgrey 0 0 10px 5px;
+  margin: 0 5%;
+  margin-bottom: 2rem;
+}
+
+.count-text {
+  font-size: 1rem;
+}
+
+.total-count {
+  font-size: 1.5rem;
+  color: #646cff;
+  margin-left: 5px;
+}
+
+.clear-btn {
+  background-color: red;
+  color: white;
+}
+
+.add-counter-btn {
+  background-color: blue;
+  color: white;
+  width: 15em;
+}
+
+.containWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 5%;
+}
+
+.card-wrapper {
+  border: 1px black solid;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 35%;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: lightgrey 0 0 10px 5px;
+}
+
+.btn-cont {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn-cont button {
+  flex: 1 1 40%;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.minus {
+  background-color: orange;
+  color: white;
+}
+
+.plus {
+  background-color: green;
+  color: white;
+}
+
+.reset {
+  background-color: grey;
+  color: white;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+}
+
+.counter-name {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.counter-number {
+  font-size: 5rem;
+  color: #646cff;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.number-text {
+  font-size: 1.25rem;
+  color: black;
+  margin-left: 1rem;
+}

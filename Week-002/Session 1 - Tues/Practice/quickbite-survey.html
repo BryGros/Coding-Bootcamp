@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="QuickBite Restaurant Customer Feedback Survey"
+    />
+    <title>QuickBite Survey | Customer Feedback</title>
+  </head>
+  <body>
+    <header>
+      <h1>QuickBite Restaurant</h1>
+      <p>Customer Feedback Survey</p>
+    </header>
+
+    <main>
+      <!-- TODO: Create form with action="/submit-survey" and method="post" -->
+      <form action="/submit-survey" method="post">
+        <!-- TODO: Add Customer Information -->
+        <!-- Include: Name (text, required), Email (email, required) -->
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" pattern="[a-z]{2,30}" />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <!-- label -->
+        <!-- id and name to input -->
+        <div>
+          <label for="visit-date">Visit Date</label>
+          <input type="date" name="visit-date" id="visit-date" />
+        </div>
+        <div>
+          <label for="partysize">How many in your party?</label>
+          <input
+            type="number"
+            name="partysize"
+            id="partysize"
+            min="1"
+            value="1"
+          />
+        </div>
+        <div>
+          <label for="meal">Meal Type</label>
+          <select name="meal" id="meal">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+          </select>
+        </div>
+        <fieldset>
+          <legend>Rate Your Experience!</legend>
+          <!-- TODO: Add simple rating with radio buttons -->
+          <!-- Include: Excellent, Good, Fair, Poor -->
+          <input type="radio" name="rating" id="excellent" value="excellent" />
+          <label for="excellent">Excellent</label>
+          <input type="radio" name="rating" id="good" value="good" />
+          <label for="good">Good</label>
+          <input type="radio" name="rating" id="fair" value="fair" />
+          <label for="fair">Fair</label>
+          <input type="radio" name="rating" id="poor" value="poor" />
+          <label for="poor">Poor</label>
+        </fieldset>
+        <!-- TODO: Add comments textarea -->
+        <div>
+          <label for="comments">Additional Comments or Thoughts:</label>
+          <textarea name="comments" id="comments"></textarea>
+        </div>
+        <!-- TODO: Add submit button -->
+        <div><button type="submit">Submit</button></div>
+      </form>
+    </main>
+    <footer>
+      <p>&copy; 2024 QuickBite Restaurant. Thank you for your feedback!</p>
+    </footer>
+  </body>
+</html>
