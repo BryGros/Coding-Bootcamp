@@ -1,9 +1,7 @@
-import { useState } from "react";
 import AddButton from "./AddButton";
 import AddDetails from "./AddDetails";
 
-export default function AddCounter() {
-  //   const [addStatus, setStatus] = useState(false);
+export default function AddCounter({ setDisplay, currDisplay, counters, setCounterData, idField, setIdField }) {
   //   const nameField = document.getElementById("name");
   //   const incrementField = document.getElementById("increment");
 
@@ -23,8 +21,11 @@ export default function AddCounter() {
 
   return (
     <div className="add-wrapper">
-      <AddButton />
-      <AddDetails />
+      {currDisplay ? (
+        <AddDetails dHandler={setDisplay} currDisplay={currDisplay} counters={counters} addHandler={setCounterData} setIdValue={setIdField}/>
+      ) : (
+        <AddButton clickHandler={setDisplay} currDisplay={currDisplay} />
+      )}
     </div>
   );
 }
