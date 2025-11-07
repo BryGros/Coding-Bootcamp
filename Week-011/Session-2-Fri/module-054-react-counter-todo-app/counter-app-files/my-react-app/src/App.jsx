@@ -24,7 +24,7 @@ function App() {
       <CounterTotal
         currTotal={runningTotal}
         adjustTotal={adjustTotal}
-        setCounterData={adjustCounters}
+        adjustCounters={adjustCounters}
       />
       <CounterWrap
         counters={counterArray}

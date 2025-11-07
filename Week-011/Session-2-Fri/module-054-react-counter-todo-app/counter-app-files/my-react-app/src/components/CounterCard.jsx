@@ -3,17 +3,6 @@ export default function CounterCard({
   objectData,
   adjustTotal,
 }) {
-  // const updateTotal = (event) => {
-  //   // Get card wrapper div
-  //   const cardWrapper = event.target.parentElement.parentElement;
-  //   // Get index of counter clicked
-  //   const clickedCounterIndex = cardWrapper.getAttribute("counter-index");
-  //   // Get adjustment button clicked
-  //   const adjustmentBtn = event.target;
-  //   // set adjustment to occur
-  //   const adjustment = Number(adjustmentBtn.textContent);
-  //   adjustTotal((currTotal) => currTotal + adjustment);
-  // };
 
   const handleClick = (event) => {
     // Get card wrapper div
@@ -89,27 +78,6 @@ export default function CounterCard({
     });
   };
 
-  // const handleAdjustment = (event) => {
-  //   changeCount(event);
-  //   updateTotal(event);
-  // };
-
-  //   const add = () => {
-  //     setCounter(count + Number(object.increment));
-  //     updateTotal(+object.increment);
-  //   };
-  //   const minus = () => {
-  //     setCounter(count - object.increment);
-  //     updateTotal(-object.increment);
-  //   };
-  //   const reset = () => {
-  //     setCounter((count) => {
-  //       updateTotal(-count);
-  //       return 0;
-  //     });
-  //   };
-  //   object.count = count;
-
   return (
     <div className="card-wrapper" counter-index={objectData.counterIndex}>
       <h1 className="counter-name">{objectData.id}</h1>
@@ -117,6 +85,7 @@ export default function CounterCard({
         {objectData.count}
         <span className="number-text">times</span>
       </p>
+      <p className="incr-bubble">+{objectData.increment} per click</p>
       <div className="btn-cont">
         <button className="minus" onClick={handleClick}>
           -{objectData.increment}

@@ -2,7 +2,7 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #fafafa;
+  background-color: #c4bebe21;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -11,7 +11,7 @@
 }
 
 #root {
-  width: 100vw
+  width: 100vw;
 }
 
 a {
@@ -27,7 +27,6 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 100vw;
-  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   justify-items: center;
 }
@@ -96,9 +95,10 @@ button:focus-visible {
 }
 
 .add-counter-btn {
-  background-color: blue;
+  background-color: rgb(33, 88, 240);
   color: white;
   width: 15em;
+  height: 3em;
 }
 
 .containWrap {
@@ -154,7 +154,7 @@ button:focus-visible {
 }
 
 .counter-name {
-  font-size: 1rem;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -162,13 +162,14 @@ button:focus-visible {
   font-size: 5rem;
   color: #646cff;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .number-text {
   font-size: 1.25rem;
   color: black;
   margin-left: 1rem;
+  margin-bottom: 0;
 }
 
 .create-counter-wrap {
@@ -176,30 +177,74 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  width: 33%;
 }
 
 .create-counter-wrap h2 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-align: left;
   margin-bottom: 0;
   font-weight: normal;
 }
 
 .create-counter-wrap h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
 #increment {
   margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  padding: 0.3rem;
+}
+
+#name {
+  font-size: 1.5rem;
+  padding: 0.3rem;
 }
 
 .create-btns {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
 }
 
 #create {
   background-color: blue;
   color: white;
+}
+
+#cancel {
+  background-color: rgb(77, 76, 76);
+  color: white;
+}
+
+.incr-bubble {
+  font-size: small;
+  background-color: #2564eb27;
+  width: fit-content;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  margin: 0 auto 2rem;
+  color: #2563eb;
+  border-radius: 25px;
+}
+
+.no-counters-p {
+  color: #85888b;
+  margin-bottom: 10em;
+}
+
+.no-counters-h2 {
+  margin-top: 5em;
+}
+
+header h1 {
+  margin-top: 2em;
+  color: #2563eb;
+}
+
+header h2 {
+  margin-bottom: 2em;
+  color: #5f6469;
 }

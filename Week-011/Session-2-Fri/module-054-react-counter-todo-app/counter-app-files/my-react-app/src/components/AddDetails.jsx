@@ -22,6 +22,11 @@ export default function AddDetails({
       // Initial count setting, adjusts via other functions
       count: 0,
     };
+    if (nameField.value == "") {
+      errorThrown = true;
+      alert("You must give your counter a name!");
+      return;
+    }
     setIdValue(newObject.id);
     for (const index in counters) {
       const object = counters[index];
