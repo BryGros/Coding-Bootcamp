@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-export default function CounterCard({ updateTotal }) {
+export default function CounterCard({ updateTotal, object, deleteClick }) {
   const [count, setCounter] = useState(0);
 
   const add = () => {
-    setCounter(count + 1);
-    updateTotal(+1);
+    setCounter(count + Number(object.increment));
+    updateTotal(+object.increment);
   };
   const minus = () => {
-    setCounter(count - 1);
-    updateTotal(-1);
+    setCounter(count - object.increment);
+    updateTotal(-object.increment);
   };
   const reset = () => {
     setCounter((count) => {
@@ -17,25 +17,28 @@ export default function CounterCard({ updateTotal }) {
       return 0;
     });
   };
+  object.count = count;
 
   return (
-    <div className="card-wrapper">
-      <h1 className="counter-name">Counter Name</h1>
+    <div className="card-wrapper" id={object.id}>
+      <h1 className="counter-name">{object.id}</h1>
       <p className="counter-number">
         {count}
         <span className="number-text">times</span>
       </p>
       <div className="btn-cont">
         <button className="minus" onClick={minus}>
-          -1
+          -{object.increment}
         </button>
         <button className="plus" onClick={add}>
-          +1
+          +{object.increment}
         </button>
         <button className="reset" onClick={reset}>
           Reset
         </button>
-        <button className="delete">Delete</button>
+        <button className="delete" onClick={deleteClick}>
+          Delete
+        </button>
       </div>
     </div>
   );
