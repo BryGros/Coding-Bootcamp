@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router";
 
-export default function Header({ loginStatus, username }) {
+export default function Header({ loginStatus, username, setLoggedIn }) {
+  const handleClick = () => {
+    setLoggedIn(false);
+  };
+
   const login = (
     <Link className="nav-login-link" to="/login">
       <i className="fa-solid fa-user"></i> Login
     </Link>
   );
+
   const loggedIn = (
-    <Link className="nav-login-link" to="">
-      <i className="fa-solid fa-user"></i> Hello, {username}
-    </Link>
+    <div className="nav-username">
+      <i className="fa-solid fa-user"></i> Hello, {username}{" "}
+      <Link className="nav-logout-link" to="/" onClick={handleClick}>
+        (log out)
+      </Link>
+    </div>
   );
 
   return (
@@ -26,13 +34,13 @@ export default function Header({ loginStatus, username }) {
         </h1>
       </div>
       <div className="nav-bar">
-        <Link className="nav-link" href="/">
+        <Link className="nav-link" to="/">
           Home
         </Link>
         <Link className="nav-link" to="">
           Why Invest?
         </Link>
-        <Link className="nav-link" to="">
+        <Link className="nav-link" to="/dashboard">
           Dashboard
         </Link>
         {loginStatus ? loggedIn : login}

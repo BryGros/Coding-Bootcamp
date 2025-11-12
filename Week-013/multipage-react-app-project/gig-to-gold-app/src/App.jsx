@@ -3,6 +3,9 @@ import Header from "./components/Header";
 import { Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ProtectedRouteDashboard from "./components/ProtectedRouteDashboard";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const localStorageUser = JSON.parse(localStorage.getItem("user"));
@@ -43,7 +46,11 @@ function App() {
 
   return (
     <>
-      <Header loginStatus={isLoggedIn} username={username} />
+      <Header
+        loginStatus={isLoggedIn}
+        username={username}
+        setLoggedIn={setLogin}
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -57,6 +64,15 @@ function App() {
             />
           }
         />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRouteDashboard isLoggedIn={isLoggedIn}>
+              <Dashboard />
+            </ProtectedRouteDashboard>
+          }
+        />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
