@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 export default function SignUpForm({
   setLogin,
@@ -10,6 +10,8 @@ export default function SignUpForm({
   const [throwError, setThrowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromPath = location.state?.from?.pathname;
 
   const handleSubmit = (event) => {
     setThrowError(false);
@@ -54,7 +56,7 @@ export default function SignUpForm({
       setLogin(true);
       setUsername(enteredUsername);
       setPassword(enteredPassword);
-      navigate("/");
+      navigate(fromPath ?? "/", { return: true });
     }
   };
 

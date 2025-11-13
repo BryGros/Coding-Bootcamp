@@ -1,3 +1,34 @@
+import { useEffect, useState } from "react";
+import InvestedMoney from "../components/InvestedMoney";
+import AddGigForm from "../components/AddGigForm";
+
 export default function Dashboard() {
-  return;
+  const initialGigs = () => {
+    const localStorageGigs = JSON.parse(localStorage.getItem("gigs"));
+    if (localStorageGigs != null) {
+      return localStorageGigs;
+    } else {
+      return [];
+    }
+  };
+
+  const [gigArray, setGigArray] = useState(initialGigs);
+  // set from localStorage to simulate database
+
+  // Whenever gigArray changes, update localStorage
+  useEffect(() => {
+    localStorage.setItem("gigs", JSON.stringify(gigArray));
+  }, [gigArray]);
+
+  return (
+    // wrapper
+    <div>
+      {/* Money saved component (called bank?) */}
+      <InvestedMoney gigs={gigArray} />
+      {/* Add Gig to tracker component */}
+      <AddGigForm gigs={gigArray} addGig={setGigArray} />
+      {/* Money Growth component */}
+      {/* Gig Tracker component*/}
+    </div>
+  );
 }
