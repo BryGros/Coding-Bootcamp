@@ -94,7 +94,7 @@ main {
   border: solid black 1px;
   padding: 0.5rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   flex: min-content;
   background-color: white;
   border-radius: 20px;
@@ -271,4 +271,142 @@ h2 {
   padding: 0.5rem 1rem;
   background-color: lavender;
   font-size: medium;
+}
+
+.dash-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sm-wrapper return-wrapper"
+    "form-wrapper return-wrapper"
+    "form-wrapper return-wrapper"
+    "gig-tracker-wrap gig-tracker-wrap"
+    "gig-tracker-wrap gig-tracker-wrap";
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.sm-wrapper {
+  grid-area: sm-wrapper;
+  border: solid 1px gray;
+  background-color: white;
+  box-shadow: 2px 2px 3rem lightgrey;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.sm-wrapper h1 {
+  font-size: 2rem;
+  color: black;
+}
+
+.sm-wrapper h2 {
+  font-size: 1rem;
+  color: rgb(76, 75, 76);
+}
+
+.sm-wrapper h3 {
+  font-size: 5rem;
+  margin: 0;
+  color: green;
+}
+
+.form-wrapper {
+  grid-area: form-wrapper;
+  border: solid 1px gray;
+  background-color: white;
+  box-shadow: 2px 2px 3rem lightgrey;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.form-wrapper h1 {
+  font-size: 2rem;
+  color: black;
+}
+
+.return-wrapper {
+  grid-area: return-wrapper;
+}
+
+.form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 2fr;
+  gap: 1em 1em;
+  grid-template-areas:
+    "form-head form-head"
+    "name-label name-label"
+    "gig-name gig-name"
+    "date-time-label date-time-label"
+    "gig-date-time gig-date-time"
+    "total-earn-label invested-label"
+    "gig-total gig-invested"
+    "add-gig-btn add-gig-btn";
+  grid-area: form-wrapper;
+}
+.form-head {
+  grid-area: form-head;
+  justify-self: center;
+  align-self: last baseline;
+}
+
+.name-label {
+  grid-area: name-label;
+}
+
+#gig-name {
+  grid-area: gig-name;
+}
+
+.date-time-label {
+  grid-area: date-time-label;
+}
+
+#gig-date-time {
+  grid-area: gig-date-time;
+}
+.total-earn-label {
+  grid-area: total-earn-label;
+}
+.invested-label {
+  grid-area: invested-label;
+}
+#gig-total {
+  grid-area: gig-total;
+}
+#gig-invested {
+  grid-area: gig-invested;
+}
+#add-gig-btn {
+  grid-area: add-gig-btn;
+  justify-self: center;
+  align-self: center;
+  grid-area: add-gig-btn;
+  width: 50%;
+  height: 50%;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 3rem lightgrey;
+  font-size: 1.5rem;
+}
+
+.return-wrapper {
+  grid-area: return-wrapper;
+  border: solid 1px gray;
+  background-color: white;
+  box-shadow: 2px 2px 3rem lightgrey;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.gig-tracker-wrap {
+  grid-area: gig-tracker-wrap;
+  border: solid 1px gray;
+  background-color: white;
+  box-shadow: 2px 2px 3rem lightgrey;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
 }

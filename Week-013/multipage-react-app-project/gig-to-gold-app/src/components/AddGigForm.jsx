@@ -30,29 +30,29 @@ export default function AddGigForm({ gigs, addGig }) {
 
   return (
     <div className="form-wrapper">
-      <h1>Add a Gig to your tracker!</h1>
-      <h3>Gig name</h3>
+      <h1 className="form-head">Add a Gig to your tracker!</h1>
+      <h3 className="name-label">Gig name</h3>
       <input
         type="text"
         id="gig-name"
         value={gigName}
         onChange={(e) => setGigName(e.target.value)}
       />
-      <h3>Gig Date/Time</h3>
+      <h3 className="date-time-label">Gig Date/Time</h3>
       <input
         type="datetime-local"
         id="gig-date-time"
         value={dateTime}
         onChange={(e) => setDateTime(e.target.value)}
       />
-      <h3>Gig Total Earned (no $)</h3>
+      <h3 className="total-earn-label">Gig Total Earned (no $)</h3>
       <input
         type="number"
         id="gig-total"
         value={gigTotal}
         onChange={(e) => setGigTotal(e.target.value)}
       />
-      <h3>Amount Invested (no $)</h3>
+      <h3 className="invested-label">Amount Invested (no $)</h3>
       <input
         type="number"
         id="gig-invested"

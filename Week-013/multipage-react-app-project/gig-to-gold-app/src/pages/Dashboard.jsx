@@ -22,7 +22,7 @@ export default function Dashboard() {
 
   return (
     // wrapper
-    <div>
+    <div className="dash-wrapper">
       {/* Money saved component (called bank?) */}
       <InvestedMoney gigs={gigArray} />
       {/* Add Gig to tracker component */}

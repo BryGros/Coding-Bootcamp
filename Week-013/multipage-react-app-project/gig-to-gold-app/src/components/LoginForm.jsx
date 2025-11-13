@@ -41,11 +41,11 @@ export default function LoginForm({
       setThrowError(true);
     } else {
       setLogin(true);
-      navigate(fromPath ?? "/", {replace: true});
+      navigate(fromPath ?? "/", { replace: true });
     }
   };
 
-  const handleLoginToggle = () => {
+  const handleLogout = () => {
     setShowLogin(false);
   };
 
@@ -66,7 +66,7 @@ export default function LoginForm({
         <button className="login-submit" type="submit" onClick={handleSubmit}>
           Login
         </button>
-        <button id="switch-menu" onClick={handleLoginToggle}>
+        <button id="switch-menu" onClick={handleLogout}>
           Sign Up
         </button>
       </div>

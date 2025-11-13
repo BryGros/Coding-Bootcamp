@@ -4,6 +4,7 @@ import { Link } from "react-router";
 export default function Header({ loginStatus, username, setLoggedIn }) {
   const handleClick = () => {
     setLoggedIn(false);
+    localStorage.removeItem("user");
   };
 
   const login = (
