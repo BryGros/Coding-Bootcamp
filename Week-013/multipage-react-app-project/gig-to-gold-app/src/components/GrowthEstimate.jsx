@@ -1,40 +1,15 @@
-import { useState } from "react";
 import DollarFormatter from "./DollarFormatter";
 
-export default function GrowthEstimate({ investedTotal }) {
-  // years and returnRate useStates
-  const [years, setYears] = useState(12);
-  const [returnRate, setReturnRate] = useState(7);
-  const [additionalMonthlyFunds, setAdditionalFunds] = useState(0);
-
-  // Calculate estimate
-  const calculateEstimate = (
-    startingFunds,
-    years,
-    returnRate,
-    additionalFunds
-  ) => {
-    let year = 1;
-    let addedYearlyFunds = additionalFunds * 12;
-    let total = startingFunds;
-    while (year <= Number(years)) {
-      total *= Number(returnRate) / 100 + 1;
-      total += Number(addedYearlyFunds);
-      year++;
-    }
-    return total;
-  };
-
-  const initialEstimate = calculateEstimate(
-    investedTotal,
-    years,
-    returnRate,
-    additionalMonthlyFunds
-  );
-
-  // estimate useState
-  const [estimate, setEstimate] = useState(initialEstimate);
-
+export default function GrowthEstimate({
+  investedTotal,
+  years,
+  setYears,
+  returnRate,
+  setReturnRate,
+  additionalMonthlyFunds,
+  setAdditionalFunds,
+  estimate,
+}) {
   return (
     <div className="return-wrapper">
       <h1>Growth Calculator</h1>
@@ -45,12 +20,7 @@ export default function GrowthEstimate({ investedTotal }) {
       <div className="calc-field-wrapper">
         <div className="static-num-calc">
           <h2>
-            Estimated value of ${investedTotal} in {years} years with a{" "}
-            {returnRate}% return
-            {additionalMonthlyFunds != "0"
-              ? " and additional funds each month"
-              : ""}
-            :
+            Estimated value of in {years} years with a {returnRate}% return:
           </h2>
           <div>
             <DollarFormatter number={estimate} />
@@ -69,14 +39,6 @@ export default function GrowthEstimate({ investedTotal }) {
             value={years}
             onChange={(e) => {
               setYears(e.target.value);
-              setEstimate(
-                calculateEstimate(
-                  investedTotal,
-                  e.target.value,
-                  returnRate,
-                  additionalMonthlyFunds
-                )
-              );
             }}
           />
           <datalist id="markers">
@@ -103,14 +65,6 @@ export default function GrowthEstimate({ investedTotal }) {
               value={additionalMonthlyFunds}
               onChange={(e) => {
                 setAdditionalFunds(e.target.value);
-                setEstimate(
-                  calculateEstimate(
-                    investedTotal,
-                    years,
-                    returnRate,
-                    e.target.value
-                  )
-                );
               }}
               placeholder="25.00"
             />
@@ -123,14 +77,6 @@ export default function GrowthEstimate({ investedTotal }) {
             value={returnRate}
             onChange={(e) => {
               setReturnRate(e.target.value);
-              setEstimate(
-                calculateEstimate(
-                  investedTotal,
-                  years,
-                  e.target.value,
-                  additionalMonthlyFunds
-                )
-              );
             }}
           >
             <option value="5">Conservative (5%)</option>

@@ -582,3 +582,35 @@ h2 {
 .gig-wrapper h3 {
   font-size: 0.9rem;
 }
+
+.gig-track-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  align-items: center;
+}
+
+.filter {
+  background-color: rgb(243, 243, 243);
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem;
+  border-radius: 2rem;
+}
+
+.filter-active {
+  background-color: lavender;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem;
+  border-radius: 2rem;
+}
+.gridcount {
+  text-align: right;
+  padding-right: 4rem;
+  padding-bottom: 1rem;
+}

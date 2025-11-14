@@ -4,7 +4,18 @@ import GigCard from "./GigCard";
 export default function GigTracker({ gigs }) {
   const [filter, setFilter] = useState("ALL");
   // Get the current year for filter
-  const currentYear = new Date().getFullYear;
+  const currentYear = new Date().getFullYear();
+  let gridCount = 0;
+
+  const handleFilterClick = (e) => {
+    if (e.target.id == "invested-filter") {
+      setFilter("INVESTED");
+    } else if (e.target.id == "this-year-filter") {
+      setFilter("THISYEAR");
+    } else {
+      setFilter("ALL");
+    }
+  };
 
   const gigsToRender = (gigs, filter) => {
     let gigArray = [];
@@ -16,13 +27,16 @@ export default function GigTracker({ gigs }) {
       if (filter == "THISYEAR") {
         if (gigYear == currentYear) {
           gigArray.push(object);
+          gridCount++;
         }
       } else if (filter == "INVESTED") {
         if (investedAmt != 0) {
           gigArray.push(object);
+          gridCount++;
         }
       } else {
         gigArray.push(object);
+        gridCount++;
       }
     }
     return gigArray;
@@ -35,6 +49,7 @@ export default function GigTracker({ gigs }) {
       <p className="no-gigs-p">Create your first gig to start tracking!</p>
     </div>
   );
+
   const filteredGigs = gigsToRender(gigs, filter);
   const renderGigs = filteredGigs.map((object) => {
     return (
@@ -51,10 +66,31 @@ export default function GigTracker({ gigs }) {
     <div className="gig-tracker-wrap">
       <div className="gig-track-header">
         <h1>Gig Tracker</h1>
-        <button className="filter">All Gigs</button>
-        <button className="filter">This Year's Gigs</button>{" "}
-        <button className="filter">Gigs I've Invested Money From</button>
+        <div className="filter-btn-wrap">
+          <button
+            id="all-filter"
+            className={filter == "ALL" ? "filter-active" : "filter"}
+            onClick={handleFilterClick}
+          >
+            All Gigs
+          </button>
+          <button
+            id="this-year-filter"
+            className={filter == "THISYEAR" ? "filter-active" : "filter"}
+            onClick={handleFilterClick}
+          >
+            This Year's Gigs
+          </button>{" "}
+          <button
+            id="invested-filter"
+            className={filter == "INVESTED" ? "filter-active" : "filter"}
+            onClick={handleFilterClick}
+          >
+            Gigs I've Invested Money From
+          </button>
+        </div>
       </div>
+      <div className="gridcount">Gig Count that meets filter criteria: {gridCount}</div>
       <div className="gig-cont-with-header">
         <div className="gig-cont-header">
           <h3>Gig Name</h3>

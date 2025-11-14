@@ -37,8 +37,39 @@ export default function Dashboard() {
   };
 
   const initialTotal = totalFunction(gigArray);
-  
+
   const [investedTotal, setInvestedTotal] = useState(initialTotal);
+
+  // years and returnRate useStates
+  const [years, setYears] = useState(12);
+  const [returnRate, setReturnRate] = useState(7);
+  const [additionalMonthlyFunds, setAdditionalFunds] = useState(0);
+
+  // Calculate estimate
+  const calculateEstimate = (
+    startingFunds,
+    years,
+    returnRate,
+    additionalFunds
+  ) => {
+    let year = 1;
+    let addedYearlyFunds = additionalFunds * 12;
+    let total = startingFunds;
+    while (year <= Number(years)) {
+      total *= Number(returnRate) / 100 + 1;
+      total += Number(addedYearlyFunds);
+      year++;
+    }
+    return total;
+  };
+
+  const estimate = calculateEstimate(
+    investedTotal,
+    years,
+    returnRate,
+    additionalMonthlyFunds
+  );
+  
 
   return (
     // wrapper
@@ -50,9 +81,22 @@ export default function Dashboard() {
         gigs={gigArray}
         addGig={setGigArray}
         setInvested={setInvestedTotal}
+        returnRate={returnRate}
+        years={years}
+        investedTotal={investedTotal}
+        additionalFunds={additionalMonthlyFunds}
       />
       {/* Money Growth component */}
-      <GrowthEstimate investedTotal={investedTotal} />
+      <GrowthEstimate
+        investedTotal={investedTotal}
+        estimate={estimate}
+        years={years}
+        setYears={setYears}
+        returnRate={returnRate}
+        setReturnRate={setReturnRate}
+        additionalMonthlyFunds={additionalMonthlyFunds}
+        setAdditionalFunds={setAdditionalFunds}
+      />
       {/* Gig Tracker component*/}
       <GigTracker gigs={gigArray} />
     </div>

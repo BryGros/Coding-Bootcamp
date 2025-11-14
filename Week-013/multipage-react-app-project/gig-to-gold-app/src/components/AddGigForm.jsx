@@ -14,10 +14,10 @@ export default function AddGigForm({ gigs, addGig, setInvested }) {
     e.preventDefault();
     // check the user filled out the form completely
     if (
-      gigName == "" ||
-      dateTime == "" ||
-      gigTotal == "" ||
-      gigInvested == ""
+      gigName === "" ||
+      dateTime === "" ||
+      gigTotal === "" ||
+      gigInvested === ""
     ) {
       setErrorMsg("You must fill out the entire form!");
       setThrowError(true);
