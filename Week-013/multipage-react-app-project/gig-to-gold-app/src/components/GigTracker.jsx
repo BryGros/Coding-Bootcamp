@@ -55,7 +55,17 @@ export default function GigTracker({ gigs }) {
         <button className="filter">This Year's Gigs</button>{" "}
         <button className="filter">Gigs I've Invested Money From</button>
       </div>
-      <div className="gig-wrap">{noGigs ? noGigsToRender : renderGigs}</div>
+      <div className="gig-cont-with-header">
+        <div className="gig-cont-header">
+          <h3>Gig Name</h3>
+          <h3>Gig Date/Time</h3>
+          <h3>Total Earned</h3>
+          <h3>Invested Amount</h3>
+        </div>
+        <div className="gig-container">
+          {noGigs ? noGigsToRender : renderGigs}
+        </div>
+      </div>
     </div>
   );
 }

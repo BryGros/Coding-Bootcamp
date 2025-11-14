@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddGigForm({ gigs, addGig }) {
+export default function AddGigForm({ gigs, addGig, setInvested }) {
   // Field state maintenance
   const [gigName, setGigName] = useState("");
   const [dateTime, setDateTime] = useState("");
@@ -32,13 +32,18 @@ export default function AddGigForm({ gigs, addGig }) {
       };
       addGig((currArray) => [newGig, ...currArray]);
       const newArray = [newGig, ...gigs];
-      localStorage.setItem("gigs", JSON.stringify(newArray));
-      setGigName("");
-      setDateTime("");
-      setGigTotal("");
-      setGigInvested("");
-      setThrowError(false);
+      let bank = Number(0);
+      for (const index in newArray) {
+        const object = newArray[index];
+        bank += Number(object.invested);
+      }
+      setInvested(bank);
     }
+    setGigName("");
+    setDateTime("");
+    setGigTotal("");
+    setGigInvested("");
+    setThrowError(false);
   };
 
   return (
@@ -67,7 +72,7 @@ export default function AddGigForm({ gigs, addGig }) {
         id="gig-total"
         value={gigTotal}
         onChange={(e) => setGigTotal(e.target.value)}
-        placeholder='150.00'
+        placeholder="150.00"
       />
       <h3 className="invested-label">Amount Invested:</h3>
       <span className="dollar-invested">$</span>
@@ -76,7 +81,7 @@ export default function AddGigForm({ gigs, addGig }) {
         id="gig-invested"
         value={gigInvested}
         onChange={(e) => setGigInvested(e.target.value)}
-        placeholder='25.00'
+        placeholder="25.00"
       />
       <button type="submit" id="add-gig-btn" onClick={handleClick}>
         Add Gig

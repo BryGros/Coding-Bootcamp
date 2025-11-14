@@ -93,7 +93,7 @@ export default function SignUpForm({
           Create User
         </button>
         <button id="switch-menu" onClick={handleLoginToggle}>
-          Login
+          Switch to Login
         </button>
       </div>
     </div>

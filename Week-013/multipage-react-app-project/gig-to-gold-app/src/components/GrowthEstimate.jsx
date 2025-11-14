@@ -1,21 +1,11 @@
 import { useState } from "react";
 import DollarFormatter from "./DollarFormatter";
 
-export default function GrowthEstimate({ gigs }) {
+export default function GrowthEstimate({ investedTotal }) {
   // years and returnRate useStates
   const [years, setYears] = useState(12);
   const [returnRate, setReturnRate] = useState(7);
   const [additionalMonthlyFunds, setAdditionalFunds] = useState(0);
-  // calculate money invested from gigs to show as total (same as in InvestedMoney Component)
-  const totalFunction = (gigObject) => {
-    let bank = Number(0);
-    for (const index in gigObject) {
-      const object = gigObject[index];
-      bank += Number(object.invested);
-    }
-    return bank;
-  };
-  const total = totalFunction(gigs);
 
   // Calculate estimate
   const calculateEstimate = (
@@ -24,9 +14,6 @@ export default function GrowthEstimate({ gigs }) {
     returnRate,
     additionalFunds
   ) => {
-    console.log(
-      `Starting funds: ${startingFunds}, years: ${years}, returnRate: ${returnRate}`
-    );
     let year = 1;
     let addedYearlyFunds = additionalFunds * 12;
     let total = startingFunds;
@@ -39,11 +26,11 @@ export default function GrowthEstimate({ gigs }) {
   };
 
   const initialEstimate = calculateEstimate(
-    total,
+    investedTotal,
     years,
     returnRate,
     additionalMonthlyFunds
-  ).toFixed(2);
+  );
 
   // estimate useState
   const [estimate, setEstimate] = useState(initialEstimate);
@@ -57,9 +44,16 @@ export default function GrowthEstimate({ gigs }) {
       </p>
       <div className="calc-field-wrapper">
         <div className="static-num-calc">
-          <h2>Gig Money invested today:</h2>
+          <h2>
+            Estimated value of ${investedTotal} in {years} years with a{" "}
+            {returnRate}% return
+            {additionalMonthlyFunds != "0"
+              ? " and additional funds each month"
+              : ""}
+            :
+          </h2>
           <div>
-            <DollarFormatter number={total} />
+            <DollarFormatter number={estimate} />
           </div>
         </div>
         <div className="entry-wrap">
@@ -77,7 +71,7 @@ export default function GrowthEstimate({ gigs }) {
               setYears(e.target.value);
               setEstimate(
                 calculateEstimate(
-                  total,
+                  investedTotal,
                   e.target.value,
                   returnRate,
                   additionalMonthlyFunds
@@ -110,7 +104,12 @@ export default function GrowthEstimate({ gigs }) {
               onChange={(e) => {
                 setAdditionalFunds(e.target.value);
                 setEstimate(
-                  calculateEstimate(total, years, returnRate, e.target.value)
+                  calculateEstimate(
+                    investedTotal,
+                    years,
+                    returnRate,
+                    e.target.value
+                  )
                 );
               }}
               placeholder="25.00"
@@ -126,7 +125,7 @@ export default function GrowthEstimate({ gigs }) {
               setReturnRate(e.target.value);
               setEstimate(
                 calculateEstimate(
-                  total,
+                  investedTotal,
                   years,
                   e.target.value,
                   additionalMonthlyFunds
@@ -134,16 +133,10 @@ export default function GrowthEstimate({ gigs }) {
               );
             }}
           >
-            <option value="5">conservative (5%)</option>
-            <option value="7">average (7%)</option>
-            <option value="9">high (9%)</option>
+            <option value="5">Conservative (5%)</option>
+            <option value="7">Average (7%)</option>
+            <option value="9">High (9%)</option>
           </select>
-        </div>
-      </div>
-      <div className="static-num-calc">
-        <h2>Estimated value in {years} years:</h2>
-        <div>
-          <DollarFormatter number={estimate} />
         </div>
       </div>
     </div>

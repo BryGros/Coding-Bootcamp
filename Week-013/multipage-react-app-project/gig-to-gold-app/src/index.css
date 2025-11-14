@@ -134,10 +134,6 @@ img {
   max-width: 100%;
 }
 
-h1 {
-  font-size: 3rem;
-  color: darkgreen;
-}
 h2 {
   font-size: 1.5rem;
   color: purple;
@@ -178,11 +174,6 @@ h2 {
   align-self: baseline;
   justify-self: center;
   text-align: center;
-}
-
-.foot-logo h1 {
-  color: purple;
-  font-size: 4rem;
 }
 
 .foot-nav {
@@ -234,6 +225,7 @@ h2 {
 
 .login-form h1 {
   font-size: large;
+  color: green;
 }
 
 .submit-wrap {
@@ -543,6 +535,50 @@ h2 {
   border-radius: 1rem;
 }
 
-.gig-wrap {
-  border: 1px solid black;
+.gig-cont-with-header {
+  border: 2px black solid;
+  width: 90%;
+  margin: 0 auto 2rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 3rem lightgrey;
+}
+
+.gig-container {
+  overflow: scroll;
+  height: 20rem;
+}
+
+.gig-cont-header {
+  border-bottom: 2px black solid;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: lavender;
+}
+
+.gig-wrapper {
+  display: grid;
+  grid-auto-rows: minmax(2rem, auto);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  border-bottom: 1px grey dashed;
+}
+
+.gig-wrapper h3 {
+  font-size: 0.9rem;
 }

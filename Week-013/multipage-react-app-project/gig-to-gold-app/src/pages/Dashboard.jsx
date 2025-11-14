@@ -22,15 +22,37 @@ export default function Dashboard() {
     localStorage.setItem("gigs", JSON.stringify(gigArray));
   }, [gigArray]);
 
+  const totalFunction = (gigObjects) => {
+    const localStorageGigs = JSON.parse(localStorage.getItem("gigs"));
+    if (localStorageGigs.length > 0) {
+      let bank = Number(0);
+      for (const index in gigObjects) {
+        const object = gigObjects[index];
+        bank += Number(object.invested);
+      }
+      return bank;
+    } else {
+      return 0;
+    }
+  };
+
+  const initialTotal = totalFunction(gigArray);
+  
+  const [investedTotal, setInvestedTotal] = useState(initialTotal);
+
   return (
     // wrapper
     <div className="dash-wrapper">
       {/* Money saved component (called bank?) */}
-      <InvestedMoney gigs={gigArray} />
+      <InvestedMoney total={investedTotal} />
       {/* Add Gig to tracker component */}
-      <AddGigForm gigs={gigArray} addGig={setGigArray} />
+      <AddGigForm
+        gigs={gigArray}
+        addGig={setGigArray}
+        setInvested={setInvestedTotal}
+      />
       {/* Money Growth component */}
-      <GrowthEstimate gigs={gigArray}/>
+      <GrowthEstimate investedTotal={investedTotal} />
       {/* Gig Tracker component*/}
       <GigTracker gigs={gigArray} />
     </div>
