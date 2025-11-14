@@ -5,17 +5,19 @@ import GrowthEstimate from "../components/GrowthEstimate";
 import GigTracker from "../components/GigTracker";
 
 export default function Dashboard() {
+  const localStorageGigs = JSON.parse(localStorage.getItem("gigs"));
+  const localStorageGigsEmpty = localStorageGigs == null;
+
   const initialGigs = () => {
-    const localStorageGigs = JSON.parse(localStorage.getItem("gigs"));
-    if (localStorageGigs != null) {
-      return localStorageGigs;
-    } else {
+    if (localStorageGigsEmpty) {
       return [];
+    } else {
+      return localStorageGigs;
     }
   };
 
-  const [gigArray, setGigArray] = useState(initialGigs);
   // set from localStorage to simulate database
+  const [gigArray, setGigArray] = useState(initialGigs);
 
   // Whenever gigArray changes, update localStorage
   useEffect(() => {
@@ -23,16 +25,15 @@ export default function Dashboard() {
   }, [gigArray]);
 
   const totalFunction = (gigObjects) => {
-    const localStorageGigs = JSON.parse(localStorage.getItem("gigs"));
-    if (localStorageGigs.length > 0) {
+    if (localStorageGigsEmpty) {
+      return 0;
+    } else {
       let bank = Number(0);
       for (const index in gigObjects) {
         const object = gigObjects[index];
         bank += Number(object.invested);
       }
       return bank;
-    } else {
-      return 0;
     }
   };
 
@@ -69,7 +70,6 @@ export default function Dashboard() {
     returnRate,
     additionalMonthlyFunds
   );
-  
 
   return (
     // wrapper

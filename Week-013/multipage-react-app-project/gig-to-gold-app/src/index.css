@@ -441,6 +441,14 @@ h2 {
   border-radius: 1rem;
   box-shadow: 2px 2px 3rem lightgrey;
   font-size: 1.5rem;
+  background-color: lavender;
+}
+
+#add-gig-btn:hover {
+  background-color: rgb(119, 50, 117);
+  color: white;
+  transition: linear;
+  transition-duration: 0.25s;
 }
 
 .return-wrapper {
@@ -524,6 +532,7 @@ h2 {
 #return-dropdown {
   font-size: 1rem;
   text-align: center;
+  padding: 0.5rem;
 }
 
 .gig-tracker-wrap {
@@ -565,6 +574,7 @@ h2 {
   font-weight: bold;
   font-size: 1rem;
   background-color: lavender;
+  padding: 0 1rem;
 }
 
 .gig-wrapper {
@@ -577,6 +587,7 @@ h2 {
   justify-items: center;
   align-items: center;
   border-bottom: 1px grey dashed;
+  padding: 0 1rem;
 }
 
 .gig-wrapper h3 {

@@ -65,7 +65,7 @@ export default function GigTracker({ gigs }) {
   return (
     <div className="gig-tracker-wrap">
       <div className="gig-track-header">
-        <h1>Gig Tracker</h1>
+        <h1>G2G Tracker</h1>
         <div className="filter-btn-wrap">
           <button
             id="all-filter"
@@ -90,7 +90,9 @@ export default function GigTracker({ gigs }) {
           </button>
         </div>
       </div>
-      <div className="gridcount">Gig Count that meets filter criteria: {gridCount}</div>
+      <div className="gridcount">
+        Gigs that meet the filter criteria: <strong>{gridCount}</strong>
+      </div>
       <div className="gig-cont-with-header">
         <div className="gig-cont-header">
           <h3>Gig Name</h3>
