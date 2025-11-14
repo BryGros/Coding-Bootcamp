@@ -1,6 +1,8 @@
 import Header from "../components/Header";
 
-// Money quotes API call:  https://api.quotable.io/search/quotes/?query=money
+// Modal window: https://www.google.com/search?q=creating+a+modal+window+in+react&rlz=1C1ONGR_enUS1141US1141&oq=creating+a+modal+window+in+react&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yCAgCEAAYFhgeMggIAxAAGBYYHjIICAQQABgWGB4yCggFEAAYgAQYogQyBwgGEAAY7wXSAQgzNjk1ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
+
+//Money quotes API call:  https://api.quotable.io/search/quotes/?query=money
 // https://www.postman.com/quotable/quotable/request/csr0650/search-quotes
 
 // API Call returned JSON:
