@@ -77,14 +77,14 @@ export default function SignUpForm({
       <h1>Password:</h1>
       <input
         id="password"
-        type="text"
+        type="password"
         placeholder="Enter a password"
         required
       />
       <h1>Confirm Password:</h1>
       <input
         id="confirm-password"
-        type="text"
+        type="password"
         placeholder="Confirm your password a password"
         required
       />

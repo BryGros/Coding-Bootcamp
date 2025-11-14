@@ -102,6 +102,18 @@ main {
   width: 0.5rem;
 }
 
+.nav-link-active {
+  border: solid black 1px;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  flex: min-content;
+  background-color: purple;
+  border-radius: 20px;
+  color: white;
+  width: 0.5rem;
+}
+
 .nav-link:hover {
   background-color: rgb(119, 50, 117);
   color: white;
@@ -238,6 +250,7 @@ h2 {
 }
 
 .error {
+  grid-area: error;
   color: red;
   font-weight: bold;
 }
@@ -277,7 +290,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: 2rem;
   grid-auto-flow: row;
   grid-template-areas:
     "sm-wrapper return-wrapper"
@@ -309,6 +322,12 @@ h2 {
 }
 
 .sm-wrapper h3 {
+  font-size: 3rem;
+  margin: 0;
+  color: green;
+}
+
+.invested-total {
   font-size: 5rem;
   margin: 0;
   color: green;
@@ -319,13 +338,14 @@ h2 {
   border: solid 1px gray;
   background-color: white;
   box-shadow: 2px 2px 3rem lightgrey;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
   border-radius: 1rem;
 }
 
 .form-wrapper h1 {
   font-size: 2rem;
   color: black;
+  margin: 0;
 }
 
 .return-wrapper {
@@ -335,10 +355,11 @@ h2 {
 .form-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 2fr;
-  gap: 1em 1em;
+  grid-template-rows: 1.5fr 0.5fr 0.25fr 0.5fr 0.25fr 0.5fr 0.25fr 0.5fr 2fr;
+  gap: 0 0.5em;
   grid-template-areas:
     "form-head form-head"
+    "error error"
     "name-label name-label"
     "gig-name gig-name"
     "date-time-label date-time-label"
@@ -347,11 +368,16 @@ h2 {
     "gig-total gig-invested"
     "add-gig-btn add-gig-btn";
   grid-area: form-wrapper;
+  padding: 0 5rem;
+}
+
+.form-wrapper h3 {
+  margin: 2rem 0 0.2rem 0;
 }
 .form-head {
   grid-area: form-head;
   justify-self: center;
-  align-self: last baseline;
+  align-self: end;
 }
 
 .name-label {
@@ -360,14 +386,17 @@ h2 {
 
 #gig-name {
   grid-area: gig-name;
+  font-size: 1rem;
 }
 
 .date-time-label {
   grid-area: date-time-label;
+  align-self: end;
 }
 
 #gig-date-time {
   grid-area: gig-date-time;
+  font-size: 1rem;
 }
 .total-earn-label {
   grid-area: total-earn-label;
@@ -375,12 +404,41 @@ h2 {
 .invested-label {
   grid-area: invested-label;
 }
+
+.dollar-total {
+  grid-area: gig-total;
+  align-self: center;
+  justify-self: start;
+  margin-left: 0.5rem;
+  pointer-events: none;
+  z-index: 1;
+  color: grey;
+  font-size: large;
+}
+
 #gig-total {
   grid-area: gig-total;
+  padding-left: 1.2rem;
+  font-size: 1rem;
 }
+
+.dollar-invested {
+  grid-area: gig-invested;
+  align-self: center;
+  justify-self: start;
+  margin-left: 0.5rem;
+  pointer-events: none;
+  z-index: 1;
+  color: grey;
+  font-size: large;
+}
+
 #gig-invested {
   grid-area: gig-invested;
+  padding-left: 1.2rem;
+  font-size: 1rem;
 }
+
 #add-gig-btn {
   grid-area: add-gig-btn;
   justify-self: center;
@@ -402,6 +460,80 @@ h2 {
   border-radius: 1rem;
 }
 
+.return-wrapper h1 {
+  font-size: 2rem;
+  color: black;
+  margin: 0;
+}
+
+.return-wrapper h2 {
+  font-size: 1.25rem;
+  color: black;
+  font-weight: normal;
+  margin: 0;
+}
+.return-wrapper h3 {
+  font-size: 2rem;
+  color: green;
+  margin: 0;
+}
+.return-wrapper p {
+  font-size: 1rem;
+  color: black;
+}
+.calc-field-wrapper {
+  margin: 2rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  gap: 2rem;
+}
+
+.entry-wrap {
+  border: 2px purple solid;
+  box-shadow: 2px 2px 1rem lightgrey;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.years-in-account {
+  font-size: x-large;
+  font-weight: bold;
+  color: purple;
+}
+
+#years-slider {
+  width: 80%;
+}
+
+#additional-funds {
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+}
+
+.dollar-additional {
+  position: absolute;
+  transform: translateX(5px);
+  pointer-events: none;
+  z-index: 1;
+  color: grey;
+  font-size: large;
+}
+
+#return-dropdown {
+  font-size: 1rem;
+  text-align: center;
+}
+
 .gig-tracker-wrap {
   grid-area: gig-tracker-wrap;
   border: solid 1px gray;
@@ -409,4 +541,8 @@ h2 {
   box-shadow: 2px 2px 3rem lightgrey;
   padding: 1rem 2rem;
   border-radius: 1rem;
+}
+
+.gig-wrap {
+  border: 1px solid black;
 }

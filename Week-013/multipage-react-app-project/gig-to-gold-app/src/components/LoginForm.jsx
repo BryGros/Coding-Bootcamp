@@ -61,7 +61,12 @@ export default function LoginForm({
         required
       />
       <h1>Password:</h1>
-      <input id="password" type="text" placeholder="Enter Password" required />
+      <input
+        id="password"
+        type="password"
+        placeholder="Enter Password"
+        required
+      />
       <div className="submit-wrap">
         <button className="login-submit" type="submit" onClick={handleSubmit}>
           Login

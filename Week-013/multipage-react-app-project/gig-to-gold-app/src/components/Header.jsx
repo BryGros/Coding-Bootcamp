@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 export default function Header({ loginStatus, username, setLoggedIn }) {
   const handleClick = () => {
     setLoggedIn(false);
-    localStorage.removeItem("user");
   };
 
   const login = (
@@ -35,15 +34,30 @@ export default function Header({ loginStatus, username, setLoggedIn }) {
         </h1>
       </div>
       <div className="nav-bar">
-        <Link className="nav-link" to="/">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "nav-link-active" : "nav-link"
+          }
+          to="/"
+        >
           Home
-        </Link>
-        <Link className="nav-link" to="">
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "nav-link-active" : "nav-link"
+          }
+          to="/why-invest"
+        >
           Why Invest?
-        </Link>
-        <Link className="nav-link" to="/dashboard">
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "nav-link-active" : "nav-link"
+          }
+          to="/dashboard"
+        >
           Dashboard
-        </Link>
+        </NavLink>
         {loginStatus ? loggedIn : login}
       </div>
     </nav>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import InvestedMoney from "../components/InvestedMoney";
 import AddGigForm from "../components/AddGigForm";
+import GrowthEstimate from "../components/GrowthEstimate";
+import GigTracker from "../components/GigTracker";
 
 export default function Dashboard() {
   const initialGigs = () => {
@@ -28,7 +30,9 @@ export default function Dashboard() {
       {/* Add Gig to tracker component */}
       <AddGigForm gigs={gigArray} addGig={setGigArray} />
       {/* Money Growth component */}
+      <GrowthEstimate gigs={gigArray}/>
       {/* Gig Tracker component*/}
+      <GigTracker gigs={gigArray} />
     </div>
   );
 }
