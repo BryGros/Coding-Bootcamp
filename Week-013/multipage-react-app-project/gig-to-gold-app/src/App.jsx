@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProtectedRouteDashboard from "./components/ProtectedRouteDashboard";
 import Dashboard from "./pages/Dashboard";
+import WhyInvest from "./pages/WhyInvestPage";
 
 function App() {
   const localStorageUser = JSON.parse(localStorage.getItem("user"));
@@ -53,6 +54,7 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/why-invest" element={<WhyInvest />} />
         <Route
           path="/login"
           element={
