@@ -133,14 +133,14 @@ export default function Game() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    for (const word in wordlist) {
-      if (guessWord.length < 4) {
-        setErrMsg("Word not long enough");
-        setShowError(true);
-        setGuessWord("");
-        return;
+    if (guessWord.length < 4 || guessWord.length == 0) {
+      setErrMsg("Attempted passcode should be at least 4 letters long");
+      setShowError(true);
+    } else {
+      for (const word in wordlist) {
       }
     }
+    setGuessWord("");
   };
   const [guessWord, setGuessWord] = useState("");
   const [foundWords, setFoundWords] = useState(["EE"]);
