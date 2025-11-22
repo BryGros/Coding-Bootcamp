@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Timer from "../components/Timer";
 import generateWordsJson from "../helper-functions/generateWordsJson.jsx";
+import WordBoard from "../components/WordBoard.jsx";
 
 export default function Game() {
   const sampleJson = {
@@ -89,6 +90,7 @@ export default function Game() {
         "AINE",
         "TUNA",
         "NITE",
+        "EEEE",
       ],
       5: [
         "QUINA",
@@ -127,39 +129,72 @@ export default function Game() {
 
   const handleLetterClick = (event) => {
     setShowError(false);
+    setShowWordFound(false);
     const letterClicked = event.target.value;
     setGuessWord((prev) => prev + letterClicked);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    let wordMatched = false;
+    const checkMatch = (guessWord) => {
+      for (const index in foundWords) {
+        const wordArrayItem = foundWords[index];
+        const foundWord = wordArrayItem[1];
+        if (foundWord == guessWord) {
+          wordMatched = true;
+        }
+      }
+    };
+    checkMatch(guessWord);
     if (guessWord.length < 4 || guessWord.length == 0) {
-      setErrMsg("Attempted passcode should be at least 4 letters long");
+      setErrMsg("Attempted passcodes should be at least 4 letters long");
+      setShowError(true);
+    } else if (wordMatched) {
+      setErrMsg("You already cracked that passcode!");
       setShowError(true);
     } else {
-      for (const word in wordlist) {
+      for (const index in wordlist) {
+        const word = wordlist[index];
+        if (guessWord == word) {
+          setFoundWords((currlist) => {
+            const newWord = [index, guessWord];
+            const newFoundList = [...currlist, newWord];
+            return newFoundList;
+          });
+          setShowWordFound(true);
+        }
       }
     }
     setGuessWord("");
   };
   const [guessWord, setGuessWord] = useState("");
-  const [foundWords, setFoundWords] = useState(["EE"]);
+  const [foundWords, setFoundWords] = useState([]);
   const [showError, setShowError] = useState(false);
   const [errMsg, setErrMsg] = useState("");
+  const [showWordFound, setShowWordFound] = useState(false);
 
   return (
     <div className="game-wrapper">
       <Timer />
-      <h1>{showError ? errMsg : ""}</h1>
+      <h1 className="error">{showError ? errMsg : ""}</h1>
       <h1>
-        Word: <span className="guessWord">{guessWord}</span>
+        Passcode: <span className="guessWord">{guessWord}</span>
       </h1>
       <button value="E" onClick={handleLetterClick}>
         E
       </button>
       <button type="submit" onClick={handleSubmit}>
-        Commit Word
+        Check Passcode
       </button>
+      <div className="word-found">
+        {showWordFound ? (
+          <h1 className="found-word-msg">Passcode Cracked!</h1>
+        ) : (
+          ""
+        )}
+      </div>
+      <WordBoard foundWords={foundWords} guessWord={guessWord} />
     </div>
   );
 }
