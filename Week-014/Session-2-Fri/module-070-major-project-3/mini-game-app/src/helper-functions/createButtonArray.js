@@ -1,4 +1,5 @@
 export default function createButtonArray(randomWord) {
-  const buttonArray = randomWord.split("");
+  const capWord = randomWord.toUpperCase();
+  const buttonArray = capWord.split("");
   return buttonArray;
 }

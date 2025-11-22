@@ -2,8 +2,11 @@ import { useState } from "react";
 import Timer from "../components/Timer";
 import generateWordsJson from "../helper-functions/generateWordsJson.jsx";
 import WordBoard from "../components/WordBoard.jsx";
+import LetterButtons from "../components/LetterButtons.jsx";
 
 export default function Game() {
+  const randomWord = "Antique";
+
   const sampleJson = {
     results: 101,
     found_words: {
@@ -125,14 +128,6 @@ export default function Game() {
       });
     }
   }
-  console.log(wordlist);
-
-  const handleLetterClick = (event) => {
-    setShowError(false);
-    setShowWordFound(false);
-    const letterClicked = event.target.value;
-    setGuessWord((prev) => prev + letterClicked);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -181,9 +176,12 @@ export default function Game() {
       <h1>
         Passcode: <span className="guessWord">{guessWord}</span>
       </h1>
-      <button value="E" onClick={handleLetterClick}>
-        E
-      </button>
+      <LetterButtons
+        randomWord={randomWord}
+        setShowError={setShowError}
+        setShowWordFound={setShowWordFound}
+        setGuessWord={setGuessWord}
+      />
       <button type="submit" onClick={handleSubmit}>
         Check Passcode
       </button>
