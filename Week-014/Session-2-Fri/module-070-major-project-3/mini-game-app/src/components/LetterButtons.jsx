@@ -1,12 +1,11 @@
 import createButtonArray from "../helper-functions/createButtonArray";
 
-export default function LatterButtons({
-  randomWord,
+export default function LetterButtons({
+  buttonArray,
   setShowError,
   setShowWordFound,
   setGuessWord,
 }) {
-  const buttonArray = createButtonArray(randomWord);
   const handleLetterClick = (event) => {
     setShowError(false);
     setShowWordFound(false);

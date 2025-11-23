@@ -3,6 +3,7 @@ import Timer from "../components/Timer";
 import generateWordsJson from "../helper-functions/generateWordsJson.jsx";
 import WordBoard from "../components/WordBoard.jsx";
 import LetterButtons from "../components/LetterButtons.jsx";
+import createButtonArray from "../helper-functions/createButtonArray.js";
 
 export default function Game() {
   const randomWord = "Antique";
@@ -163,11 +164,16 @@ export default function Game() {
     }
     setGuessWord("");
   };
+  const initBtnArray = createButtonArray(randomWord);
+  const handleShuffle = () => {
+    setButtonArray(createButtonArray(randomWord));
+  };
   const [guessWord, setGuessWord] = useState("");
   const [foundWords, setFoundWords] = useState([]);
   const [showError, setShowError] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const [showWordFound, setShowWordFound] = useState(false);
+  const [buttonArray, setButtonArray] = useState(initBtnArray);
 
   return (
     <div className="game-wrapper">
@@ -177,13 +183,16 @@ export default function Game() {
         Passcode: <span className="guessWord">{guessWord}</span>
       </h1>
       <LetterButtons
-        randomWord={randomWord}
+        buttonArray={buttonArray}
         setShowError={setShowError}
         setShowWordFound={setShowWordFound}
         setGuessWord={setGuessWord}
       />
       <button type="submit" onClick={handleSubmit}>
         Check Passcode
+      </button>
+      <button className="shuffle" onClick={handleShuffle}>
+        Shuffle Letters
       </button>
       <div className="word-found">
         {showWordFound ? (
