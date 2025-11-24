@@ -1,6 +1,6 @@
-export default function createButtonArray(randomWord) {
+export default function createButtonArray(gameWord) {
   // Capitalize the letters
-  const capWord = randomWord.toUpperCase();
+  const capWord = gameWord.toUpperCase();
   // Create an array that contains each letter
   const buttonArray = capWord.split("");
   // Shuffle letters using Fisher-Yates algorithm
