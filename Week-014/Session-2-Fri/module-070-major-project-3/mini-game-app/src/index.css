@@ -11,6 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  justify-items: center;
 }
 
 a {
@@ -28,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  text-align: center;
 }
 
 h1 {
@@ -52,6 +54,48 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.letter-button-wrap {
+  display: grid;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  grid-template-rows: 12.5% 25% 25% 25% 12.5%;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . . . . . ."
+    ". . button1 button1 button2 button2 . ."
+    ". button3 button3 button4 button4 button5 button5 ."
+    ". . button6 button6 button7 button7 . ."
+    ". . . . . . . .";
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  height: 15rem;
+  width: 15rem;
+  margin: auto
+}
+
+.letter-button-1 {
+  grid-area: button1;
+}
+.letter-button-2 {
+  grid-area: button2;
+}
+.letter-button-3 {
+  grid-area: button3;
+}
+.letter-button-4 {
+  grid-area: button4;
+}
+.letter-button-5 {
+  grid-area: button5;
+}
+.letter-button-6 {
+  grid-area: button6;
+}
+.letter-button-7 {
+  grid-area: button7;
 }
 
 @media (prefers-color-scheme: light) {

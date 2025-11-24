@@ -14,12 +14,12 @@ export default function LetterButtons({
   };
   return (
     <div className="letter-button-wrap">
-      {buttonArray.map((letter) => {
+      {buttonArray.map((letter, index) => {
         return (
           <button
-            className="letter-button"
+            className={`letter-button-${index + 1}`}
             value={letter}
-            id={letter}
+            key={letter}
             onClick={handleLetterClick}
           >
             {letter}
