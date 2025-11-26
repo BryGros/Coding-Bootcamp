@@ -13,5 +13,9 @@ export default function Timer() {
 
   useNavigate("/game-over");
 
-  return <div className="timer">Firewall Trace in: {timer} seconds</div>;
+  return (
+    <div className="timer">
+      Firewall Trace in: <span class="timer-seconds">{timer} sec</span>
+    </div>
+  );
 }

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
-export default function generateWordsJson({ randomWord }) {
+export default function useWordAPI(randomWord) {
   let wordsJson;
+  let fullPasscodeList = [];
   useEffect(() => {
     async function fetchWords() {
       const url = `https://word-checker-api.p.rapidapi.com/v1/tools/anagram-solver/${randomWord}`;
@@ -9,7 +10,7 @@ export default function generateWordsJson({ randomWord }) {
         method: "GET",
         headers: {
           "x-rapidapi-key":
-            "5b3d88e7dmshdd25b7c1b5bc34fp166924jsn0420927128263",
+            "35b3d88e7dmshdd25b7c1b5bc34fp166924jsn042092712826",
           "x-rapidapi-host": "word-checker-api.p.rapidapi.com",
         },
       };
@@ -24,6 +25,15 @@ export default function generateWordsJson({ randomWord }) {
       }
     }
     wordsJson = fetchWords();
+    const results = wordsJson.found_words;
+    for (const i in results) {
+      if (Number(i) > 3) {
+        const wordsArray = results[i];
+        wordsArray.forEach((element) => {
+          fullPasscodeList.push(element);
+        });
+      }
+    }
   }, []);
-  return wordsJson;
+  return fullPasscodeList;
 }

@@ -1,17 +1,21 @@
+.theme-default {
+  --border-color: grey;
+  --font-color: rgb(65, 189, 65);
+  --bg-color: #242424;
+  --cur-color: rgb(44, 190, 44);
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background-color: var(--bg-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  justify-items: center;
 }
 
 a {
@@ -24,16 +28,18 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 2rem 0 0 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  place-items: initial;
+  min-width: 100vw;
+  min-height: 320px;
   text-align: center;
+  padding: 0;
+  justify-content: center;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
   line-height: 1.1;
 }
 
@@ -60,7 +66,7 @@ button:focus-visible {
   display: grid;
   grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
   grid-template-rows: 12.5% 25% 25% 25% 12.5%;
-  gap: 0px 0px;
+  gap: 2rem 1rem;
   grid-template-areas:
     ". . . . . . . ."
     ". . button1 button1 button2 button2 . ."
@@ -73,29 +79,65 @@ button:focus-visible {
   align-items: center;
   height: 15rem;
   width: 15rem;
-  margin: auto
+  margin: 2rem auto;
 }
 
 .letter-button-1 {
   grid-area: button1;
+  box-shadow: white 0 0 1rem;
+  border-color: var(--border-color);
+  color: var(--font-color);
 }
 .letter-button-2 {
   grid-area: button2;
+  box-shadow: white 0 0 0.5rem;
+  border-color: var(--border-color);
+  color: var(--font-color);
 }
 .letter-button-3 {
   grid-area: button3;
+  box-shadow: white 0 0 1rem;
+  border-color: var(--border-color);
+  color: var(--font-color);
 }
 .letter-button-4 {
   grid-area: button4;
+  box-shadow: white 0 0 1rem;
+  border-color: var(--border-color);
+  color: var(--font-color);
 }
 .letter-button-5 {
   grid-area: button5;
+  box-shadow: white 0 0 1rem;
+  border-color: var(--border-color);
+  color: var(--font-color);
 }
 .letter-button-6 {
   grid-area: button6;
+  box-shadow: white 0 0 1rem;
+  border-color: var(--border-color);
+  color: var(--font-color);
 }
 .letter-button-7 {
   grid-area: button7;
+  box-shadow: white 0 0 1rem;
+  border-color: var(--border-color);
+  color: var(--font-color);
+}
+
+.blinking-cursor {
+  font-size: larger;
+  color: var(--cur-color);
+  animation: blink 1s infinite linear;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -110,3 +152,52 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.msg-placeholder {
+  padding: 1.2rem;
+  margin: 2rem auto;
+}
+.error {
+  font-size: 1.5rem;
+  padding: 0.25rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: rgb(252, 46, 46);
+  color: white;
+  width: fit-content;
+  margin: 2rem auto;
+  animation: fadeInOut 120s linear;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  0.5% {
+    opacity: 1;
+  }
+  1.5% {
+    opacity: 1;
+  }
+  2% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.timer-seconds-high {
+  color: red;
+  padding-left: 0.5rem;
+}
+
+.timer-seconds-medium {
+  color: red;
+  padding-left: 0.5rem;
+}
+
+.timer-seconds-low {
+  color: red;
+  padding-left: 0.5rem;
+}
+

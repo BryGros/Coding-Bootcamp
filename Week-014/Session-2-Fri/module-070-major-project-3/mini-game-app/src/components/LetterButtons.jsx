@@ -1,4 +1,5 @@
-import createButtonArray from "../helper-functions/createButtonArray";
+import { useContext } from "react";
+import { ThemeContext } from "../context/PlayerContext";
 
 export default function LetterButtons({
   buttonArray,
@@ -6,6 +7,7 @@ export default function LetterButtons({
   setShowWordFound,
   setGuessWord,
 }) {
+  const { theme } = useContext(ThemeContext);
   const handleLetterClick = (event) => {
     setShowError(false);
     setShowWordFound(false);
@@ -17,7 +19,7 @@ export default function LetterButtons({
       {buttonArray.map((letter, index) => {
         return (
           <button
-            className={`letter-button-${index + 1}`}
+            className={`letter-button-${index + 1} theme-${theme}`}
             value={letter}
             key={letter}
             onClick={handleLetterClick}
