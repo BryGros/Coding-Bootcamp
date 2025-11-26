@@ -15,7 +15,7 @@ export default function Timer() {
 
   return (
     <div className="timer">
-      Firewall Trace in: <span class="timer-seconds">{timer} sec</span>
+      Firewall Trace in: <span className="timer-seconds">{timer} sec</span>
     </div>
   );
 }

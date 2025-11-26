@@ -6,136 +6,18 @@ import createButtonArray from "../helper-functions/createButtonArray.js";
 import { words } from "../data/wordlist.jsx";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../context/PlayerContext.jsx";
+import { GameObject } from "../context/GameContext.jsx";
 
 export default function Gameboard() {
-  const randomIndex = Math.floor(Math.random() * (words.length + 1));
-  const randomWord = words[randomIndex];
-
-  const sampleJson = {
-    results: 101,
-    found_words: {
-      2: [
-        "QI",
-        "UN",
-        "NU",
-        "NA",
-        "AT",
-        "TI",
-        "EA",
-        "NE",
-        "AI",
-        "AN",
-        "ET",
-        "TE",
-        "UT",
-        "EN",
-        "AE",
-        "TA",
-        "IN",
-        "IT",
-      ],
-      3: [
-        "QAT",
-        "QUA",
-        "QIN",
-        "UNI",
-        "NUT",
-        "TAU",
-        "AIN",
-        "EAU",
-        "AIT",
-        "TEN",
-        "NAT",
-        "EAT",
-        "TIN",
-        "TAI",
-        "NIT",
-        "NET",
-        "EAN",
-        "TAE",
-        "TUI",
-        "ITA",
-        "ETA",
-        "UTE",
-        "TAN",
-        "AUE",
-        "NAE",
-        "TUN",
-        "TIE",
-        "UTA",
-        "NIE",
-        "TEA",
-        "ANI",
-        "ANE",
-        "ATE",
-        "ANT",
-      ],
-      4: [
-        "QUAT",
-        "QUIN",
-        "QUIT",
-        "QUAI",
-        "ANTE",
-        "AUNT",
-        "TEIN",
-        "ETUI",
-        "AUNE",
-        "AITU",
-        "NEAT",
-        "TINE",
-        "UNIT",
-        "TUNE",
-        "TIAN",
-        "UNAI",
-        "TANE",
-        "ANTI",
-        "TINA",
-        "TUAN",
-        "ETNA",
-        "TAIN",
-        "EINA",
-        "AINE",
-        "TUNA",
-        "NITE",
-        "EEEE",
-      ],
-      5: [
-        "QUINA",
-        "QUIET",
-        "QUENA",
-        "QUITE",
-        "QUINT",
-        "QUEAN",
-        "QUATE",
-        "QUANT",
-        "QUINE",
-        "UNTIE",
-        "TUINA",
-        "ENTIA",
-        "UNITE",
-        "TENIA",
-        "TINEA",
-      ],
-      6: ["QUINTE", "EQUANT", "QUINTA", "QUAINT", "QUEINT", "AUNTIE"],
-      7: ["QUINATE", "ANTIQUE"],
-    },
-  };
-
-  const wordsJson = sampleJson; // change later to generateWordsJson("Antique");
-
-  const results = wordsJson.found_words;
-
-  let fullPasscodeList = [];
-
-  // Pushing possible words from API to fullPassocdeList
-  for (const i in results) {
-    if (Number(i) > 3) {
-      const wordsArray = results[i];
-      wordsArray.forEach((element) => {
-        fullPasscodeList.push(element);
-      });
-    }
-  }
+  const { gameObject } = useContext(GameObject);
+  const { setGameObject } = useContext(GameObject);
+  const gameWord = gameObject.gameWord;
+  // Fetch Words
+  const wordList = useWordAPI(gameWord);
+  setGameObject((prev) => ({
+    ...prev,
+    wordsToFind: wordList,
+  }));
 
   // Submit a word as a guess
   const handleSubmit = (event) => {
