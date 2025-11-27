@@ -1,5 +1,5 @@
 .theme-default {
-  --border-color: grey;
+  --border-color: green;
   --font-color: rgb(65, 189, 65);
   --bg-color: #242424;
   --cur-color: rgb(44, 190, 44);
@@ -168,6 +168,17 @@ button:focus-visible {
   animation: fadeInOut 120s linear;
 }
 
+.success {
+  font-size: 1.5rem;
+  padding: 0.25rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: rgb(9, 77, 24);
+  color: white;
+  width: fit-content;
+  margin: 2rem auto;
+  animation: fadeInOut 120s linear;
+}
+
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -187,12 +198,12 @@ button:focus-visible {
 }
 
 .timer-seconds-high {
-  color: red;
+  color: green;
   padding-left: 0.5rem;
 }
 
 .timer-seconds-medium {
-  color: red;
+  color: yellow;
   padding-left: 0.5rem;
 }
 
@@ -201,3 +212,8 @@ button:focus-visible {
   padding-left: 0.5rem;
 }
 
+.component-wrap {
+  padding: 1rem;
+  border-style: solid;
+  border-color: var(--border-color);
+}

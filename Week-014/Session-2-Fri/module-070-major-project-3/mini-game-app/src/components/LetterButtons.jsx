@@ -3,14 +3,12 @@ import { ThemeContext } from "../context/PlayerContext";
 
 export default function LetterButtons({
   buttonArray,
-  setShowError,
-  setShowWordFound,
+  setShowMsg,
   setGuessWord,
 }) {
   const { theme } = useContext(ThemeContext);
   const handleLetterClick = (event) => {
-    setShowError(false);
-    setShowWordFound(false);
+    setShowMsg(false);
     const letterClicked = event.target.value;
     setGuessWord((prev) => prev + letterClicked);
   };

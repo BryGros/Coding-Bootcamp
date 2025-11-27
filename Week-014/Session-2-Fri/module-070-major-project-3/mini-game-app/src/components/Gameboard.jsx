@@ -4,27 +4,53 @@ import WordBoard from "../components/WordBoard.jsx";
 import LetterButtons from "../components/LetterButtons.jsx";
 import createButtonArray from "../helper-functions/createButtonArray.js";
 import { words } from "../data/wordlist.jsx";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../context/PlayerContext.jsx";
 import { GameObject } from "../context/GameContext.jsx";
+import pickRandomWord from "../helper-functions/pickRandomWord.js";
 
 export default function Gameboard() {
-  const { gameObject } = useContext(GameObject);
-  const { setGameObject } = useContext(GameObject);
-  const gameWord = gameObject.gameWord;
-  // Fetch Words
-  const wordList = useWordAPI(gameWord);
-  setGameObject((prev) => ({
-    ...prev,
-    wordsToFind: wordList,
-  }));
+  const { gameObject, setGameObject } = useContext(GameObject);
+  const { theme } = useContext(ThemeContext);
 
-  // Submit a word as a guess
+  // gameWord state
+  const [gameWord, setGameWord] = useState(null);
+
+  // Set random word once on mount
+  useEffect(() => {
+    const newWord = pickRandomWord(words);
+    setGameWord(newWord);
+    setGameObject((prev) => ({
+      ...prev,
+      gameWord: newWord,
+    }));
+  }, []);
+
+  // Create Button Array once gameWord is set
+  useEffect(() => {
+    if (!gameWord) return;
+    setButtonArray(createButtonArray(gameWord));
+  }, [gameWord]);
+
+  // Fetch Words from API when gameWord is set
+  const wordList = useWordAPI(gameWord);
+
+  // When wordList changes after API call, sync it into the context
+  useEffect(() => {
+    setGameObject((prev) => ({
+      ...prev,
+      wordsToFind: wordList,
+      totalWordsToFind: wordList.length,
+    }));
+  }, [wordList, setGameObject]);
+
+  // Handle submitting a word as a guess
   const handleSubmit = (event) => {
     event.preventDefault();
-    // global variables for validation checkes
+    // global variables and sets for validation checkes
     let wordAlreadyGuessed = false;
     let repeatedLetter = false;
+    setMessageType("error");
     // function that sets wordAlreadyGuessed to true if guessWord was already found
     const checkMatch = (guessWord) => {
       for (const index in foundWords) {
@@ -42,7 +68,6 @@ export default function Gameboard() {
       for (let i = 0; i < guessWord.length; i++) {
         let letter = guessWord[i];
         letterCount[letter] = (letterCount[letter] || 0) + 1;
-        console.log(letterCount);
       }
       repeatedLetter = Object.values(letterCount).some((count) => count > 1);
     };
@@ -51,34 +76,44 @@ export default function Gameboard() {
     checkForRepeatLetter(guessWord);
     // validations on guessed word
     if (guessWord.length < 4) {
-      setErrMsg("Passcode too short");
-      setShowError(true);
+      setMsg("Passcode too short");
+      setShowMsg(true);
     } else if (wordAlreadyGuessed) {
-      setErrMsg("You already cracked that passcode");
-      setShowError(true);
+      setMsg("You already cracked that passcode");
+      setShowMsg(true);
     } else if (repeatedLetter) {
-      setErrMsg("Passcodes don't have repeated letters");
-      setShowError(true);
+      setMsg("Passcodes don't have repeated letters");
+      setShowMsg(true);
     } else {
-      for (const index in fullPasscodeList) {
-        const word = fullPasscodeList[index];
+      // Push matched words to found word list, or return error
+      const fullPasscodeList = gameObject.wordsToFind;
+      let wordMatched = false;
+      let currIndex = fullPasscodeList.length;
+      while (currIndex-- >= 0) {
+        const word = fullPasscodeList[currIndex];
         if (guessWord == word) {
+          wordMatched = true;
           setFoundWords((currlist) => {
-            const newWord = [index, guessWord];
+            const newWord = [currIndex, guessWord];
             const newFoundList = [...currlist, newWord];
             return newFoundList;
           });
-          setShowWordFound(true);
-        } else {
-          setErrMsg("No passcode found");
-          setShowError(true);
         }
+      }
+
+      if (wordMatched) {
+        setMsg("Passcode Cracked!");
+        setMessageType("success");
+        setShowMsg(true);
+      } else {
+        setMsg("No passcode found");
+        setShowMsg(true);
       }
     }
     setGuessWord("");
   };
-  const initBtnArray = createButtonArray(randomWord);
 
+  // handle shuffle button click
   const handleShuffle = () => {
     let workingArray = [...buttonArray];
     let currIndex = workingArray.length;
@@ -96,20 +131,19 @@ export default function Gameboard() {
 
   const [guessWord, setGuessWord] = useState("");
   const [foundWords, setFoundWords] = useState([]);
-  const [showError, setShowError] = useState(false);
-  const [errMsg, setErrMsg] = useState("");
-  const [showWordFound, setShowWordFound] = useState(false);
-  const [buttonArray, setButtonArray] = useState(initBtnArray);
-  const { theme } = useContext(ThemeContext);
+  const [showMsg, setShowMsg] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [buttonArray, setButtonArray] = useState([]);
+  const [messageType, setMessageType] = useState("");
 
-  const errorMessage = <h1 className="error">{errMsg}</h1>;
+  const message = <h1 className={messageType}>{msg}</h1>;
   const messagePlaceholder = <h1 className="msg-placeholder"></h1>;
 
   return (
     <div className="component-wrap">
       <Timer />
       <WordBoard foundWords={foundWords} guessWord={guessWord} />
-      {showError ? errorMessage : messagePlaceholder}
+      {showMsg ? message : messagePlaceholder}
       <h1>Passcode:</h1>
       <h2 className="guessWord">
         {guessWord}
@@ -117,8 +151,7 @@ export default function Gameboard() {
       </h2>
       <LetterButtons
         buttonArray={buttonArray}
-        setShowError={setShowError}
-        setShowWordFound={setShowWordFound}
+        setShowMsg={setShowMsg}
         setGuessWord={setGuessWord}
       />
       <button type="submit" onClick={handleSubmit}>
@@ -127,13 +160,6 @@ export default function Gameboard() {
       <button className="shuffle" onClick={handleShuffle}>
         Shuffle Letters
       </button>
-      <div className="word-found">
-        {showWordFound ? (
-          <h1 className="found-word-msg">Passcode Cracked!</h1>
-        ) : (
-          ""
-        )}
-      </div>
     </div>
   );
 }
