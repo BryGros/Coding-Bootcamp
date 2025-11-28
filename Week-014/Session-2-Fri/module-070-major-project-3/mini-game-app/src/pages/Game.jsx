@@ -7,7 +7,7 @@ export default function Game() {
   const { playerExists } = useContext(PlayerExists);
 
   return (
-    <div className="component-wrap">
+    <div className="game-wrap">
       {playerExists ? <Gameboard /> : <UserPreferences />}
     </div>
   );

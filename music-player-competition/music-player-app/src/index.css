@@ -1,0 +1,125 @@
+.theme-IL {
+  --bg-image: url("assets/Candles.jpg");
+}
+
+.theme-P1 {
+  --bg-image: url("assets/hills-clouds.jpg");
+}
+
+.theme-WR {
+  --bg-image: url("assets/Space.jpeg");
+}
+
+.theme-GS {
+  --bg-image: url("assets/union-station.jpg");
+}
+
+.theme-SN {
+  --bg-image: url("assets/meadow.jpg");
+}
+.background {
+  background-image: var(--bg-image);
+  background-size: 100vw;
+  width: 100vw;
+  height: 100vh;
+  padding: 5vh 0 0 0;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: black;
+  background-color: darkgray;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  background-color: #1a1a1a;
+}
+
+.now-play-wrap {
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: white;
+  width: 45%;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+audio {
+  width: 100%;
+  align-self: last baseline;
+}
+
+.player-wrap {
+  background-color: rgba(255, 255, 255, 0.757);
+  border: 1px solid black;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 1rem 5px grey;
+  padding: 3rem;
+  height: 75vh;
+  aspect-ratio: 1/1;
+  margin: auto;
+}
+
+.track-bar {
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+  width: 65vw;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: white;
+  gap: 0.5vw;
+  flex: 1 1 320px;
+}
+
+.track-bar button {
+  width: 13vw;
+}
+
+.btn-title-genre h2 {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-title-genre h3 {
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.active {
+  border: 5px solid red;
+}

@@ -158,7 +158,7 @@ export default function Gameboard() {
         Check Passcode
       </button>
       <button className="shuffle" onClick={handleShuffle}>
-        Shuffle Letters
+        <i class="fa-solid fa-shuffle"></i>
       </button>
     </div>
   );
