@@ -15,16 +15,7 @@ export default function Background() {
       about: `Through four movements using a narrative crafted from George Herbert's three "Love" poems, the choir ushers the audience through the ups and downs of the journey of finding your purpose, and presents how identity often interweaves with your chosen path for the better or worse. This is the first movement, when true purpose is discovered`,
       playerSubtitle: "Performed by The Evans Choir, 2024 Denver, CO",
       genre: "choral",
-      poem: `Adapted from Love (I) and Love(II) by George Herbert:
-      Immortal Love, author of this great frame,
-Sprung from that beauty which can never fade,
-How hath man parcel'd out Thy glorious name,
-And thrown it on that dust which Thou hast made,
-While mortal love doth all the title gain!
-Immortal Heat, O let Thy greater flame
-Attract the lesser to it; let those fires
-Which shall consume the world first make it tame,
-And kindle in our hearts such true desires.`,
+      poem: `Adapted from Love (I) and Love(II) by George Herbert:BR/Immortal Love, author of this great frame,BR/Sprung from that beauty which can never fade,BR/How hath man parcel'd out Thy glorious name,BR/And thrown it on that dust which Thou hast made,BR/While mortal love doth all the title gain!BR/Immortal Heat, O let Thy greater flameBR/Attract the lesser to it; let those firesBR/Which shall consume the world first make it tame,BR/And kindle in our hearts such true desires.`,
       theme: "theme-IL",
     },
     {
@@ -44,35 +35,7 @@ And kindle in our hearts such true desires.`,
         "Performed by St. Martin's Chamber Choir, 2024 Denver, CO",
       about: `Celebrating the decades of images from the Hubble and James Webb telescopes, the poetry (by F. Taylor Atkinson) delves deep into humanity's unyielding quest to unravel the mysteries of the cosmos. Through soaring melodies and intricate harmonies, the piece paints a vivid portrait of our collective pursuit of understanding, punctuated by moments of triumph and revelation. Each musical "problem" presented is met with resolute determination as the choir navigates through intricacies and complexities, steadily inching closer to the end goal of capturing awe-inspiring images of our cosmos. As the crescendo builds, "We Reach" achieves its climactic zenith, culminating in a jubilant groove section that will set your choristers' hearts ablaze.`,
       genre: "choral",
-      poem: `We Reach by F. Taylor Atkinson:
-      The Heavens call,
-And so we reach–
-Slow, now, as babes
-Learning to stand,
-Yearning to run
-To all we see.
-Propelled by a need to know
-The clouds of formation,
-Storms of creation - beckon
-Us outward, all humanity in tow.
-We leap through stellar waves,
-Hands plying through the spray
-Of cosmic rays.
-We fly back to childhood,
-Wondering at the play of colors
-On clouds passing by–
-Fingers trying to touch, but remain
-So far away.
-The Webbs we cast
-Delve into history
-Revealing ghosts
-Of stars as they once were–
-Sky-lodged diamonds,
-Once a blur,
-Come into focus with a snap.
-Stretched high on tiptoes–
-In wonder of the universe around us,
-We reach.`,
+      poem: `We Reach by F. Taylor Atkinson:BR/The Heavens call,BR/And so we reach–BR/Slow, now, as babesBR/Learning to stand,BR/Yearning to runBR/To all we see.BR/Propelled by a need to knowBR/The clouds of formation,BR/Storms of creation - beckonBR/Us outward, all humanity in tow.BR/We leap through stellar waves,BR/Hands plying through the sprayBR/Of cosmic rays.BR/We fly back to childhood,BR/Wondering at the play of colorsBR/On clouds passing by–BR/Fingers trying to touch, but remainBR/So far away.BR/The Webbs we castBR/Delve into historyBR/Revealing ghostsBR/Of stars as they once were–BR/Sky-lodged diamonds,BR/Once a blur,BR/Come into focus with a snap.BR/Stretched high on tiptoes–BR/In wonder of the universe around us,BR/We reach.`,
       theme: "theme-WR",
     },
     {
@@ -92,23 +55,7 @@ We reach.`,
         "Performed by St. Martin's Chamber Choir, 2019 Denver, CO",
       about: `Through fluid, meterless phrasing, each choir uniquely shapes the pacing, making every performance a singular experience. Lush quartal harmonies swirl in an ethereal soundscape, reflecting the hazy, dreamlike quality of remembrance, while poignant moments of clarity emerge through structured meter and familiar tertian sonorities.`,
       genre: "choral",
-      poem: `Silent Noon by Dante Gabriel Rossetti:
-      Your hands lie open in the long fresh grass, -
-The finger-points look through like rosy blooms:
-Your eyes smile peace. The pasture gleams and glooms
-'Neath billowing skies that scatter and amass.
-
-All round our nest, far as the eye can pass,
-Are golden kingcup fields with silver edge
-Where the cow-parsley skirts the hawthorn hedge.
-'Tis visible silence, still as the hour glass.
-
-Deep in the sunsearched growths the dragon-fly
-Hangs like a blue thread loosened from the sky: -
-So this winged hour is dropt to us from above.
-Oh! clasp we to our hearts, for deathless dower,
-This close-companioned inarticulate hour
-When twofold silence was the song of love.
+      poem: `Silent Noon by Dante Gabriel Rossetti:BR/Your hands lie open in the long fresh grass,BR/The finger-points look through like rosy blooms:BR/Your eyes smile peace. The pasture gleams and gloomsBR/'Neath billowing skies that scatter and amass.BR/All round our nest, far as the eye can pass,BR/Are golden kingcup fields with silver edgeBR/Where the cow-parsley skirts the hawthorn hedge.BR/'Tis visible silence, still as the hour glass.BR/Deep in the sunsearched growths the dragon-flyBR/Hangs like a blue thread loosened from the sky:BR/So this winged hour is dropt to us from above.BR/Oh! clasp we to our hearts, for deathless dower,BR/This close-companioned inarticulate hourBR/When twofold silence was the song of love.
       `,
       theme: "theme-SN",
     },

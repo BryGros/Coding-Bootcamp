@@ -3,7 +3,7 @@
 }
 
 .theme-P1 {
-  --bg-image: url("assets/hills-clouds.jpg");
+  --bg-image: url("assets/clouds.jpg");
 }
 
 .theme-WR {
@@ -81,7 +81,7 @@ audio {
 }
 
 .player-wrap {
-  background-color: rgba(255, 255, 255, 0.757);
+  background-color: rgba(255, 255, 255, 0.901);
   border: 1px solid black;
   border-radius: 1rem;
   box-shadow: 1px 1px 1rem 5px grey;
@@ -122,4 +122,25 @@ audio {
 
 .active {
   border: 5px solid red;
+}
+
+.head-wrap {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: 320px;
+  width: 320px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-weight: bold;
 }
