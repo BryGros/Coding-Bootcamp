@@ -5,7 +5,7 @@ export default function NowPlaying({ loadedSong }) {
         <h1>{loadedSong.title}</h1>
         <h2>{loadedSong.playerSubtitle}</h2>
       </div>
-      <audio controls src={loadedSong.src}>
+      <audio controls controlsList="nodownload" autoPlay src={loadedSong.src}>
         This file could not be loaded...
       </audio>
     </div>

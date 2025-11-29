@@ -7,13 +7,13 @@ export default function Player({ loadedSong, setLoadedSong, tracks }) {
   return (
     <div className="player-wrap">
       <Header />
-      <NowPlaying loadedSong={loadedSong} />
-      <InfoPane loadedSong={loadedSong} />
       <TrackBar
         loadedSong={loadedSong}
         tracks={tracks}
         setLoadedSong={setLoadedSong}
       />
+      <NowPlaying loadedSong={loadedSong} />
+      <InfoPane loadedSong={loadedSong} />
       <div className="copyright">All music © Bryan Grosbach</div>
     </div>
   );
