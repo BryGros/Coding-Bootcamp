@@ -1,5 +1,5 @@
 export default function NowPlaying({ loadedSong }) {
-  return (
+  const songLoaded = (
     <div className="now-play-wrap">
       <div className="album-cover">
         <h1>{loadedSong.title}</h1>
@@ -10,4 +10,14 @@ export default function NowPlaying({ loadedSong }) {
       </audio>
     </div>
   );
+
+  const notLoaded = (
+    <div className="now-play-wrap">
+      <div className="no-song-loaded">
+        No song loaded. Click a song button above to listen!
+      </div>
+    </div>
+  );
+
+  return loadedSong.src ? songLoaded : notLoaded;
 }

@@ -13,7 +13,7 @@ export default function Background() {
       src: immortalLove,
       title: "Herbert's Love",
       about: `Through four movements using a narrative crafted from George Herbert's three "Love" poems, the choir ushers the audience through the ups and downs of the journey of finding your purpose, and presents how identity often interweaves with your chosen path for the better or worse. This is the first movement, when true purpose is discovered`,
-      playerSubtitle: "Performed by The Evans Choir, 2024 Denver, CO",
+      playerSubtitle: "Performed by Evans Choir, 2024 Denver, CO",
       genre: "choral",
       poem: `Adapted from Love (I) and Love(II) by George Herbert:BR/Immortal Love, author of this great frame,BR/Sprung from that beauty which can never fade,BR/How hath man parcel'd out Thy glorious name,BR/And thrown it on that dust which Thou hast made,BR/While mortal love doth all the title gain!BR/Immortal Heat, O let Thy greater flameBR/Attract the lesser to it; let those firesBR/Which shall consume the world first make it tame,BR/And kindle in our hearts such true desires.`,
       theme: "theme-IL",
@@ -64,7 +64,7 @@ export default function Background() {
   const [loadedSong, setLoadedSong] = useState({});
 
   return (
-    <div className={`background ${loadedSong.theme}`}>
+    <div key={loadedSong.theme} className={`background ${loadedSong.theme}`}>
       <Player
         loadedSong={loadedSong}
         setLoadedSong={setLoadedSong}
