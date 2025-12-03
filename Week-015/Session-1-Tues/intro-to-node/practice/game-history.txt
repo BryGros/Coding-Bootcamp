@@ -1,7 +1,0 @@
-Player | Bryan | Guess: 3 | Secret: 8 | Result: LOST
-Player | Bryan | Guess: 3 | Secret: 2 | Result: LOST
-Player | Bryan | Guess: 3 | Secret: 8 | Result: LOST
-Player | Bryan | Guess: 3 | Secret: 6 | Result: LOST
-Player | Bryan | Guess: 3 | Secret: 4 | Result: LOST
-Player | Bryan | Guess: 3 | Secret: 3 | Result: WON
-Player | Bryan | Guess: 3 | Secret: 4 | Result: LOST
