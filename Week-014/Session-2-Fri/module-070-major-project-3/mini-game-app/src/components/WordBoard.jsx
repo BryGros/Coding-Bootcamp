@@ -1,4 +1,4 @@
-export default function WordBoard({ guessWord, foundWords }) {
+export default function WordBoard({ foundWords }) {
   const wordListRender = foundWords.map((wordArray) => {
     const wordKey = wordArray[0];
     const word = wordArray[1];

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import {
-  PlayerExists,
+  PlayerDataExists,
   PlayerNameContext,
   ThemeContext,
 } from "../context/PlayerContext";
@@ -8,13 +8,10 @@ import { GameObject } from "../context/GameContext";
 
 export default function UserPreferences() {
   const { playerName, setPlayerName } = useContext(PlayerNameContext);
-  const { setPlayerExists } = useContext(PlayerExists);
+  const { setPlayerDataExists } = useContext(PlayerDataExists);
   const { theme, setTheme } = useContext(ThemeContext);
   const { gameObject, setGameObject } = useContext(GameObject);
-  const initDiff = gameObject.difficulty;
 
-  const [selectedTheme, setSelectedTheme] = useState(theme);
-  const [selDifficulty, setSelDifficulty] = useState(initDiff);
   const [editName, setEditName] = useState(false);
 
   const handleNameChange = () => {
@@ -25,20 +22,27 @@ export default function UserPreferences() {
     setEditName(true);
   };
 
+  const handleDiffSelect = (event) => {
+    setGameObject((prev) => ({
+      ...prev,
+      difficulty: event.target.value,
+    }));
+  };
+
   const handleThemeChange = (event) => {
-    const clickedTheme = event.target.value;
-    setSelectedTheme(clickedTheme);
+    setTheme(event.target.value);
   };
 
   const handlePlayClick = (event) => {
     event.preventDefault();
-    setGameObject((prev) => {
-      const newObject = { ...prev };
-      newObject.difficulty = selDifficulty;
-      newObject.timerColor = "high";
-      return newObject;
-    });
-    setPlayerExists(true);
+    setPlayerDataExists(true);
+  };
+
+  const handleApiKeyChange = (event) => {
+    setGameObject((prev) => ({
+      ...prev,
+      apiKey: event.target.value,
+    }));
   };
 
   const editFields = (
@@ -63,73 +67,61 @@ export default function UserPreferences() {
       <label htmlFor={`player-name theme-${theme}`}>Player Name:</label>
       <h2>{playerName == "" ? "Not Set" : playerName}</h2>
       <button onClick={handleEditNameClick}>
-        <i class="fa-regular fa-pen-to-square"></i>
+        <i className="fa-regular fa-pen-to-square"></i>
       </button>
     </div>
   );
 
-  useEffect(() => {
-    setTheme(selectedTheme);
-    setGameObject((prev) => {
-      const newObject = { ...prev };
-      newObject.difficulty = selDifficulty;
-      return newObject;
-    });
-  }, [selectedTheme, selDifficulty]);
-
   return (
     <div className={`component-wrap theme-${theme}`}>
       {editName ? editFields : displayFields}
-      <h2>Themes:</h2>
+      <h2>Theme: {theme}</h2>
       <div className="theme-list">
         <button
-          value="default"
+          value="Default"
           className="selector-theme-default"
           onClick={handleThemeChange}
         >
           Default
         </button>
         <button
-          value="red"
+          value="Red"
           className="selector-theme-red"
           onClick={handleThemeChange}
         >
           Moody Red
         </button>
         <button
-          value="yellow"
+          value="Yellow"
           className="selector-theme-yellow"
           onClick={handleThemeChange}
         >
           Lightning
         </button>
       </div>
-      <h2>Difficulty: {selDifficulty}</h2>
+      <h2>Difficulty: {gameObject.difficulty}</h2>
       <div className="difficulty-wrap">
         <button
           className="normal-diff"
-          onClick={() => {
-            setSelDifficulty("Normal");
-          }}
+          value="Normal"
+          onClick={handleDiffSelect}
         >
           Normal
         </button>
-        <button
-          className="hard-diff"
-          onClick={() => {
-            setSelDifficulty("Hard");
-          }}
-        >
+        <button className="hard-diff" value="Hard" onClick={handleDiffSelect}>
           Hard
         </button>
         <button
           className="freeplay"
-          onClick={() => {
-            setSelDifficulty("Free-Play");
-          }}
+          value="Free-Play"
+          onClick={handleDiffSelect}
         >
-          Free Play
+          Free-Play
         </button>
+      </div>
+      <div className="apikey">
+        <h2>API Key (from link)</h2>
+        <input type="text" id="api-key" onChange={handleApiKeyChange} />
       </div>
       <button className="play-button" type="submit" onClick={handlePlayClick}>
         Play!
@@ -137,3 +129,5 @@ export default function UserPreferences() {
     </div>
   );
 }
+
+("");

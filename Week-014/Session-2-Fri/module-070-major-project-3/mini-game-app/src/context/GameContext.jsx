@@ -1,18 +1,13 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 export const GameObject = createContext();
 
 export function GameObjectProviders({ children }) {
   const [gameObject, setGameObject] = useState({
-    gameWord: "",
-    timerColor: "high",
-    score: 0,
+    totalScore: 0,
     difficulty: "Hard",
     timerStart: 60,
-    minScore: 100,
-    wordsToFind: [],
-    totalWordsToFind: 0,
-    totalWordsFound: 0,
+    apiKey: "",
   });
 
   return (

@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { GameObject } from "../context/GameContext";
 
 export default function useWordAPI(randomWord) {
   let wordsJson;
 
   const [words, setWords] = useState([]);
+  const { gameObject } = useContext(GameObject);
 
   useEffect(() => {
     // Doesn't run API if gameWord is not yet set
     if (!randomWord) {
       return;
     }
-
     console.log("useWordAPI fetching for: ", randomWord);
 
     async function fetchWords() {
@@ -18,8 +19,7 @@ export default function useWordAPI(randomWord) {
       const options = {
         method: "GET",
         headers: {
-          "x-rapidapi-key":
-            "5b3d88e7dmshdd25b7c1b5bc34fp166924jsn0420927128263",
+          "x-rapidapi-key": gameObject.apiKey,
           "x-rapidapi-host": "word-checker-api.p.rapidapi.com",
         },
       };

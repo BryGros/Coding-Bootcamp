@@ -1,18 +1,18 @@
-.theme-default {
+.theme-Default {
   --border-color: green;
   --font-color: rgb(65, 189, 65);
   --bg-color: #242424;
   --cur-color: rgb(44, 190, 44);
 }
 
-.theme-red {
+.theme-Red {
   --border-color: red;
-  --font-color: rgb(165, 11, 11);
+  --font-color: rgb(238, 108, 108);
   --bg-color: #242424;
-  --cur-color: rgb(165, 11, 11);
+  --cur-color: rgb(254, 39, 39);
 }
 
-.theme-yellow {
+.theme-Yellow {
   --border-color: yellow;
   --font-color: rgb(205, 205, 10);
   --bg-color: #3c3b0d;
