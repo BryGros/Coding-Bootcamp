@@ -75,7 +75,7 @@ export default function Gameboard() {
     checkMatch(guessWord);
     checkForRepeatLetter(guessWord);
     // validations on guessed word
-    if (guessWord.length < 4) {
+    if (guessWord.length < 4 || guessWord.length == 0) {
       setMsg("Passcode too short");
       setShowMsg(true);
     } else if (wordAlreadyGuessed) {
@@ -100,7 +100,6 @@ export default function Gameboard() {
           });
         }
       }
-
       if (wordMatched) {
         setMsg("Passcode Cracked!");
         setMessageType("success");
@@ -139,9 +138,21 @@ export default function Gameboard() {
   const message = <h1 className={messageType}>{msg}</h1>;
   const messagePlaceholder = <h1 className="msg-placeholder"></h1>;
 
+  // useEffect for resetting showError on change
+  useEffect(() => {
+    if (!showMsg) {
+      return;
+    }
+    const timeout = setTimeout(() => {
+      setShowMsg(false);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [showMsg]);
+
   return (
     <div className="component-wrap">
-      <Timer />
+      {gameObject.difficulty == "Free-Play" ? <div></div> : <Timer />}
       <WordBoard foundWords={foundWords} guessWord={guessWord} />
       {showMsg ? message : messagePlaceholder}
       <h1>Passcode:</h1>
@@ -158,7 +169,7 @@ export default function Gameboard() {
         Check Passcode
       </button>
       <button className="shuffle" onClick={handleShuffle}>
-        <i class="fa-solid fa-shuffle"></i>
+        <i className="fa-solid fa-shuffle"></i>
       </button>
     </div>
   );

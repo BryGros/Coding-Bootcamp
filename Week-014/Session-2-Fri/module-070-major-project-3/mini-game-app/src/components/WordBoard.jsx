@@ -10,7 +10,7 @@ export default function WordBoard({ guessWord, foundWords }) {
   });
   return (
     <div className="word-list-wrap">
-      <h1>Cracked Passwords:</h1>
+      <h1>Cracked Passcodes:</h1>
       <ul className="found-word-list">{wordListRender}</ul>
     </div>
   );

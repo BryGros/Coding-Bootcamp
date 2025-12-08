@@ -104,11 +104,32 @@ export default function UserPreferences() {
           Lightning
         </button>
       </div>
-      <h2>Difficulty:</h2>
+      <h2>Difficulty: {selDifficulty}</h2>
       <div className="difficulty-wrap">
-        <button className="normal-diff">Normal</button>
-        <button className="hard-diff">Hard</button>
-        <button className="freeplay">Free Play</button>
+        <button
+          className="normal-diff"
+          onClick={() => {
+            setSelDifficulty("Normal");
+          }}
+        >
+          Normal
+        </button>
+        <button
+          className="hard-diff"
+          onClick={() => {
+            setSelDifficulty("Hard");
+          }}
+        >
+          Hard
+        </button>
+        <button
+          className="freeplay"
+          onClick={() => {
+            setSelDifficulty("Free-Play");
+          }}
+        >
+          Free Play
+        </button>
       </div>
       <button className="play-button" type="submit" onClick={handlePlayClick}>
         Play!

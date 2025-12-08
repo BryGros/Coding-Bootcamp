@@ -3,20 +3,20 @@ const mongoose = require("mongoose");
 // Connect to local Mongo DB
 
 // use the mongoose object and call connect with our URI
-mongoose.connect("mongodb://localhost:27017/codecademy");
+mongoose.connect("mongodb://localhost:27017/Codecademy");
 
 console.log("Connecting to MongoDB...");
 
-// grab the connectino object
+// grab the connection  object
 
 const database = mongoose.connection;
 
-// Handle Errors - This will give us feedback if we have issues
 database.on("error", (error) => {
   console.error("MongoDb connection error:", error);
 });
 
-// Success message on connect
+//Success message on connect
+
 database.once("open", async () => {
   console.log("Connected to MongoDB successfully!");
 

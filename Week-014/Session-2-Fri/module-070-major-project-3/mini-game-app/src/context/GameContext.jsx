@@ -3,12 +3,11 @@ import { createContext, useContext, useState, useEffect } from "react";
 export const GameObject = createContext();
 
 export function GameObjectProviders({ children }) {
-
   const [gameObject, setGameObject] = useState({
     gameWord: "",
     timerColor: "high",
     score: 0,
-    difficulty: "hard",
+    difficulty: "Hard",
     timerStart: 60,
     minScore: 100,
     wordsToFind: [],
