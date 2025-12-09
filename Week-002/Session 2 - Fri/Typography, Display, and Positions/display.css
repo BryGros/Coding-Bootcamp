@@ -1,0 +1,17 @@
+.inline-block {
+  display: inline-block;
+  /* now we can change the width of the in-line elements*/
+  width: 20px;
+}
+
+.invisible {
+  /* invisible, but also doesn't take up space on the page */
+  /* Good for hiding navigation for mobile on desktop and vise-versa */
+  display: none;
+}
+
+.hidden {
+  /* invisible, but does take up space on the page */
+  /* Used when you want your layout to be the same, but may not show certain elements under certain conditions*/
+  visibility: hidden;
+}
