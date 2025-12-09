@@ -5,7 +5,7 @@ export const PlayerDataExists = createContext();
 export const ThemeContext = createContext();
 
 export function PlayerProviders({ children }) {
-  const [playerName, setPlayerName] = useState("");
+  const [playerName, setPlayerName] = useState("Guest");
   const [theme, setTheme] = useState("Default");
   const [playerDataExists, setPlayerDataExists] = useState(false);
 

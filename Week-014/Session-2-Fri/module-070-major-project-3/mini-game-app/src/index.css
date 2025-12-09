@@ -282,3 +282,8 @@ input {
   width: auto;
   font-size: xx-large;
 }
+
+.last-game {
+  font-weight: bold;
+  color: var(--font-color);
+}

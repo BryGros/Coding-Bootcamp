@@ -6,7 +6,8 @@ import pickRandomWord from "../helper-functions/pickRandomWord.js";
 import { GameObject } from "../context/GameContext.jsx";
 
 export default function useGame() {
-  // Guess word state
+  // Bring in game object and reset total score if continuePlay is false
+
   const [guessWord, setGuessWord] = useState("");
 
   // error/succes message states
@@ -58,8 +59,6 @@ export default function useGame() {
       return passScore;
     });
   }, [wordList]);
-
-  const { gameObject, setGameObject } = useContext(GameObject);
 
   // ---------- HANDLE WORD SUBMIT ----------
   const handleSubmit = (event) => {

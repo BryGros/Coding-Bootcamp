@@ -1,9 +1,10 @@
 export default function WordBoard({ foundWords }) {
+  let wordKey = 0;
   const wordListRender = foundWords.map((wordArray) => {
-    const wordKey = wordArray[0];
+    wordKey++;
     const word = wordArray[1];
     return (
-      <li className="found-word" id={wordKey}>
+      <li className="found-word" key={wordKey}>
         {word}
       </li>
     );

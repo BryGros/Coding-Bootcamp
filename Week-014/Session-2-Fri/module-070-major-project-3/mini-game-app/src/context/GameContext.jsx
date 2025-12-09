@@ -8,8 +8,10 @@ export function GameObjectProviders({ children }) {
     difficulty: "Hard",
     timerStart: 60,
     lastLevelScore: 0,
+    lastGameId: "",
     continuePlay: false,
     apiKey: "",
+    leaderBoard: [],
   });
 
   return (

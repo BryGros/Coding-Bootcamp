@@ -36,8 +36,10 @@ export default function Gameboard() {
   const messagePlaceholder = <h1 className="msg-placeholder"></h1>;
 
   const navigate = useNavigate();
+
   // Handle "Next Level" click
   const handleNextLevelClick = () => {
+    // Set totalScore in game context
     const initTotalScore = gameObject.totalScore;
     setGameObject((prev) => ({
       ...prev,
@@ -45,6 +47,7 @@ export default function Gameboard() {
       lastLevelScore: levelScore,
       continuePlay: true,
     }));
+    // Navigate to Game Over page
     navigate("/game-over");
   };
   // Next Level Div
