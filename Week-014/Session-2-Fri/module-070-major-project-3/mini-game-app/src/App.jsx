@@ -4,15 +4,19 @@ import Game from "./pages/Game";
 import GameOver from "./pages/GameOver";
 import LeaderBoardPage from "./pages/LeaderBoardPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Preferences from "./pages/Preferences";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/play" element={<Game />} />
         <Route path="/game-over" element={<GameOver />} />
         <Route path="/leaderboard" element={<LeaderBoardPage />} />
+        <Route path="/preferences" element={<Preferences />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

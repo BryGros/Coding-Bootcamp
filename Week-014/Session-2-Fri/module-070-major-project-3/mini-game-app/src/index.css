@@ -32,6 +32,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  justify-content: center;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -41,15 +45,18 @@ a:hover {
   color: #535bf2;
 }
 
+html {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  margin: 2rem 0 0 0;
+  margin: 0;
   display: flex;
-  place-items: initial;
-  min-width: 100vw;
-  min-height: 320px;
   text-align: center;
   padding: 0;
   justify-content: center;
+  justify-items: center;
   align-items: center;
 }
 
@@ -219,62 +226,107 @@ button:focus-visible {
   border-style: solid;
   border-color: var(--border-color);
   border-radius: 2rem;
+  width: 80vw;
+  min-height: 80vh;
+  justify-items: center;
+}
+
+.btn-wrap {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
 input {
-  margin-left: 1rem;
+  margin: 0;
+  width: 100px;
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+  font-size: 1rem;
 }
 
+.game-wrap {
+  padding: 0;
+  justify-content: center;
+  justify-items: center;
+  margin: 0;
+  align-items: center;
+}
+
+.theme-list {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+
+#api-key {
+  width: 300px;
+}
+
+.leaderboard-wrap {
+  width: 300px;
+}
 .selector-theme-default {
-  width: 6rem;
+  width: 25%;
   height: 6rem;
   color: rgb(65, 189, 65);
   background-color: #242424;
   text-align: center;
   justify-content: center;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin: auto 1rem;
   border: solid 1px green;
 }
 
 .selector-theme-red {
-  width: 6rem;
+  width: 25%;
   height: 6rem;
-  color: red;
+  color: rgb(238, 108, 108);
   background-color: #242424;
   text-align: center;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin: auto 1rem;
   border: solid 1px red;
 }
 
 .selector-theme-yellow {
-  width: 6rem;
+  width: 25%;
   height: 6rem;
   color: rgb(205, 205, 10);
   background-color: #3c3b0d;
   text-align: center;
   justify-content: center;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin: auto 1rem;
   border: solid 1px yellow;
 }
 
 .display-field-wrap {
+  font-size: 18px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 3.1rem;
 }
 
 .edit-field-wrap {
+  margin-top: 1rem;
+  font-size: 18px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 1rem;
+}
+
+.difficulty-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .play-button {
@@ -285,5 +337,68 @@ input {
 
 .last-game {
   font-weight: bold;
+  color: var(--font-color);
+}
+
+.word-list-wrap {
+  margin-top: 3rem;
+}
+
+.button-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#submit {
+  background-color: rgb(8, 61, 8);
+}
+
+#clear {
+  background-color: rgb(86, 29, 29);
+}
+
+#shuffle {
+  background-color: rgb(241, 241, 135);
+  color: black;
+}
+
+.found-word-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+  color: var(--font-color);
+  min-width: 75vw;
+}
+
+a {
+  color: var(--font-color);
+}
+
+.link-wrap {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.found-word {
+  list-style-type: none;
+  height: fit-content;
+}
+
+.scores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.themed-text {
   color: var(--font-color);
 }

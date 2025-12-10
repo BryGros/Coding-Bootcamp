@@ -5,6 +5,7 @@ import {
   ThemeContext,
 } from "../context/PlayerContext";
 import { GameObject } from "../context/GameContext";
+import { Link } from "react-router";
 
 export default function UserPreferences() {
   const { playerName, setPlayerName } = useContext(PlayerNameContext);
@@ -13,6 +14,7 @@ export default function UserPreferences() {
   const { gameObject, setGameObject } = useContext(GameObject);
 
   const [editName, setEditName] = useState(false);
+  const [showApiError, setShowApiError] = useState(false);
 
   const handleNameChange = () => {
     setEditName(false);
@@ -35,6 +37,10 @@ export default function UserPreferences() {
 
   const handlePlayClick = (event) => {
     event.preventDefault();
+    if (gameObject.apiKey == "") {
+      setShowApiError(true);
+      return;
+    }
     setPlayerDataExists(true);
   };
 
@@ -47,7 +53,7 @@ export default function UserPreferences() {
 
   const editFields = (
     <div className="edit-field-wrap">
-      <label htmlFor={`player-name theme-${theme}`}>Player Name:</label>
+      <label htmlFor="player-name">Player Name:</label>
       <input
         type="text"
         id="player-name"
@@ -65,7 +71,9 @@ export default function UserPreferences() {
   const displayFields = (
     <div className="display-field-wrap">
       <label htmlFor={`player-name theme-${theme}`}>Player Name:</label>
-      <h2>{playerName == "" ? "Not Set" : playerName}</h2>
+      <h2 className="themed-text">
+        {playerName == "" ? "Not Set" : playerName}
+      </h2>
       <button onClick={handleEditNameClick}>
         <i className="fa-regular fa-pen-to-square"></i>
       </button>
@@ -75,7 +83,9 @@ export default function UserPreferences() {
   return (
     <div className={`component-wrap theme-${theme}`}>
       {editName ? editFields : displayFields}
-      <h2>Theme: {theme}</h2>
+      <h2>
+        Theme: <span className="themed-text">{theme}</span>
+      </h2>
       <div className="theme-list">
         <button
           value="Default"
@@ -99,7 +109,9 @@ export default function UserPreferences() {
           Lightning
         </button>
       </div>
-      <h2>Difficulty: {gameObject.difficulty}</h2>
+      <h2>
+        Difficulty: <span className="themed-text">{gameObject.difficulty}</span>
+      </h2>
       <div className="difficulty-wrap">
         <button
           className="normal-diff"
@@ -120,9 +132,26 @@ export default function UserPreferences() {
         </button>
       </div>
       <div className="apikey">
-        <h2>API Key (from link)</h2>
-        <input type="text" id="api-key" onChange={handleApiKeyChange} />
+        <h2>
+          API Key (from{" "}
+          <Link
+            to="https://rapidapi.com/wordcheckerio/api/word-checker-api?ref=producthunt"
+            target="_blank"
+          >
+            Rapid API
+          </Link>
+          )
+        </h2>
+        <input
+          type="text"
+          id="api-key"
+          onChange={handleApiKeyChange}
+          value={gameObject.apiKey}
+        />
       </div>
+      {showApiError && (
+        <h2>You must put in an API key for this game to work</h2>
+      )}
       <button className="play-button" type="submit" onClick={handlePlayClick}>
         Play!
       </button>

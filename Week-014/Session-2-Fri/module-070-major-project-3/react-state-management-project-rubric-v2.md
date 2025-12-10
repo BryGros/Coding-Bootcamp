@@ -33,7 +33,7 @@ Design an interactive game like memory or tic-tac-toe using React components, ho
 ### **Immutable State Updates**
 
 - [x] **Object Updates** - Update object state immutably using spread operator
-- [ ] **Nested Object Updates** - Handle nested object updates while maintaining immutability
+- [x] **Nested Object Updates** - Handle nested object updates while maintaining immutability
 - [x] **Array Operations** - Add, remove, and update array items using immutable methods (map, filter, etc.)
 - [x] **Functional Updates** - Use functional state updates when depending on previous state
 
@@ -100,8 +100,8 @@ Design an interactive game like memory or tic-tac-toe using React components, ho
 ### **Option B - Mini Game Must Include:**
 
 - [x] **Game Logic** - Core game mechanics (memory matching, tic-tac-toe moves, etc.) managed through state
-- [ ] **Player Progress** - Save game progress, scores, and achievements using state management
-- [ ] **Multi-Screen Navigation** - Navigate between game levels, menus, settings, and game screens
+- [x] **Player Progress** - Save game progress, scores, and achievements using state management
+- [x] **Multi-Screen Navigation** - Navigate between game levels, menus, settings, and game screens
 - [x] **Interactive Components** - Reusable game components (cards, board tiles, buttons) with proper event handling
 
 ---

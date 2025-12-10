@@ -60,11 +60,16 @@ export default function Gameboard() {
     </div>
   );
 
+  // Handle clear click
+  const handleClear = () => {
+    setGuessWord("");
+  };
+
   return (
     <div className="component-wrap">
       <div className="board-header">
         {gameObject.difficulty == "Free-Play" ? (
-          <div></div>
+          <div className="intential-blank-div"></div>
         ) : (
           <Timer levelPassed={levelPassed} levelScore={levelScore} />
         )}
@@ -85,12 +90,17 @@ export default function Gameboard() {
         setShowMsg={setShowMsg}
         setGuessWord={setGuessWord}
       />
-      <button type="submit" onClick={handleSubmit}>
-        Check Passcode
-      </button>
-      <button className="shuffle" onClick={handleShuffle}>
-        <i className="fa-solid fa-shuffle"></i>
-      </button>
+      <div className="button-wrap">
+        <button type="submit" onClick={handleSubmit} id="submit">
+          Submit
+        </button>
+        <button className="shuffle" onClick={handleShuffle} id="shuffle">
+          <i className="fa-solid fa-shuffle"></i>
+        </button>
+        <button className="clear" onClick={handleClear} id="clear">
+          Clear
+        </button>
+      </div>
       <WordBoard foundWords={foundWords} guessWord={guessWord} />
     </div>
   );
