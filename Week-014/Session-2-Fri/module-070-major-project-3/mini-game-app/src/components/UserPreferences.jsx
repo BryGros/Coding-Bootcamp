@@ -153,7 +153,7 @@ export default function UserPreferences() {
       {showApiError && (
         <h2>You must put in an API key for this game to work</h2>
       )}
-      {pathname == "/play" && (
+      {pathname == "/Coding-Bootcamp/code-cracker/play" && (
         <button className="play-button" type="submit" onClick={handlePlayClick}>
           Play!
         </button>

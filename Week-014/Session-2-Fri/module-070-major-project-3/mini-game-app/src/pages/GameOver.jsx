@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { GameObject } from "../context/GameContext";
 import { useContext } from "react";
 import Leaderboard from "../components/LeaderBoard";
@@ -12,7 +12,7 @@ export default function GameOver() {
   const { playerName } = useContext(PlayerNameContext);
 
   const handleClick = () => {
-    navigate("/play");
+    navigate("/Coding-Bootcamp/code-cracker/play");
   };
 
   const handleGameEnd = () => {

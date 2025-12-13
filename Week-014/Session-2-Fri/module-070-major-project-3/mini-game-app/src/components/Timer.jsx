@@ -54,7 +54,7 @@ export default function Timer({ levelPassed, levelScore }) {
         }));
       }
       // Navigate to Game Over page
-      navigate("/game-over");
+      navigate("/Coding-Bootcamp/code-cracker/game-over");
     }
     if (timer < initTimer * 0.25) {
       setTimeLeftForColor("low");

@@ -6,7 +6,7 @@ export default function Home() {
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/play");
+    navigate("/Coding-Bootcamp/code-cracker/play");
   };
 
   return (
