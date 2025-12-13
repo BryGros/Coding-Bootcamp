@@ -31,6 +31,7 @@ export default function GameOver() {
       ...prev,
       leaderBoard: newLeaderBoard,
       lastGameId: id,
+      continuePlay: false,
     }));
   };
 
@@ -40,7 +41,9 @@ export default function GameOver() {
     <div className="component-wrap">
       {/* Dynamic displaying based on if they navigated to this page manually */}
       {gameObject.totalScore != 0 ? (
-        <h1>{gameObject.continuePlay ? "LEVEL COMPLETE - GREAT JOB" : "GAME OVER"}</h1>
+        <h1>
+          {gameObject.continuePlay ? "LEVEL COMPLETE - GREAT JOB" : "GAME OVER"}
+        </h1>
       ) : (
         <h1>Wait... why'd you come here?</h1>
       )}
