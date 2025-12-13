@@ -14,7 +14,10 @@ function App() {
       <Routes>
         <Route path="/Coding-Bootcamp/code-cracker/" element={<Home />} />
         <Route path="/Coding-Bootcamp/code-cracker/play" element={<Game />} />
-        <Route path="/game-over" element={<GameOver />} />
+        <Route
+          path="/Coding-Bootcamp/code-cracker/game-over"
+          element={<GameOver />}
+        />
         <Route
           path="/Coding-Bootcamp/code-cracker/leaderboard"
           element={<LeaderBoardPage />}
