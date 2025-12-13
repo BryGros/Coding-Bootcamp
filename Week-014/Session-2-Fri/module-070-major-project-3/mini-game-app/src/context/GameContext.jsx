@@ -15,6 +15,9 @@ export function GameObjectProviders({ children }) {
         continuePlay: false,
         apiKey: "",
         leaderBoard: [],
+        wordsLoaded: false,
+        apiError: false,
+        apiErrorMsg: "",
       };
     } else {
       return JSON.parse(localStorageData);

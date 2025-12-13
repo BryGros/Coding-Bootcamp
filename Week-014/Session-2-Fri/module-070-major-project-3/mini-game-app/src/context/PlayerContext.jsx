@@ -26,7 +26,7 @@ export function PlayerProviders({ children }) {
   const initializeDataExists = () => {
     const localStorageDataExists = localStorage.getItem("playerDataExists");
     if (localStorageDataExists == null) {
-      return "Default";
+      return false;
     } else {
       return JSON.parse(localStorageDataExists);
     }

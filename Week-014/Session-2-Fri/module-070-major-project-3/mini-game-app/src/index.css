@@ -402,3 +402,29 @@ a {
 .themed-text {
   color: var(--font-color);
 }
+
+.loading-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: white black;
+  animation: l1 1s infinite;
+  margin: 5rem auto 0 auto;
+}
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+
+.rule-wrap {
+  width: 80%
+}

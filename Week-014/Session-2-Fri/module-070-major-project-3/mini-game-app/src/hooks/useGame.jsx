@@ -6,8 +6,22 @@ import pickRandomWord from "../helper-functions/pickRandomWord.js";
 import { GameObject } from "../context/GameContext.jsx";
 
 export default function useGame() {
-  // Bring in game object and create guessWord state
-  const { gameObject } = useContext(GameObject);
+  // Bring in game object and set properties for new game
+  const { gameObject, setGameObject } = useContext(GameObject);
+  const setScore = gameObject.continuePlay ? gameObject.totalScore : 0;
+
+  useEffect(() => {
+    setGameObject((prev) => ({
+      ...prev,
+      wordsLoaded: false,
+      continuePlay: false,
+      apiError: false,
+      apiErrorMsg: "",
+      totalScore: setScore,
+    }));
+  }, []);
+
+  // create guessWord state
   const [guessWord, setGuessWord] = useState("");
 
   // error/succes message states

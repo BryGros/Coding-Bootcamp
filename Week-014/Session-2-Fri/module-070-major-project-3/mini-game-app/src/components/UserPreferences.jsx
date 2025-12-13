@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import {
   PlayerDataExists,
   PlayerNameContext,
   ThemeContext,
 } from "../context/PlayerContext";
 import { GameObject } from "../context/GameContext";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 export default function UserPreferences() {
   const { playerName, setPlayerName } = useContext(PlayerNameContext);
   const { setPlayerDataExists } = useContext(PlayerDataExists);
   const { theme, setTheme } = useContext(ThemeContext);
   const { gameObject, setGameObject } = useContext(GameObject);
+  const { pathname } = useLocation();
 
   const [editName, setEditName] = useState(false);
   const [showApiError, setShowApiError] = useState(false);
@@ -152,9 +153,11 @@ export default function UserPreferences() {
       {showApiError && (
         <h2>You must put in an API key for this game to work</h2>
       )}
-      <button className="play-button" type="submit" onClick={handlePlayClick}>
-        Play!
-      </button>
+      {pathname == "/play" && (
+        <button className="play-button" type="submit" onClick={handlePlayClick}>
+          Play!
+        </button>
+      )}
     </div>
   );
 }

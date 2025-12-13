@@ -7,6 +7,7 @@ import { GameObject } from "../context/GameContext.jsx";
 import useGame from "../hooks/useGame.jsx";
 import ScoreDisplay from "./ScoreDisplay.jsx";
 import { useNavigate } from "react-router";
+import LoadingScreen from "./LoadingScreen.jsx";
 
 export default function Gameboard() {
   // Pull from contexts
@@ -47,9 +48,11 @@ export default function Gameboard() {
       lastLevelScore: levelScore,
       continuePlay: true,
     }));
+
     // Navigate to Game Over page
     navigate("/game-over");
   };
+
   // Next Level Div
   const nextLvlDiv = (
     <div className="next-level-div">
@@ -65,8 +68,8 @@ export default function Gameboard() {
     setGuessWord("");
   };
 
-  return (
-    <div className="component-wrap">
+  const gameBoard = (
+    <div>
       <div className="board-header">
         {gameObject.difficulty == "Free-Play" ? (
           <div className="intential-blank-div"></div>
@@ -102,6 +105,12 @@ export default function Gameboard() {
         </button>
       </div>
       <WordBoard foundWords={foundWords} guessWord={guessWord} />
+    </div>
+  );
+
+  return (
+    <div className="component-wrap">
+      {gameObject.wordsLoaded ? gameBoard : <LoadingScreen />}
     </div>
   );
 }

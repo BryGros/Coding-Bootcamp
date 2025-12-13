@@ -12,17 +12,6 @@ export default function GameOver() {
   const { playerName } = useContext(PlayerNameContext);
 
   const handleClick = () => {
-    if (gameObject.continuePlay) {
-      setGameObject((prev) => ({
-        ...prev,
-        continuePlay: false,
-      }));
-    } else {
-      setGameObject((prev) => ({
-        ...prev,
-        totalScore: 0,
-      }));
-    }
     navigate("/play");
   };
 
@@ -40,7 +29,6 @@ export default function GameOver() {
     );
     setGameObject((prev) => ({
       ...prev,
-      continuePlay: false,
       leaderBoard: newLeaderBoard,
       lastGameId: id,
     }));
@@ -52,9 +40,9 @@ export default function GameOver() {
     <div className="component-wrap">
       {/* Dynamic displaying based on if they navigated to this page manually */}
       {gameObject.totalScore != 0 ? (
-        <h1>{gameObject.continuePlay ? "LEVEL COMPLETE" : "GAME OVER"}</h1>
+        <h1>{gameObject.continuePlay ? "LEVEL COMPLETE - GREAT JOB" : "GAME OVER"}</h1>
       ) : (
-        <h1>Why'd you navigate here on your own?</h1>
+        <h1>Wait... why'd you come here?</h1>
       )}
       {gameObject.continuePlay && lastLevelScore}
       {/* Dynamic displaying based on if they navigated to this page manually */}

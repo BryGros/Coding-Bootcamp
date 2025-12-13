@@ -22,7 +22,7 @@ export default function Leaderboard() {
                   : `old-game ${theme}`
               }
             >
-              {game.playerName} - {game.score}
+              {game.playerName} - {game.score} - Difficulty: {game.difficulty}
             </li>
           );
         })}

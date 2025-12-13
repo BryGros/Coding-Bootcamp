@@ -5,7 +5,7 @@ export default function useWordAPI(randomWord) {
   let wordsJson;
 
   const [words, setWords] = useState([]);
-  const { gameObject } = useContext(GameObject);
+  const { gameObject, setGameObject } = useContext(GameObject);
 
   useEffect(() => {
     // Doesn't run API if gameWord is not yet set
@@ -28,6 +28,14 @@ export default function useWordAPI(randomWord) {
         const response = await fetch(url, options);
         const result = await response.json();
         const list = result.found_words;
+        if (list == undefined) {
+          setGameObject((prev) => ({
+            ...prev,
+            apiError: true,
+            apiErrorMsg: result.message,
+          }));
+          return;
+        }
         let fullPasscodeList = [];
         for (const lengthKey in list) {
           if (Number(lengthKey) > 3) {
@@ -38,9 +46,18 @@ export default function useWordAPI(randomWord) {
           }
         }
         setWords(fullPasscodeList);
+        setGameObject((prev) => ({
+          ...prev,
+          wordsLoaded: true,
+        }));
       } catch (error) {
         console.error(error);
         setWords([]);
+        setGameObject((prev) => ({
+          ...prev,
+          apiError: true,
+          apiErrorMsg: error,
+        }));
       }
     }
     wordsJson = fetchWords();
