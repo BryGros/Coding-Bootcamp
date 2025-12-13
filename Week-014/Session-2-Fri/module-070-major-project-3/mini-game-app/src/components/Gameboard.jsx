@@ -50,7 +50,7 @@ export default function Gameboard() {
     }));
 
     // Navigate to Game Over page
-    navigate("/game-over");
+    navigate("/Coding-Bootcamp/code-cracker/game-over");
   };
 
   // Next Level Div
@@ -72,7 +72,7 @@ export default function Gameboard() {
     <div>
       <div className="board-header">
         {gameObject.difficulty == "Free-Play" ? (
-          <div className="intential-blank-div"></div>
+          <div className="intentional-blank-div"></div>
         ) : (
           <Timer levelPassed={levelPassed} levelScore={levelScore} />
         )}
