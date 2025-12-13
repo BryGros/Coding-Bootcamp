@@ -12,11 +12,17 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/play" element={<Game />} />
+        <Route path="/Coding-Bootcamp/code-cracker/" element={<Home />} />
+        <Route path="/Coding-Bootcamp/code-cracker/play" element={<Game />} />
         <Route path="/game-over" element={<GameOver />} />
-        <Route path="/leaderboard" element={<LeaderBoardPage />} />
-        <Route path="/preferences" element={<Preferences />} />
+        <Route
+          path="/Coding-Bootcamp/code-cracker/leaderboard"
+          element={<LeaderBoardPage />}
+        />
+        <Route
+          path="/Coding-Bootcamp/code-cracker/preferences"
+          element={<Preferences />}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
