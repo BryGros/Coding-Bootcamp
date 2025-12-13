@@ -1,12 +1,9 @@
 import { useContext } from "react";
-import { PlayerNameContext, ThemeContext } from "../context/PlayerContext";
-import { GameObject } from "../context/GameContext";
+import { ThemeContext } from "../context/PlayerContext";
 import { Link } from "react-router";
 
 export default function Header() {
   const { theme } = useContext(ThemeContext);
-  const { playerName } = useContext(PlayerNameContext);
-  const { gameObject } = useContext(GameObject);
 
   return (
     <div className="header-wrap">
