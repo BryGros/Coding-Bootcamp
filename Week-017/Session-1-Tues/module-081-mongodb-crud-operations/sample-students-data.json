@@ -1,0 +1,477 @@
+[
+  {
+    "studentId": "STU001",
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "email": "alice.johnson@example.com",
+    "age": 22,
+    "major": "Computer Science",
+    "enrollmentYear": 2021,
+    "gpa": 3.8,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS201",
+        "courseName": "Data Structures",
+        "grade": "A-",
+        "credits": 4
+      },
+      {
+        "courseCode": "MATH101",
+        "courseName": "Calculus I",
+        "grade": "B+",
+        "credits": 3
+      }
+    ],
+    "contact": {
+      "phone": "555-0101",
+      "address": {
+        "street": "123 Campus Drive",
+        "city": "Boston",
+        "state": "MA",
+        "zipCode": "02115"
+      }
+    },
+    "createdAt": "2021-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "studentId": "STU002",
+    "firstName": "Bob",
+    "lastName": "Smith",
+    "email": "bob.smith@example.com",
+    "age": 21,
+    "major": "Mathematics",
+    "enrollmentYear": 2022,
+    "gpa": 3.6,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "MATH201",
+        "courseName": "Linear Algebra",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "MATH301",
+        "courseName": "Abstract Algebra",
+        "grade": "B+",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "A-",
+        "credits": 4
+      }
+    ],
+    "contact": {
+      "phone": "555-0102",
+      "address": {
+        "street": "456 University Ave",
+        "city": "Cambridge",
+        "state": "MA",
+        "zipCode": "02138"
+      }
+    },
+    "createdAt": "2022-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "studentId": "STU003",
+    "firstName": "Charlie",
+    "lastName": "Davis",
+    "email": "charlie.davis@example.com",
+    "age": 20,
+    "major": "Computer Science",
+    "enrollmentYear": 2023,
+    "gpa": 3.9,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS201",
+        "courseName": "Data Structures",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS301",
+        "courseName": "Algorithms",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "MATH101",
+        "courseName": "Calculus I",
+        "grade": "A-",
+        "credits": 3
+      }
+    ],
+    "contact": {
+      "phone": "555-0103",
+      "address": {
+        "street": "789 College Road",
+        "city": "Boston",
+        "state": "MA",
+        "zipCode": "02115"
+      }
+    },
+    "scholarships": ["Merit Scholarship", "Tech Excellence Award"],
+    "createdAt": "2023-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "studentId": "STU004",
+    "firstName": "Diana",
+    "lastName": "Martinez",
+    "email": "diana.martinez@example.com",
+    "age": 23,
+    "major": "Data Science",
+    "enrollmentYear": 2021,
+    "gpa": 3.7,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "DS101",
+        "courseName": "Introduction to Data Science",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "STAT201",
+        "courseName": "Statistics",
+        "grade": "B+",
+        "credits": 3
+      },
+      {
+        "courseCode": "CS201",
+        "courseName": "Data Structures",
+        "grade": "A-",
+        "credits": 4
+      },
+      {
+        "courseCode": "DS301",
+        "courseName": "Machine Learning",
+        "grade": "A",
+        "credits": 4
+      }
+    ],
+    "contact": {
+      "phone": "555-0104",
+      "address": {
+        "street": "321 Student Lane",
+        "city": "Somerville",
+        "state": "MA",
+        "zipCode": "02143"
+      }
+    },
+    "internships": [
+      {
+        "company": "Tech Corp",
+        "position": "Data Analyst Intern",
+        "startDate": "2024-06-01",
+        "endDate": "2024-08-31"
+      }
+    ],
+    "createdAt": "2021-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "studentId": "STU005",
+    "firstName": "Eve",
+    "lastName": "Wilson",
+    "email": "eve.wilson@example.com",
+    "age": 22,
+    "major": "Computer Science",
+    "enrollmentYear": 2022,
+    "gpa": 3.5,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "B+",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS201",
+        "courseName": "Data Structures",
+        "grade": "B",
+        "credits": 4
+      },
+      {
+        "courseCode": "WEB101",
+        "courseName": "Web Development",
+        "grade": "A",
+        "credits": 3
+      }
+    ],
+    "contact": {
+      "phone": "555-0105",
+      "address": {
+        "street": "654 Dorm Building C",
+        "city": "Boston",
+        "state": "MA",
+        "zipCode": "02115"
+      }
+    },
+    "clubs": ["Coding Club", "Women in Tech"],
+    "createdAt": "2022-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "studentId": "STU006",
+    "firstName": "Frank",
+    "lastName": "Brown",
+    "email": "frank.brown@example.com",
+    "age": 24,
+    "major": "Software Engineering",
+    "enrollmentYear": 2020,
+    "gpa": 3.4,
+    "isActive": false,
+    "courses": [
+      {
+        "courseCode": "SE101",
+        "courseName": "Software Engineering Fundamentals",
+        "grade": "B+",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS201",
+        "courseName": "Data Structures",
+        "grade": "B",
+        "credits": 4
+      },
+      {
+        "courseCode": "SE301",
+        "courseName": "Software Architecture",
+        "grade": "A-",
+        "credits": 4
+      }
+    ],
+    "contact": {
+      "phone": "555-0106",
+      "address": {
+        "street": "987 Off-Campus Apt 4B",
+        "city": "Cambridge",
+        "state": "MA",
+        "zipCode": "02139"
+      }
+    },
+    "graduationDate": "2024-05-15",
+    "createdAt": "2020-09-01T08:00:00Z",
+    "updatedAt": "2024-05-15T12:00:00Z"
+  },
+  {
+    "studentId": "STU007",
+    "firstName": "Grace",
+    "lastName": "Lee",
+    "email": "grace.lee@example.com",
+    "age": 21,
+    "major": "Computer Science",
+    "enrollmentYear": 2022,
+    "gpa": 4.0,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS201",
+        "courseName": "Data Structures",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS301",
+        "courseName": "Algorithms",
+        "grade": "A",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS401",
+        "courseName": "Operating Systems",
+        "grade": "A",
+        "credits": 4
+      }
+    ],
+    "contact": {
+      "phone": "555-0107",
+      "address": {
+        "street": "111 Honor Dorm",
+        "city": "Boston",
+        "state": "MA",
+        "zipCode": "02115"
+      }
+    },
+    "scholarships": ["Presidential Scholarship", "Dean's List"],
+    "awards": ["Outstanding CS Student 2024"],
+    "createdAt": "2022-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "studentId": "STU008",
+    "firstName": "Henry",
+    "lastName": "Taylor",
+    "email": "henry.taylor@example.com",
+    "age": 20,
+    "major": "Cybersecurity",
+    "enrollmentYear": 2023,
+    "gpa": 3.6,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "A-",
+        "credits": 4
+      },
+      {
+        "courseCode": "CYB101",
+        "courseName": "Introduction to Cybersecurity",
+        "grade": "A",
+        "credits": 3
+      },
+      {
+        "courseCode": "NET201",
+        "courseName": "Network Fundamentals",
+        "grade": "B+",
+        "credits": 4
+      }
+    ],
+    "contact": {
+      "phone": "555-0108",
+      "address": {
+        "street": "222 Tech Hall",
+        "city": "Boston",
+        "state": "MA",
+        "zipCode": "02115"
+      }
+    },
+    "certifications": ["CompTIA Security+"],
+    "createdAt": "2023-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "studentId": "STU009",
+    "firstName": "Iris",
+    "lastName": "Anderson",
+    "email": "iris.anderson@example.com",
+    "age": 22,
+    "major": "Information Systems",
+    "enrollmentYear": 2021,
+    "gpa": 3.3,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "IS101",
+        "courseName": "Introduction to Information Systems",
+        "grade": "B+",
+        "credits": 3
+      },
+      {
+        "courseCode": "BUS201",
+        "courseName": "Business Analytics",
+        "grade": "B",
+        "credits": 3
+      },
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "B+",
+        "credits": 4
+      }
+    ],
+    "contact": {
+      "phone": "555-0109",
+      "address": {
+        "street": "333 Business School",
+        "city": "Cambridge",
+        "state": "MA",
+        "zipCode": "02138"
+      }
+    },
+    "partTimeJob": {
+      "employer": "University Library",
+      "position": "IT Support",
+      "hoursPerWeek": 15
+    },
+    "createdAt": "2021-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "studentId": "STU010",
+    "firstName": "Jack",
+    "lastName": "Thompson",
+    "email": "jack.thompson@example.com",
+    "age": 23,
+    "major": "Computer Science",
+    "enrollmentYear": 2021,
+    "gpa": 3.2,
+    "isActive": true,
+    "courses": [
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "B",
+        "credits": 4
+      },
+      {
+        "courseCode": "CS201",
+        "courseName": "Data Structures",
+        "grade": "C+",
+        "credits": 4
+      },
+      {
+        "courseCode": "WEB201",
+        "courseName": "Advanced Web Development",
+        "grade": "A",
+        "credits": 3
+      },
+      {
+        "courseCode": "MOB101",
+        "courseName": "Mobile App Development",
+        "grade": "A-",
+        "credits": 3
+      }
+    ],
+    "contact": {
+      "phone": "555-0110",
+      "address": {
+        "street": "444 West Campus",
+        "city": "Boston",
+        "state": "MA",
+        "zipCode": "02115"
+      }
+    },
+    "projects": [
+      {
+        "name": "E-commerce Website",
+        "description": "Built a full-stack e-commerce platform",
+        "technologies": ["React", "Node.js", "MongoDB"]
+      },
+      {
+        "name": "Weather App",
+        "description": "Mobile weather application",
+        "technologies": ["React Native", "API Integration"]
+      }
+    ],
+    "createdAt": "2021-09-01T08:00:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z"
+  }
+]

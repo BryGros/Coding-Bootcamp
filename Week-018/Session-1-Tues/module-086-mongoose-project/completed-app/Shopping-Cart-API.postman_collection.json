@@ -1,0 +1,893 @@
+{
+	"info": {
+		"_postman_id": "shopping-cart-api-collection",
+		"name": "Shopping Cart API",
+		"description": "Complete API collection for testing the Shopping Cart API with MongoDB and Mongoose. Includes comprehensive test scripts for all endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test response is an array",
+									"pm.test('Response is an array', function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(Array.isArray(responseData)).to.be.true;",
+									"});",
+									"",
+									"// Test response time",
+									"pm.test('Response time is less than 500ms', function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Retrieve all customers from the database"
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"// Test response has user data",
+									"pm.test('Response contains user data', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response).to.have.property('_id');",
+									"    pm.expect(response).to.have.property('name');",
+									"    pm.expect(response).to.have.property('email');",
+									"    pm.expect(response).to.have.property('createdAt');",
+									"});",
+									"",
+									"// Test email is lowercase",
+									"pm.test('Email is converted to lowercase', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.email).to.match(/^[a-z0-9@._-]+$/);",
+									"});",
+									"",
+									"// Test name matches request",
+									"pm.test('Name matches request data', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.name).to.eql('John Doe');",
+									"});",
+									"",
+									"// Save user ID for later use",
+									"if (pm.response.code === 201) {",
+									"    const response = pm.response.json();",
+									"    pm.environment.set('user_id', response._id);",
+									"    pm.collectionVariables.set('user_id', response._id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"address\": \"123 Main St, Springfield, IL\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Create a new customer"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test response has required fields",
+									"pm.test('User has required fields', function () {",
+									"    const user = pm.response.json();",
+									"    pm.expect(user).to.have.property('_id');",
+									"    pm.expect(user).to.have.property('name');",
+									"    pm.expect(user).to.have.property('email');",
+									"    pm.expect(user).to.have.property('createdAt');",
+									"    pm.expect(user).to.have.property('updatedAt');",
+									"});",
+									"",
+									"// Test user ID matches requested ID",
+									"pm.test('User ID matches requested ID', function () {",
+									"    const user = pm.response.json();",
+									"    pm.expect(user._id).to.eql(pm.collectionVariables.get('user_id'));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
+						},
+						"description": "Retrieve a single customer by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test address was updated",
+									"pm.test('Address was updated', function () {",
+									"    const user = pm.response.json();",
+									"    pm.expect(user.address).to.eql('456 Oak Ave, Chicago, IL');",
+									"});",
+									"",
+									"// Test updatedAt is more recent than createdAt",
+									"pm.test('UpdatedAt timestamp is more recent', function () {",
+									"    const user = pm.response.json();",
+									"    pm.expect(new Date(user.updatedAt).getTime()).to.be.above(new Date(user.createdAt).getTime());",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": \"456 Oak Ave, Chicago, IL\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
+						},
+						"description": "Update a customer's information by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test response confirms deletion",
+									"pm.test('Response confirms deletion', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response).to.have.property('message');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
+						},
+						"description": "Delete a customer by ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Customer management endpoints"
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test response is an array",
+									"pm.test('Response is an array', function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(Array.isArray(responseData)).to.be.true;",
+									"});",
+									"",
+									"// Test products have required fields",
+									"pm.test('Products have required fields', function () {",
+									"    const products = pm.response.json();",
+									"    if (products.length > 0) {",
+									"        const product = products[0];",
+									"        pm.expect(product).to.have.property('name');",
+									"        pm.expect(product).to.have.property('description');",
+									"        pm.expect(product).to.have.property('price');",
+									"        pm.expect(product).to.have.property('category');",
+									"        pm.expect(product).to.have.property('inStock');",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "Retrieve all products from the store inventory"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"// Test product data matches request",
+									"pm.test('Product data matches request', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.name).to.eql('Wireless Mouse');",
+									"    pm.expect(response.price).to.eql(29.99);",
+									"    pm.expect(response.category).to.eql('Electronics');",
+									"});",
+									"",
+									"// Test default inStock value",
+									"pm.test('Product inStock defaults to true', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.inStock).to.be.true;",
+									"});",
+									"",
+									"// Test category is valid enum value",
+									"pm.test('Category is valid enum value', function () {",
+									"    const response = pm.response.json();",
+									"    const validCategories = ['Electronics', 'Clothing', 'Books', 'Home', 'Sports'];",
+									"    pm.expect(validCategories).to.include(response.category);",
+									"});",
+									"",
+									"// Save product ID for later use",
+									"if (pm.response.code === 201) {",
+									"    const response = pm.response.json();",
+									"    pm.environment.set('product_id', response._id);",
+									"    pm.collectionVariables.set('product_id', response._id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Wireless Mouse\",\n  \"description\": \"Ergonomic wireless mouse with USB receiver and long battery life\",\n  \"price\": 29.99,\n  \"category\": \"Electronics\",\n  \"inStock\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "Create a new product in the store inventory"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test product has required fields",
+									"pm.test('Product has required fields', function () {",
+									"    const product = pm.response.json();",
+									"    pm.expect(product).to.have.property('_id');",
+									"    pm.expect(product).to.have.property('name');",
+									"    pm.expect(product).to.have.property('description');",
+									"    pm.expect(product).to.have.property('price');",
+									"    pm.expect(product).to.have.property('category');",
+									"    pm.expect(product).to.have.property('inStock');",
+									"});",
+									"",
+									"// Test price is a number",
+									"pm.test('Price is a number', function () {",
+									"    const product = pm.response.json();",
+									"    pm.expect(typeof product.price).to.eql('number');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products/{{product_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{product_id}}"
+							]
+						},
+						"description": "Retrieve a single product by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test price was updated",
+									"pm.test('Price was updated', function () {",
+									"    const product = pm.response.json();",
+									"    pm.expect(product.price).to.eql(24.99);",
+									"});",
+									"",
+									"// Test inStock was updated",
+									"pm.test('InStock status was updated', function () {",
+									"    const product = pm.response.json();",
+									"    pm.expect(product.inStock).to.be.false;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"price\": 24.99,\n  \"inStock\": false\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products/{{product_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{product_id}}"
+							]
+						},
+						"description": "Update a product by ID (e.g., change price or stock status)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test response confirms deletion",
+									"pm.test('Response confirms deletion', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response).to.have.property('message');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products/{{product_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{product_id}}"
+							]
+						},
+						"description": "Delete a product from inventory by ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Product inventory management endpoints"
+		},
+		{
+			"name": "Cart Items",
+			"item": [
+				{
+					"name": "Get All Cart Items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test response is an array",
+									"pm.test('Response is an array', function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(Array.isArray(responseData)).to.be.true;",
+									"});",
+									"",
+									"// Test cart items have populated user and product",
+									"pm.test('Cart items have populated user and product', function () {",
+									"    const cartItems = pm.response.json();",
+									"    if (cartItems.length > 0) {",
+									"        const item = cartItems[0];",
+									"        pm.expect(item).to.have.property('user');",
+									"        pm.expect(item).to.have.property('product');",
+									"        pm.expect(item).to.have.property('quantity');",
+									"        // Check if populated (not just ObjectId)",
+									"        if (typeof item.user === 'object') {",
+									"            pm.expect(item.user).to.have.property('name');",
+									"        }",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/cart-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"cart-items"
+							]
+						},
+						"description": "Retrieve all cart items with populated user and product information"
+					},
+					"response": []
+				},
+				{
+					"name": "Add to Cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 201', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"// Test cart item was created with correct data",
+									"pm.test('Cart item created with correct data', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response).to.have.property('_id');",
+									"    pm.expect(response.quantity).to.eql(2);",
+									"});",
+									"",
+									"// Test user and product references exist",
+									"pm.test('User and product references exist', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response).to.have.property('user');",
+									"    pm.expect(response).to.have.property('product');",
+									"});",
+									"",
+									"// Save cart item ID for later use",
+									"if (pm.response.code === 201) {",
+									"    const response = pm.response.json();",
+									"    pm.environment.set('cart_item_id', response._id);",
+									"    pm.collectionVariables.set('cart_item_id', response._id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user\": \"{{user_id}}\",\n  \"product\": \"{{product_id}}\",\n  \"quantity\": 2\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/cart-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"cart-items"
+							]
+						},
+						"description": "Add a product to a customer's cart (requires valid user_id and product_id)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cart Items for User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test response is an array",
+									"pm.test('Response is an array', function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(Array.isArray(responseData)).to.be.true;",
+									"});",
+									"",
+									"// Test all items belong to the requested user",
+									"pm.test('All items belong to requested user', function () {",
+									"    const cartItems = pm.response.json();",
+									"    const requestedUserId = pm.collectionVariables.get('user_id');",
+									"    cartItems.forEach(item => {",
+									"        if (typeof item.user === 'object') {",
+									"            pm.expect(item.user._id).to.eql(requestedUserId);",
+									"        } else {",
+									"            pm.expect(item.user).to.eql(requestedUserId);",
+									"        }",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/users/{{user_id}}/cart-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}",
+								"cart-items"
+							]
+						},
+						"description": "Retrieve all items in a specific customer's shopping cart"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Cart Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test cart item has required fields",
+									"pm.test('Cart item has required fields', function () {",
+									"    const item = pm.response.json();",
+									"    pm.expect(item).to.have.property('_id');",
+									"    pm.expect(item).to.have.property('user');",
+									"    pm.expect(item).to.have.property('product');",
+									"    pm.expect(item).to.have.property('quantity');",
+									"});",
+									"",
+									"// Test quantity is within valid range",
+									"pm.test('Quantity is within valid range (1-99)', function () {",
+									"    const item = pm.response.json();",
+									"    pm.expect(item.quantity).to.be.at.least(1);",
+									"    pm.expect(item.quantity).to.be.at.most(99);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/cart-items/{{cart_item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"cart-items",
+								"{{cart_item_id}}"
+							]
+						},
+						"description": "Retrieve a single cart item by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cart Item Quantity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test quantity was updated",
+									"pm.test('Quantity was updated to 5', function () {",
+									"    const item = pm.response.json();",
+									"    pm.expect(item.quantity).to.eql(5);",
+									"});",
+									"",
+									"// Test updatedAt timestamp changed",
+									"pm.test('UpdatedAt timestamp is more recent', function () {",
+									"    const item = pm.response.json();",
+									"    pm.expect(new Date(item.updatedAt).getTime()).to.be.above(new Date(item.createdAt).getTime());",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 5\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/cart-items/{{cart_item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"cart-items",
+								"{{cart_item_id}}"
+							]
+						},
+						"description": "Update the quantity of an item in the cart"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove from Cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test status code",
+									"pm.test('Status code is 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test response confirms deletion",
+									"pm.test('Response confirms deletion', function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response).to.have.property('message');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/cart-items/{{cart_item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"cart-items",
+								"{{cart_item_id}}"
+							]
+						},
+						"description": "Remove an item from the cart by ID"
+					},
+					"response": []
+				}
+			],
+			"description": "Shopping cart management endpoints"
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "product_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "cart_item_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
