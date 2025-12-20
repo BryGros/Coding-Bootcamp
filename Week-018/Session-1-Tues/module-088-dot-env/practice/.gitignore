@@ -1,3 +1,0 @@
-# ignore .env so it doesn't get committed
-node_modules/
-.env
