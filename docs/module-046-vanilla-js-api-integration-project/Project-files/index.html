@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stonks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/02d7e68be8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="top-bar">
+      <img src="stonks.jpg" alt="stonks meme" />
+      <h1 class="site-name">StonkTracker Pro</h1>
+      <div class="portfolio">
+        <div class="value">
+          Portfolio Value: <span class="total" id="totalHead">$0.00</span>
+        </div>
+        <div class="owned">
+          Companies Owned: <span class="shares" id="sharesHead">0</span>
+        </div>
+      </div>
+    </header>
+    <section class="search-bar">
+      <div class="search-area">
+        <i class="fa-solid fa-magnifying-glass" id="mag-icon"></i>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Enter stonk symbol or company name and cross your fing-ees"
+        />
+      </div>
+      <button type="submit" id="submit">Search Stonk</button>
+    </section>
+    <section id="error-message"></section>
+    <section id="loading-bar"></section>
+    <main>
+      <div class="stock-details-head">
+        <div class="stock-name">
+          <h2 id="company-name">Company Name</h2>
+          <p id="ticker">Ticker</p>
+        </div>
+        <div class="watchlist-btn">
+          <button id="add-to-watchlist">
+            <i class="fa-solid fa-star"></i> Add to Watchlist
+          </button>
+        </div>
+      </div>
+      <div class="stock-details">
+        <div class="price-details">
+          <h2 id="curr-price">$0.00</h2>
+          <div id="price-change">$0.00</div>
+          <div id="perc-change">0%</div>
+        </div>
+        <div class="price-stats">
+          <div class="stat">
+            <h3 class="label">Open:</h3>
+            <h3 id="open-num">$0.00</h3>
+          </div>
+          <div class="stat">
+            <h3 class="label">Low:</h3>
+            <h3 id="low-num">$0.00</h3>
+          </div>
+          <div class="stat">
+            <h3 class="label">High:</h3>
+            <h3 id="high-num">$0.00</h3>
+          </div>
+          <div class="stat">
+            <h3 class="label">Volume:</h3>
+            <h3 id="vol-num">$0.00</h3>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-manage">
+        <h3>Portfolio Management</h3>
+        <h4>Number of shares owned:</h4>
+        <div class="holdings">
+          <input
+            type="number"
+            id="shares-owned"
+            placeholder="Insert the # of shares you own"
+          />
+          <button id="update-btn">Update Shares</button>
+        </div>
+        <div class="holdings-cont">
+          <div class="curr-holdings">
+            <h3 class="label">Current Holdings:</h3>
+            <h3 class="high-num" id="port-man-shares">0 share(s)</h3>
+          </div>
+          <div class="curr-value">
+            <h3 class="label">Position Value:</h3>
+            <h3 class="high-num" id="pos-man-value">$0.00</h3>
+          </div>
+        </div>
+      </div>
+    </main>
+    <section class="watchlist">
+      <h2><i class="fa-solid fa-star"></i> Your Watchlist</h2>
+      <div class="wl-cards"></div>
+    </section>
+    <section class="portfolio-section">
+      <h2><i class="fa-solid fa-briefcase"></i> Portfolio Summary</h2>
+      <div class="summary">
+        <div class="portfolio-value">
+          <h3>Total Portfolio Value</h3>
+          <p id="port-total">$0.00</p>
+        </div>
+        <div class="owned-value">
+          <h3>Number of Positions</h3>
+          <p id="share-total">0</p>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
