@@ -1,0 +1,14 @@
+{
+  "name": "mongodb-auth-example",
+  "version": "1.0.0",
+  "description": "User authentication with MongoDB and bcrypt",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "bcrypt": "^5.1.1"
+  }
+}
