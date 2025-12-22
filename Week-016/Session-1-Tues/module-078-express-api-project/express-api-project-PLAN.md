@@ -36,6 +36,7 @@ mkdir routes controllers middleware
 ```
 
 **Configure package.json scripts:**
+
 ```json
 "scripts": {
   "start": "node app.js",
@@ -99,18 +100,19 @@ blog-api-project/
 
 ### Step 1: Create Main Server (`app.js`)
 
-- [ ] Require Express and create app instance
-- [ ] Set PORT with environment variable (default 3000)
-- [ ] Add `express.json()` middleware
-- [ ] Create request logging middleware
-- [ ] Mount routes: `/api/posts` and `/api/users`
-- [ ] Add root route (`/`) with API documentation
-- [ ] Add health check route (`/health`)
-- [ ] Add 404 handler for unknown routes
-- [ ] Add error handling middleware (must be last)
-- [ ] Start server with `app.listen()`
+- [x] Require Express and create app instance
+- [x] Set PORT with environment variable (default 3000)
+- [x] Add `express.json()` middleware
+- [x] Create request logging middleware
+- [x] Mount routes: `/api/posts` and `/api/users`
+- [x] Add root route (`/`) with API documentation
+- [x] Add health check route (`/health`)
+- [x] Add 404 handler for unknown routes
+- [x] Add error handling middleware (must be last)
+- [x] Start server with `app.listen()`
 
 **Test:**
+
 1. Run `npm run dev` and visit `http://localhost:3000/`
 2. Test `/health` endpoint in Postman (see [Testing Your API](#testing-your-api) below)
 3. Once these work, move to the next step
@@ -122,6 +124,7 @@ blog-api-project/
 **Strategy:** Implement one function at a time. Start with `getAllPosts()`, test it, then move to `getPostById()`, and so on.
 
 **Implement these functions:**
+
 - [ ] `getAllPosts()` - Return all posts
 - [ ] `getPostById()` - Find and return specific post
 - [ ] `createPost()` - Validate and add new post
@@ -129,6 +132,7 @@ blog-api-project/
 - [ ] `deletePost()` - Find and remove post
 
 **Post structure:**
+
 ```javascript
 {
   id: number,
@@ -151,6 +155,7 @@ blog-api-project/
 **Strategy:** Follow the same one-at-a-time approach as with Posts Controller.
 
 **Implement these functions:**
+
 - [ ] `getAllUsers()` - Return all users
 - [ ] `getUserById()` - Find and return specific user
 - [ ] `createUser()` - Validate and add new user
@@ -158,6 +163,7 @@ blog-api-project/
 - [ ] `deleteUser()` - Find and remove user
 
 **User structure:**
+
 ```javascript
 {
   id: number,
@@ -210,6 +216,7 @@ blog-api-project/
 - [ ] Use appropriate HTTP status codes
 
 **Error format:**
+
 ```javascript
 {
   error: "Error message",
@@ -224,11 +231,13 @@ blog-api-project/
 ### Using Postman
 
 1. **Import the collection:**
+
    - Open Postman
    - Click **Import**
    - Select `Blog-Post-API.postman_collection.json`
 
 2. **Start your server:**
+
    ```bash
    npm run dev
    ```
