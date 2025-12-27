@@ -210,10 +210,10 @@ blog-api-project/
 
 ### Step 6: Create Error Handler (`middleware/errorHandler.js`)
 
-- [ ] Create function with 4 parameters: (err, req, res, next)
-- [ ] Log error to console
-- [ ] Return JSON error response
-- [ ] Use appropriate HTTP status codes
+- [x] Create function with 4 parameters: (err, req, res, next)
+- [x] Log error to console
+- [x] Return JSON error response
+- [x] Use appropriate HTTP status codes
 
 **Error format:**
 
@@ -263,11 +263,11 @@ The test suite includes 17 tests covering all endpoints, validation, and error h
 
 ## Submission Checklist
 
-- [ ] All 10 endpoints work correctly (5 posts + 5 users)
-- [ ] Proper HTTP status codes (200, 201, 400, 404, 500)
-- [ ] Input validation implemented
-- [ ] Error handling implemented
-- [ ] MVC architecture (separate routes and controllers)
-- [ ] Code is clean and readable
-- [ ] Project pushed to GitHub
-- [ ] GitHub repo link shared in #projects channel
+- [x] All 10 endpoints work correctly (5 posts + 5 users)
+- [x] Proper HTTP status codes (200, 201, 400, 404, 500)
+- [x] Input validation implemented
+- [x] Error handling implemented
+- [x] MVC architecture (separate routes and controllers)
+- [x] Code is clean and readable
+- [x] Project pushed to GitHub
+- [x] GitHub repo link shared in #projects channel
