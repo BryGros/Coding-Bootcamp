@@ -2,8 +2,8 @@ const express = require("express");
 const usersRoutes = require("./routes/users");
 const postsRoutes = require("./routes/posts");
 
-const PORT = 3000;
 const app = express();
+const PORT = process.env.PORT || 3000;
 // Built in Middleware
 app.use(express.json());
 
@@ -14,8 +14,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/users", usersRoutes);
-app.use("/posts", postsRoutes);
+app.use("/api/users", usersRoutes);
+app.use("/api/posts", postsRoutes);
+
 // Base URL endpoint
 app.get("/", (req, res) => {
   res.json({
@@ -24,7 +25,7 @@ app.get("/", (req, res) => {
     endpoints: {
       posts: {
         "GET /api/posts": "Get all blog posts",
-        "GET /api/posts/:id": "Get a specific blog post",
+        "GET /api/posts/postId": "Get a specific blog post",
         "POST /api/posts": "Add a new blog post",
         "PUT api/posts/:id": "Update a specific blog post",
         "DELETE /api/posts/:id": "Delete a specific blog post",
@@ -43,10 +44,43 @@ app.get("/", (req, res) => {
       },
     },
     documentation: {
-      post: {},
-      updatePost: {},
-      user: {},
-      updateUser: {},
+      addPost: {
+        body: {
+          title: "string, required, min 3 chars",
+          content: "string, required, min 10 chars",
+          author: "string, required",
+        },
+      },
+      updatePost: {
+        param: "/postId",
+        body: {
+          title: "string, required, min 3 chars",
+          content: "string, required, min 10 chars",
+        },
+      },
+      deletePost: {
+        param: "/postId",
+      },
+      addUser: {
+        body: {
+          name: "string, required, min 2 chars",
+          email:
+            "string, required, must be a valid email address (includes @ and a '.' afterwards)",
+          role: "string, optional, must be author, admin, or reader (defaulted)",
+        },
+      },
+      updateUser: {
+        param: "/userId",
+        body: {
+          name: "string, required, min 2 chars",
+          email:
+            "string, required, must be a valid email address (includes @ and a '.' afterwards)",
+          role: "string, optional, must be author, admin, or reader (defaulted)",
+        },
+      },
+      deleteUser: {
+        param: "/userId",
+      },
     },
   });
 });
@@ -63,7 +97,7 @@ app.get("/health", (req, res) => {
 // 404 for any other route (as of Express 5.x, we have to do it this way for all other routes)
 app.use(/(.*)/, (req, res) => {
   res.status(404).json({
-    error: `The route ${req.method} ${req.originalUrl} does not exist`,
+    error: "Route not found",
     validRoutes: [
       "GET /",
       "GET /health",

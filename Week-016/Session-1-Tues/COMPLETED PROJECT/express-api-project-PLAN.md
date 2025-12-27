@@ -125,11 +125,11 @@ blog-api-project/
 
 **Implement these functions:**
 
-- [ ] `getAllPosts()` - Return all posts
-- [ ] `getPostById()` - Find and return specific post
-- [ ] `createPost()` - Validate and add new post
-- [ ] `updatePost()` - Find and update existing post
-- [ ] `deletePost()` - Find and remove post
+- [x] `getAllPosts()` - Return all posts
+- [x] `getPostById()` - Find and return specific post
+- [x] `createPost()` - Validate and add new post
+- [x] `updatePost()` - Find and update existing post
+- [x] `deletePost()` - Find and remove post
 
 **Post structure:**
 
@@ -156,11 +156,11 @@ blog-api-project/
 
 **Implement these functions:**
 
-- [ ] `getAllUsers()` - Return all users
-- [ ] `getUserById()` - Find and return specific user
-- [ ] `createUser()` - Validate and add new user
-- [ ] `updateUser()` - Find and update existing user
-- [ ] `deleteUser()` - Find and remove user
+- [x] `getAllUsers()` - Return all users
+- [x] `getUserById()` - Find and return specific user
+- [x] `createUser()` - Validate and add new user
+- [x] `updateUser()` - Find and update existing user
+- [x] `deleteUser()` - Find and remove user
 
 **User structure:**
 
@@ -182,29 +182,29 @@ blog-api-project/
 
 ### Step 4: Create Posts Routes (`routes/posts.js`)
 
-- [ ] Create Express router
-- [ ] Import posts controller functions
-- [ ] Define routes:
+- [x] Create Express router
+- [x] Import posts controller functions
+- [x] Define routes:
   - `GET /` → getAllPosts
   - `GET /:id` → getPostById
   - `POST /` → createPost
   - `PUT /:id` → updatePost
   - `DELETE /:id` → deletePost
-- [ ] Export router
+- [x] Export router
 
 ---
 
 ### Step 5: Create Users Routes (`routes/users.js`)
 
-- [ ] Create Express router
-- [ ] Import users controller functions
-- [ ] Define routes:
+- [x] Create Express router
+- [x] Import users controller functions
+- [x] Define routes:
   - `GET /` → getAllUsers
   - `GET /:id` → getUserById
   - `POST /` → createUser
   - `PUT /:id` → updateUser
   - `DELETE /:id` → deleteUser
-- [ ] Export router
+- [x] Export router
 
 ---
 
