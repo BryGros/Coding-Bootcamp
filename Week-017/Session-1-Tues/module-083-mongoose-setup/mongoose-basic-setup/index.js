@@ -19,22 +19,22 @@ database.on("error", (error) => {
 
 database.once("open", async () => {
   console.log("Connected to MongoDB successfully!");
-
-  // return records from one of the collections
-
-  // Grab the Images collection off of Codecademy db
-  // selection the collection
-
-  // make sure to select the correct collection name
-  //const imagesCollection = database.collection("images");
-  // would return an empty array of data
-  const imagesCollection = database.collection("images");
-
-  // do the find command
-  // remember to async / await any promises
-  // promises are used on I/O operations such as reading from
-  // a database
-  const allImages = await imagesCollection.find().toArray();
-
-  console.log("all images", allImages);
 });
+
+// return records from one of the collections
+
+// Grab the Images collection off of Codecademy db
+// selection the collection
+
+// make sure to select the correct collection name
+//const imagesCollection = database.collection("images");
+// would return an empty array of data
+const imagesCollection = database.collection("images");
+
+// do the find command
+// remember to async / await any promises
+// promises are used on I/O operations such as reading from
+// a database
+const allImages = await imagesCollection.find().toArray();
+
+console.log("all images", allImages);

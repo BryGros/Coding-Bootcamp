@@ -14,19 +14,19 @@ Build something that interests you! Consider making a **blog platform**, **task 
 
 ### **Database Connection & Configuration**
 
-- [ ] **Environment Variables** - Uses dotenv for database connection string configuration
-- [ ] **Connection Module** - Separates database connection into config/database.js module
-- [ ] **Connection Error Handling** - Implements proper error handling for connection failures
-- [ ] **Connection Events** - Handles connection events (open, error, disconnected)
-- [ ] **Proper Exports** - Exports connection function using module.exports pattern
+- [x] **Environment Variables** - Uses dotenv for database connection string configuration
+- [x] **Connection Module** - Separates database connection into config/database.js module
+- [x] **Connection Error Handling** - Implements proper error handling for connection failures
+- [x] **Connection Events** - Handles connection events (open, error, disconnected)
+- [x] **Proper Exports** - Exports connection function using module.exports pattern
 
 ### **Schema & Model Design**
 
 - [ ] **Multiple Models** - Creates at least 3 different Mongoose models in separate files
-- [ ] **Proper Schema Definition** - Uses mongoose.Schema with appropriate data types for each field
-- [ ] **Field Validation** - Implements validation rules (required, minlength, maxlength, min, max, enum)
+- [x] **Proper Schema Definition** - Uses mongoose.Schema with appropriate data types for each field
+- [x] **Field Validation** - Implements validation rules (required, minlength, maxlength, min, max, enum)
 - [ ] **Default Values** - Uses default values where appropriate
-- [ ] **Timestamps** - Enables timestamps option for createdAt and updatedAt fields
+- [x] **Timestamps** - Enables timestamps option for createdAt and updatedAt fields
 - [ ] **Model Organization** - One model per file in models/ folder with proper naming
 
 ### **Data Relationships**
@@ -85,7 +85,7 @@ Build something that interests you! Consider making a **blog platform**, **task 
 - [ ] **MVC Architecture** - Follows Model-View-Controller pattern with models defining data, controllers containing business logic, and routes mapping endpoints
 - [ ] **Package Management** - Includes package.json with all required dependencies listed
 - [ ] **Environment Configuration** - Provides .env.example file with connection string template
-- [ ] **Git Ignore** - Includes .gitignore for node_modules/ and .env files
+- [x] **Git Ignore** - Includes .gitignore for node_modules/ and .env files
 
 ### **Data Model Requirements:**
 
