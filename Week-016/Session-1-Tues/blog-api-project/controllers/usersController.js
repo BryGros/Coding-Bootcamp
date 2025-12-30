@@ -9,8 +9,6 @@ let users = [
   },
 ];
 
-// deleteUser() - Find and remove user
-
 const getAllUsers = (req, res) => {
   // getAllUsers() - Return all users
   res.json({
@@ -159,6 +157,7 @@ const updateUser = (req, res) => {
 };
 
 const deleteUser = (req, res) => {
+  // deleteUser() - Find and remove user
   const { id } = req.params;
 
   let userIndex = users.findIndex((user) => user.id === parseInt(id));

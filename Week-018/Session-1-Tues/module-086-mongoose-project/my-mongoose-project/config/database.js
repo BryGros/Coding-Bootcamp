@@ -11,8 +11,9 @@ const connectToDatabase = () => {
     console.error("MongoDb connection error:", error);
   });
   //Success message on connect
-  database.once("open", async () => {
+  database.once("open", () => {
     console.log("Connected to MongoDB successfully!");
+    console.log("Database:", database.name);
   });
   // Message when disconnecting
   database.on("disconnect", () => {
