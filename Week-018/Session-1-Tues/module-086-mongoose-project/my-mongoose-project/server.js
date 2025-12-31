@@ -1,6 +1,5 @@
 const express = require("express");
 const connectConfig = require("./config/database");
-const User = require("./models/User");
 const usersRoutes = require("./routes/userRoutes");
 
 const app = express();
