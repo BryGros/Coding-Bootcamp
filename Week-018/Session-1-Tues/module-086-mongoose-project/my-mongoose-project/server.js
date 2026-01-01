@@ -12,7 +12,7 @@ connectConfig();
 
 app.use("/users", usersRoutes);
 app.use("/products", productRoutes);
-app.use("/cartItems", cartItemRoutes);
+app.use("/cartitems", cartItemRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

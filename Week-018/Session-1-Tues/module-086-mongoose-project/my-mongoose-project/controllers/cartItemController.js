@@ -5,8 +5,13 @@ const Product = require("../models/Products");
 const getAllCartItems = async (req, res) => {
   //Create getAllItems function
   try {
-    const cartItems = await CartItem.find();
-    res.stauts(200).json(cartItems);
+    // Find CartItems
+    const cartItems = await CartItem.find()
+      // Add in user's name and product name/price into results
+      .populate("user", "name")
+      .populate("product", "name price");
+    // Send success response with cart item
+    res.status(200).json(cartItems);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -16,7 +21,9 @@ const getCartItemById = async (req, res) => {
   //Create getItemById function
   const { id } = req.params;
   try {
-    const cartItem = await Product.findById(id);
+    const cartItem = await CartItem.findById(id)
+      .populate("user", "name")
+      .populate("product", "name price");
     if (!cartItem) {
       return res.status(404).json({ error: "Cart Item not found" });
     }
