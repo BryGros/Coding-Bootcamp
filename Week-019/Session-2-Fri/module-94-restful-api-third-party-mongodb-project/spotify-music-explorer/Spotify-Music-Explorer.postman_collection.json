@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "spotify-music-explorer-api",
+		"name": "Spotify Music Explorer API",
+		"description": "Complete test collection for the Spotify Music Explorer project. This collection tests all 4 required endpoints: search, get favorites, save favorite, and delete favorite.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Server Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Server is running\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains endpoints\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('endpoints');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Test that the server is running and returns API information."
+			},
+			"response": []
+		},
+		{
+			"name": "2. Search Spotify - Beatles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Search returns 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"Returns tracks with required fields\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.be.greaterThan(0);",
+							"    pm.expect(jsonData[0]).to.have.property('id');",
+							"    pm.expect(jsonData[0]).to.have.property('name');",
+							"    pm.expect(jsonData[0]).to.have.property('artist');",
+							"    pm.expect(jsonData[0]).to.have.property('album');",
+							"});",
+							"",
+							"// Save first track for testing favorites",
+							"if (jsonData.length > 0) {",
+							"    pm.environment.set('testTrackId', jsonData[0].id);",
+							"    pm.environment.set('testTrackName', jsonData[0].name);",
+							"    pm.environment.set('testTrackArtist', jsonData[0].artist);",
+							"    pm.environment.set('testTrackAlbum', jsonData[0].album);",
+							"    pm.environment.set('testTrackPreview', jsonData[0].preview_url || '');",
+							"    pm.environment.set('testTrackImage', jsonData[0].image || '');",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/search?q=beatles",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "beatles",
+							"description": "Search query - try different artists or songs!"
+						}
+					]
+				},
+				"description": "Search Spotify for tracks matching the query. This automatically saves the first result for testing favorites."
+			},
+			"response": []
+		},
+		{
+			"name": "2b. Search Spotify - Coldplay",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Search returns results\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"    pm.expect(jsonData.length).to.be.greaterThan(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/search?q=coldplay",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "coldplay"
+						}
+					]
+				},
+				"description": "Another search example - feel free to change the query!"
+			},
+			"response": []
+		},
+		{
+			"name": "2c. Search Spotify - No Query (Error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Returns 400 for missing query\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Returns error message\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('error');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/search",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"search"
+					]
+				},
+				"description": "Test error handling - should return 400 when query parameter is missing."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Save Favorite Track",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Favorite saved successfully\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response contains saved favorite\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('_id');",
+							"    pm.expect(jsonData).to.have.property('trackId');",
+							"    pm.expect(jsonData).to.have.property('name');",
+							"    ",
+							"    // Save the MongoDB _id for delete test",
+							"    pm.environment.set('savedFavoriteId', jsonData._id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"trackId\": \"{{testTrackId}}\",\n  \"name\": \"{{testTrackName}}\",\n  \"artist\": \"{{testTrackArtist}}\",\n  \"album\": \"{{testTrackAlbum}}\",\n  \"previewUrl\": \"{{testTrackPreview}}\",\n  \"imageUrl\": \"{{testTrackImage}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/favorites",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"favorites"
+					]
+				},
+				"description": "Save a track to favorites. Uses the track data saved from the search request. Returns 201 on success."
+			},
+			"response": []
+		},
+		{
+			"name": "3b. Save Favorite - Duplicate (Error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Returns 400 for duplicate\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Error message mentions duplicate\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error.toLowerCase()).to.include('already');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"trackId\": \"{{testTrackId}}\",\n  \"name\": \"{{testTrackName}}\",\n  \"artist\": \"{{testTrackArtist}}\",\n  \"album\": \"{{testTrackAlbum}}\",\n  \"previewUrl\": \"{{testTrackPreview}}\",\n  \"imageUrl\": \"{{testTrackImage}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/favorites",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"favorites"
+					]
+				},
+				"description": "Try to save the same track again - should return 400 with duplicate error."
+			},
+			"response": []
+		},
+		{
+			"name": "4. Get All Favorites",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get favorites returns 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"Array contains at least one favorite\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.be.greaterThan(0);",
+							"});",
+							"",
+							"pm.test(\"Favorites have required fields\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0]).to.have.property('trackId');",
+							"    pm.expect(jsonData[0]).to.have.property('name');",
+							"    pm.expect(jsonData[0]).to.have.property('artist');",
+							"    pm.expect(jsonData[0]).to.have.property('addedAt');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/favorites",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"favorites"
+					]
+				},
+				"description": "Get all saved favorite tracks from the database."
+			},
+			"response": []
+		},
+		{
+			"name": "5. Delete Favorite",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete returns 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains success message\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('message');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/favorites/{{savedFavoriteId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"favorites",
+						"{{savedFavoriteId}}"
+					]
+				},
+				"description": "Delete a favorite by its MongoDB _id. Uses the ID saved from the save favorite request."
+			},
+			"response": []
+		},
+		{
+			"name": "5b. Delete Favorite - Not Found (Error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Returns 404 for non-existent favorite\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Error message about not found\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('error');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/favorites/000000000000000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"favorites",
+						"000000000000000000000000"
+					]
+				},
+				"description": "Try to delete a non-existent favorite - should return 404."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

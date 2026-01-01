@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: Simple Blog API
+  version: 1.0.0
+  description: A simple API-First design example for blog posts
+
+servers:
+  - url: http://localhost:3000
+    description: Development server
+
+paths:
+  /posts:
+    get:
+      summary: Get all posts
+      tags:
+        - Posts
+      responses:
+        '200':
+          description: List of all posts
+          content:
+            application/json:
+              example:
+                - id: 1
+                  title: "First Post"
+                  content: "This is my first post"
+                  author: "Alice"
+                - id: 2
+                  title: "Second Post"
+                  content: "Another great post"
+                  author: "Bob"
+
+    post:
+      summary: Create a new post
+      tags:
+        - Posts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              title: "New Post"
+              content: "My new post content"
+              author: "Charlie"
+      responses:
+        '201':
+          description: Post created
+          content:
+            application/json:
+              example:
+                id: 3
+                title: "New Post"
+                content: "My new post content"
+                author: "Charlie"
+        '400':
+          description: Missing required fields
+          content:
+            application/json:
+              example:
+                error: "Title and content are required"
+
+  /posts/{id}:
+    get:
+      summary: Get a post by ID
+      tags:
+        - Posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Post found
+          content:
+            application/json:
+              example:
+                id: 1
+                title: "First Post"
+                content: "This is my first post"
+                author: "Alice"
+        '404':
+          description: Post not found
+          content:
+            application/json:
+              example:
+                error: "Post not found"
