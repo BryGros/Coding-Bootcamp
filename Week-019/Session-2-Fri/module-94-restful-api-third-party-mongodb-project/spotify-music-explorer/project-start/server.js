@@ -19,8 +19,9 @@ app.use(express.json());
 // TODO: Connect to MongoDB using connection string from .env
 connectDatabase();
 // TODO: Import route files (favorites, search)
-
+const favoritesRouter = require("./routes/favorites");
 // TODO: Use route files with appropriate base paths
+app.use("/api/favorites", favoritesRouter);
 // Example: app.use('/api/favorites', favoritesRouter);
 // Example: app.use('/api/search', searchRouter);
 

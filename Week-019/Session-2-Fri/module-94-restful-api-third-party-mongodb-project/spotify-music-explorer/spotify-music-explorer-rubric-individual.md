@@ -7,6 +7,7 @@ This rubric evaluates the Spotify Music Explorer project based on RESTful APIs, 
 ### What should I make?
 
 Build a **Music Favorites API** that allows users to search for songs using Spotify and save their favorite tracks to a database. Your API should have:
+
 - **Search** - Search for tracks using Spotify API
 - **Favorites** - Save and manage favorite tracks in MongoDB
 
@@ -18,19 +19,19 @@ Build a **Music Favorites API** that allows users to search for songs using Spot
 
 ### **Express.js API Implementation**
 
-- [ ] **Express Setup** - Express.js project with package.json and proper dependencies
-- [ ] **Server Configuration** - Express app with port configuration and environment variables
+- [x] **Express Setup** - Express.js project with package.json and proper dependencies
+- [x] **Server Configuration** - Express app with port configuration and environment variables
 - [ ] **Search Endpoint** - GET /api/search?q=song endpoint that queries Spotify API
-- [ ] **Favorites CRUD** - Full CRUD operations (GET, POST, DELETE) for favorites at /api/favorites
-- [ ] **Express Router** - Separate route files (routes/search.js and routes/favorites.js)
-- [ ] **Request/Response** - Properly handles requests and sends JSON responses
+- [x] **Favorites CRUD** - Full CRUD operations (GET, POST, DELETE) for favorites at /api/favorites
+- [x] **Express Router** - Separate route files (routes/search.js and routes/favorites.js)
+- [x] **Request/Response** - Properly handles requests and sends JSON responses
 
 ### **MongoDB/Mongoose Integration**
 
-- [ ] **MongoDB Atlas Connection** - Connected to MongoDB Atlas cloud database
-- [ ] **Mongoose Schema** - Favorite schema with fields: trackId, name, artist, album, previewUrl
-- [ ] **Schema Validation** - Required fields marked, unique trackId to prevent duplicates
-- [ ] **Error Handling** - Handles connection errors and validation errors appropriately
+- [x] **MongoDB Atlas Connection** - Connected to MongoDB Atlas cloud database
+- [x] **Mongoose Schema** - Favorite schema with fields: trackId, name, artist, album, previewUrl
+- [x] **Schema Validation** - Required fields marked, unique trackId to prevent duplicates
+- [x] **Error Handling** - Handles connection errors and validation errors appropriately
 
 ### **Spotify API Integration**
 
@@ -42,21 +43,22 @@ Build a **Music Favorites API** that allows users to search for songs using Spot
 ### **API Endpoints**
 
 - [ ] **GET /api/search?q=query** - Search Spotify for tracks, return simplified results
-- [ ] **GET /api/favorites** - Get all saved favorite tracks from database
-- [ ] **POST /api/favorites** - Save a track to favorites (with duplicate prevention)
-- [ ] **DELETE /api/favorites/:id** - Remove a track from favorites
+- [x] **GET /api/favorites** - Get all saved favorite tracks from database
+- [x] **POST /api/favorites** - Save a track to favorites (with duplicate prevention)
+- [x] **DELETE /api/favorites/:id** - Remove a track from favorites
 
 ### **Environment and Configuration**
 
-- [ ] **Environment Variables** - SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, MONGODB_URI in .env
-- [ ] **.env.example** - Template showing required variables (no actual keys)
-- [ ] **.gitignore** - Excludes node_modules/ and .env
+- [x] **Environment Variables** - SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, MONGODB_URI in .env
+- [x] **.env.example** - Template showing required variables (no actual keys)
+- [x] **.gitignore** - Excludes node_modules/ and .env
 
 ---
 
 ## **Could Have (Bonus Points):**
 
 ### **Enhanced Features**
+
 - [ ] **Playlist Support** - Create and manage playlists with multiple tracks
 - [ ] **Advanced Search** - Search by artist, album, or multiple criteria
 - [ ] **Pagination** - Implement pagination for favorites list
@@ -67,12 +69,14 @@ Build a **Music Favorites API** that allows users to search for songs using Spot
 ## Submission Requirements
 
 ### **Technical Requirements:**
+
 - [ ] **Working API** - All search and favorites endpoints functional
 - [ ] **Spotify Integration** - Successfully connects to and queries Spotify API
 - [ ] **MongoDB Storage** - Favorites persist in MongoDB Atlas
 - [ ] **Environment Config** - All sensitive data in environment variables
 
 ### **Project Structure Requirements:**
+
 ```
 spotify-music-explorer/
 ├── server.js
@@ -88,6 +92,7 @@ spotify-music-explorer/
 ```
 
 ### **API Interface Requirements:**
+
 - [ ] **RESTful Design** - Follows REST conventions for URLs and HTTP methods
 - [ ] **Consistent Responses** - All endpoints return JSON in consistent format
 - [ ] **HTTP Status Codes** - Uses 200, 201, 400, 404, 500 appropriately
@@ -96,14 +101,17 @@ spotify-music-explorer/
 ### **Required API Endpoints:**
 
 **Search:**
+
 - `GET /api/search?q=song+name` - Search Spotify for tracks
 
 **Favorites:**
+
 - `GET /api/favorites` - Get all favorite tracks
 - `POST /api/favorites` - Save track to favorites
 - `DELETE /api/favorites/:id` - Remove track from favorites
 
 ### **Code Quality Requirements:**
+
 - [ ] **Clean Code** - Readable code with descriptive variable names
 - [ ] **Error Handling** - Try/catch blocks around async operations
 - [ ] **No Hardcoded Secrets** - All API keys in environment variables
