@@ -14,11 +14,11 @@ const Movie = require("../models/Movie");
 //     // skip 40 items based on a limit of 20
 //     const skip = (page - 1) * limit;
 
-//     //const total = await Movie.countDocuments();
+//     const total = await Movie.countDocuments();
 
 //     const movies = await Movie.find().skip(skip).limit(limit);
 
-//     //const totalPages = Math.ceil(total / limit);
+//     const totalPages = Math.ceil(total / limit);
 
 //     res.json({
 //       movies, // movies: movies
@@ -52,17 +52,26 @@ async function getAllMovies(req, res) {
     if (req.query.genre) {
       filter.genres = req.query.genre;
     }
-
+    if (req.query.year) {
+      filter.year = req.query.year;
+    }
+    if (req.query.minYear || req.query.maxYear) {
+      filter.year = {};
+      if (req.query.minYear) {
+        filter.year.$gte = req.query.minYear;
+      }
+      if (req.query.maxYear) {
+        filter.year.$lte = req.query.maxYear;
+      }
+    }
     //const total = await Movie.countDocuments();
 
     const movies = await Movie.find(filter)
       .skip(skip)
       .limit(limit)
       .select(
-        "title year rated runtime genres directors cast plot imdb.rating imdb.votes"
-      ) // returns a subset of the properties that we care about - thus limiting the data payload
-      ;
-
+        "title year rated runtime genres directors cast plot imdb.rating imdb.votes",
+      ); // returns a subset of the properties that we care about - thus limiting the data payload
     //const totalPages = Math.ceil(total / limit);
 
     res.json({
