@@ -72,7 +72,7 @@ async function getAllMovies(req, res) {
     }
     //const total = await Movie.countDocuments();
 
-      // min-rating Filter
+    // min-rating Filter
 
     // MPAA - standards rating
 
@@ -81,10 +81,8 @@ async function getAllMovies(req, res) {
       .skip(skip)
       .limit(limit)
       .select(
-        "title year rated runtime genres directors cast plot imdb.rating imdb.votes"
-      ) // returns a subset of the properties that we care about - thus limiting the data payload
-      ;
-
+        "title year rated runtime genres directors cast plot imdb.rating imdb.votes",
+      ); // returns a subset of the properties that we care about - thus limiting the data payload
     //const totalPages = Math.ceil(total / limit);
 
     res.json({
