@@ -14,49 +14,49 @@ Build something that interests you! Consider making a **blog platform**, **task 
 
 ### **Database Connection & Configuration**
 
-- [ ] **Environment Variables** - Uses dotenv for database connection string configuration
-- [ ] **Connection Module** - Separates database connection into config/database.js module
-- [ ] **Connection Error Handling** - Implements proper error handling for connection failures
-- [ ] **Connection Events** - Handles connection events (open, error, disconnected)
-- [ ] **Proper Exports** - Exports connection function using module.exports pattern
+- [x] **Environment Variables** - Uses dotenv for database connection string configuration
+- [x] **Connection Module** - Separates database connection into config/database.js module
+- [x] **Connection Error Handling** - Implements proper error handling for connection failures
+- [x] **Connection Events** - Handles connection events (open, error, disconnected)
+- [x] **Proper Exports** - Exports connection function using module.exports pattern
 
 ### **Schema & Model Design**
 
-- [ ] **Multiple Models** - Creates at least 3 different Mongoose models in separate files
-- [ ] **Proper Schema Definition** - Uses mongoose.Schema with appropriate data types for each field
-- [ ] **Field Validation** - Implements validation rules (required, minlength, maxlength, min, max, enum)
-- [ ] **Default Values** - Uses default values where appropriate
-- [ ] **Timestamps** - Enables timestamps option for createdAt and updatedAt fields
-- [ ] **Model Organization** - One model per file in models/ folder with proper naming
+- [x] **Multiple Models** - Creates at least 3 different Mongoose models in separate files
+- [x] **Proper Schema Definition** - Uses mongoose.Schema with appropriate data types for each field
+- [x] **Field Validation** - Implements validation rules (required, minlength, maxlength, min, max, enum)
+- [x] **Default Values** - Uses default values where appropriate
+- [x] **Timestamps** - Enables timestamps option for createdAt and updatedAt fields
+- [x] **Model Organization** - One model per file in models/ folder with proper naming
 
 ### **Data Relationships**
 
-- [ ] **ObjectId References** - Uses ObjectId references to relate models together
-- [ ] **One-to-Many Relationships** - Implements at least one one-to-many relationship
-- [ ] **Reference Configuration** - Properly configures ref property pointing to related model
-- [ ] **Multiple Relationships** - Demonstrates relationships between at least 3 different models
+- [x] **ObjectId References** - Uses ObjectId references to relate models together
+- [x] **One-to-Many Relationships** - Implements at least one one-to-many relationship
+- [x] **Reference Configuration** - Properly configures ref property pointing to related model
+- [x] **Multiple Relationships** - Demonstrates relationships between at least 3 different models
 
 ### **CRUD Operations**
 
-- [ ] **Create Operations** - Successfully creates documents for all models
-- [ ] **Read Operations** - Retrieves documents using find, findById, and query filters
-- [ ] **Update Operations** - Updates documents using save or update methods
-- [ ] **Delete Operations** - Removes documents using deleteMany or other delete methods
-- [ ] **Population** - Uses populate() to retrieve related documents in at least 2 queries
+- [x] **Create Operations** - Successfully creates documents for all models
+- [x] **Read Operations** - Retrieves documents using find, findById, and query filters
+- [x] **Update Operations** - Updates documents using save or update methods
+- [x] **Delete Operations** - Removes documents using deleteMany or other delete methods
+- [x] **Population** - Uses populate() to retrieve related documents in at least 2 queries
 
 ### **Data Seeding**
 
-- [ ] **Seed Script** - Creates separate seed.js file to populate database with sample data
-- [ ] **Clear Existing Data** - Clears collections before seeding to ensure clean state
-- [ ] **Related Sample Data** - Seeds data with proper relationships between models
-- [ ] **Seed Documentation** - Provides clear instructions for running seed script
+- [x] **Seed Script** - Creates separate seed.js file to populate database with sample data
+- [x] **Clear Existing Data** - Clears collections before seeding to ensure clean state
+- [x] **Related Sample Data** - Seeds data with proper relationships between models
+- [x] **Seed Documentation** - Provides clear instructions for running seed script
 
 ### **Error Handling & Validation**
 
-- [ ] **Validation Errors** - Properly handles and displays validation error messages
-- [ ] **Connection Errors** - Catches and handles database connection errors
-- [ ] **Try/Catch Blocks** - Uses try/catch for asynchronous operations
-- [ ] **Helpful Error Messages** - Provides clear, actionable error messages for common issues
+- [x] **Validation Errors** - Properly handles and displays validation error messages
+- [x] **Connection Errors** - Catches and handles database connection errors
+- [x] **Try/Catch Blocks** - Uses try/catch for asynchronous operations
+- [x] **Helpful Error Messages** - Provides clear, actionable error messages for common issues
 
 ---
 
@@ -80,34 +80,34 @@ Build something that interests you! Consider making a **blog platform**, **task 
 
 ### **Technical Requirements:**
 
-- [ ] **Working Database Application** - Complete functional application with all core database features
-- [ ] **Proper File Structure** - Organized project with config/, models/, controllers/, and routes/ folders with proper separation of concerns
-- [ ] **MVC Architecture** - Follows Model-View-Controller pattern with models defining data, controllers containing business logic, and routes mapping endpoints
-- [ ] **Package Management** - Includes package.json with all required dependencies listed
-- [ ] **Environment Configuration** - Provides .env.example file with connection string template
-- [ ] **Git Ignore** - Includes .gitignore for node_modules/ and .env files
+- [x] **Working Database Application** - Complete functional application with all core database features
+- [x] **Proper File Structure** - Organized project with config/, models/, controllers/, and routes/ folders with proper separation of concerns
+- [x] **MVC Architecture** - Follows Model-View-Controller pattern with models defining data, controllers containing business logic, and routes mapping endpoints
+- [x] **Package Management** - Includes package.json with all required dependencies listed
+- [x] **Environment Configuration** - Provides .env.example file with connection string template
+- [x] **Git Ignore** - Includes .gitignore for node_modules/ and .env files
 
 ### **Data Model Requirements:**
 
-- [ ] **Well-Designed Schema** - Logical data structure with appropriate field types and relationships
-- [ ] **Validation Rules** - Meaningful validation that enforces data integrity
-- [ ] **Relationship Design** - Proper use of references vs embedding for data relationships
-- [ ] **Sample Data** - Sufficient seed data to demonstrate all relationships and features
+- [x] **Well-Designed Schema** - Logical data structure with appropriate field types and relationships
+- [x] **Validation Rules** - Meaningful validation that enforces data integrity
+- [x] **Relationship Design** - Proper use of references vs embedding for data relationships
+- [x] **Sample Data** - Sufficient seed data to demonstrate all relationships and features
 
 ### **Code Quality Requirements:**
 
-- [ ] **Clean Code** - Well-formatted, readable code with consistent naming conventions
-- [ ] **Proper Mongoose Patterns** - Correct schema definitions, model creation, and query methods
-- [ ] **Error Handling** - Graceful error handling for validation failures and connection issues
+- [x] **Clean Code** - Well-formatted, readable code with consistent naming conventions
+- [x] **Proper Mongoose Patterns** - Correct schema definitions, model creation, and query methods
+- [x] **Error Handling** - Graceful error handling for validation failures and connection issues
 - [ ] **Documentation** - Clear README with setup instructions, data model explanation, and usage guide
-- [ ] **Comments** - Helpful comments explaining schema design decisions and complex logic
+- [x] **Comments** - Helpful comments explaining schema design decisions and complex logic
 
 ### **Functionality Requirements:**
 
-- [ ] **All Features Work** - Can successfully run seed script and main application without errors
-- [ ] **Population Works** - Related data is properly retrieved using populate()
-- [ ] **Validation Works** - Invalid data is properly rejected with clear error messages
-- [ ] **CRUD Complete** - All CRUD operations function correctly for each model
+- [x] **All Features Work** - Can successfully run seed script and main application without errors
+- [x] **Population Works** - Related data is properly retrieved using populate()
+- [x] **Validation Works** - Invalid data is properly rejected with clear error messages
+- [x] **CRUD Complete** - All CRUD operations function correctly for each model
 
 **Due Date:** By Session 38
 **Submission Method:** Github Repo link on #projects channel
