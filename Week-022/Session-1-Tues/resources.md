@@ -1,0 +1,2 @@
+- https://code.visualstudio.com/docs/debugtest/debugging-configuration#_start-a-debugging-session-with-a-launch-configuration
+- bierner.markdown-mermaid

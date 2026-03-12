@@ -1,0 +1,48 @@
+/* ========================================
+   App Container
+   ======================================== */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--spacing-unit) * 3);
+  background-color: var(--neutral-light);
+}
+
+/* ========================================
+   Loading and Error States
+   ======================================== */
+
+.loading,
+.error,
+.no-quotes {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 6);
+  font-size: 1.25rem;
+}
+
+.loading {
+  color: var(--text-secondary);
+}
+
+.error {
+  color: var(--accent);
+}
+
+.error h2 {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  color: var(--accent);
+  font-size: 2rem;
+}
+
+.error p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: calc(var(--spacing-unit) * 1) 0;
+}
+
+.no-quotes {
+  color: var(--text-secondary);
+}

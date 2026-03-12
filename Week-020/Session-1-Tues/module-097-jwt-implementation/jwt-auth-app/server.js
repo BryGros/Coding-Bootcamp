@@ -137,6 +137,7 @@ function authenticateToken(request, response, next) {
 
   // Extract the token from "Bearer TOKEN" format
   const token = authHeader && authHeader.split(" ")[1];
+  console.log(token);
 
   // Check if token was provided
   if (!token) {
@@ -148,7 +149,7 @@ function authenticateToken(request, response, next) {
   try {
     // Verify the token using the secret key
     const decoded = jwt.verify(token, JWT_SECRET);
-
+    console.log(decoded);
     // Attach the decoded user data to the request object
     request.user = decoded;
 
@@ -174,10 +175,10 @@ function authenticateToken(request, response, next) {
   }
 }
 
-
 // Protected route - requires valid JWT token
 app.get("/profile", authenticateToken, (request, response) => {
   // If we get here, the token is valid and user data is in request.user
+  console.log(request.user);
   response.json({
     message: "Access granted to protected route",
     user: {
@@ -221,4 +222,3 @@ app.listen(PORT, () => {
   console.log("  GET /dashboard - Another protected route (requires token)");
   console.log("  GET /users - View all usernames");
 });
-

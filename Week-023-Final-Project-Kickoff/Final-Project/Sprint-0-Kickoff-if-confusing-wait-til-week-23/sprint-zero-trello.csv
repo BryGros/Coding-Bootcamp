@@ -1,0 +1,523 @@
+Card Name,Card Description,Labels,Members,Due Date,Start Date,List Name,Checklist,Checklist item,Checklist item due,Checklist item member
+Chore 01: Project Selection,"**Estimated Time:** 2-3 hours
+
+## Task
+Choose your project and validate the idea
+
+## Acceptance Criteria
+- Project option selected (1 2 or 3)
+- Problem statement documented
+- (For Option 3) At least 3 potential users validated the need
+- Instructor approval obtained",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Review three project options (Task Management Content Sharing Custom),,
+,,,,,,,Steps,(For Option 3 - Custom Project): Follow Project Idea and User Discovery Plan,,
+,,,,,,,Steps,(For Option 3): Brainstorm 3-5 pain points you or others experience,,
+,,,,,,,Steps,(For Option 3): Talk to 3-5 potential users to validate ideas,,
+,,,,,,,Steps,(For Option 3): Pick the idea with the most genuine interest,,
+,,,,,,,Steps,Document your decision in README.md: What problem does this solve?,,
+,,,,,,,Steps,Time box: If you can't find an idea quickly choose Option 1 or 2,,
+,,,,,,,Acceptance Criteria,Project option selected (1 2 or 3),,
+,,,,,,,Acceptance Criteria,Problem statement documented,,
+,,,,,,,Acceptance Criteria,(For Option 3) At least 3 potential users validated the need,,
+,,,,,,,Acceptance Criteria,Instructor approval obtained,,
+Chore 02: Team Formation,"**Estimated Time:** 30 minutes
+
+## Task
+Decide if working solo or with partner and establish collaboration plan
+
+## Acceptance Criteria
+- Team composition decided
+- (If partnering) Roles and workload split agreed upon
+- (If partnering) Communication schedule established",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Decide: Working solo or with a partner?,,
+,,,,,,,Steps,If partnering: Discuss workload split (frontend/backend features),,
+,,,,,,,Steps,If partnering: Agree on meeting schedule (daily standup time),,
+,,,,,,,Steps,If partnering: Set up communication channels (Discord Slack etc.),,
+,,,,,,,Steps,Document team roles and responsibilities,,
+,,,,,,,Acceptance Criteria,Team composition decided,,
+,,,,,,,Acceptance Criteria,(If partnering) Roles and workload split agreed upon,,
+,,,,,,,Acceptance Criteria,(If partnering) Communication schedule established,,
+Chore 03: Identify Users,"**Estimated Time:** 1 hour
+
+## Task
+Find real users who will test your application
+
+## Acceptance Criteria
+- At least 1 real user identified
+- 3-5 potential users listed
+- User needs documented
+- Testing commitments secured",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Identify your first user (ideally you),,
+,,,,,,,Steps,List 3-5 potential users by name,,
+,,,,,,,Steps,(For Option 3): Reach out via text LinkedIn Discord communities,,
+,,,,,,,Steps,Get commitment from at least 1 person to test your app,,
+,,,,,,,Steps,Document: How will they use it? How often (daily/weekly)?,,
+,,,,,,,Steps,Verify users genuinely need the app (not just being polite),,
+,,,,,,,Acceptance Criteria,At least 1 real user identified,,
+,,,,,,,Acceptance Criteria,3-5 potential users listed,,
+,,,,,,,Acceptance Criteria,User needs documented,,
+,,,,,,,Acceptance Criteria,Testing commitments secured,,
+Chore 04: Define Core Features,"**Estimated Time:** 1-2 hours
+
+## Task
+Identify MVP features prioritize them and write clear MVP description
+
+## Part 1: Core Features (MVP vs Nice-to-Have)
+- Brainstorm ALL possible features you could build
+- For EACH feature ask: If this feature was missing would my users still get value from the app?
+  - If YES → Nice-to-Have
+  - If NO → MVP Feature
+- Label 3-5 features as MVP Features (must have for launch)
+- Label all other features as Nice-to-Have or Future Enhancement
+- Verify MVP features can be built in 2-3 weeks
+- Create features list in a document or README with clear labels
+
+## Part 2: Define MVP
+- Write 2-3 sentence MVP description
+- Example: Users can register login create tasks mark them complete and view their task list. That's it.
+- Verify: Can a user get value from JUST these core features? (Must be YES)
+- Document MVP in README or planning doc
+- Get instructor approval on MVP scope
+
+## Acceptance Criteria
+- Complete feature list created with clear labels
+- 3-5 core MVP features identified and labeled as MVP Features
+- Non-essential features clearly labeled as Nice-to-Have
+- Each feature passes the test: Would users still get value without this?
+- MVP features are realistic for 2-3 week timeline
+- MVP description written (2-3 sentences)
+- MVP provides clear user value
+- Scope is realistic for 2-3 weeks
+- Instructor approved MVP",sprint-0 (blue),,,,,Part 1: Core Features,,,,
+,,,,,,,Part 1: Core Features,Brainstorm ALL possible features you could build,,
+,,,,,,,Part 1: Core Features,For EACH feature ask: If this feature was missing would my users still get value from the app?,,
+,,,,,,,Part 1: Core Features,Label 3-5 features as MVP Features (must have for launch),,
+,,,,,,,Part 1: Core Features,Label all other features as Nice-to-Have or Future Enhancement,,
+,,,,,,,Part 1: Core Features,Verify MVP features can be built in 2-3 weeks,,
+,,,,,,,Part 1: Core Features,Create features list in a document or README with clear labels,,
+,,,,,,,Part 2: Define MVP,Write 2-3 sentence MVP description,,
+,,,,,,,Part 2: Define MVP,Example: Users can register login create tasks mark them complete and view their task list,,
+,,,,,,,Part 2: Define MVP,Verify: Can a user get value from JUST these core features? (Must be YES),,
+,,,,,,,Part 2: Define MVP,Document MVP in README or planning doc,,
+,,,,,,,Part 2: Define MVP,Get instructor approval on MVP scope,,
+,,,,,,,Acceptance Criteria,Complete feature list created with clear labels,,
+,,,,,,,Acceptance Criteria,3-5 core MVP features identified and labeled as MVP Features,,
+,,,,,,,Acceptance Criteria,Non-essential features clearly labeled as Nice-to-Have,,
+,,,,,,,Acceptance Criteria,Each feature passes the test: Would users still get value without this?,,
+,,,,,,,Acceptance Criteria,MVP features are realistic for 2-3 week timeline,,
+,,,,,,,Acceptance Criteria,MVP description written (2-3 sentences),,
+,,,,,,,Acceptance Criteria,MVP provides clear user value,,
+,,,,,,,Acceptance Criteria,Scope is realistic for 2-3 weeks,,
+,,,,,,,Acceptance Criteria,Instructor approved MVP,,
+Chore 05: Create Mockups Wireframes,"**Estimated Time:** 1-2 hours
+
+## Task
+Design basic layout for all 5 required pages and select design system (colors and fonts)
+
+## Part 1: Mockups and Wireframes
+- Choose tool: Paper Figma Excalidraw or drawing app
+- Sketch/wireframe 5 required pages: Landing/Home Login Registration Dashboard/Main app User profile or settings
+- Focus on layout and user flow not pixel-perfect design
+- Show navigation between pages
+- Identify where CRUD operations happen
+- Save mockups (photo export or screenshot)
+
+## Part 2: Color Palette
+- Choose color palette (8-12 colors) using: Coolors.co Adobe Color or Tailwind Color Generator
+- Select 2-3 primary colors 3-4 neutrals 4 semantic colors
+- Document color hex codes
+
+## Part 3: Font Selection
+- Choose font option: System fonts (fastest no setup) or Google Fonts (1-2 fonts max)
+- If using Google Fonts select: 1 font for headings and 1 font for body text
+- Document font names and weights
+
+## Acceptance Criteria
+- All 5 pages have mockups/wireframes
+- Navigation flow is clear
+- Main features are visible in designs
+- Mockups saved and accessible
+- Color palette selected (8-12 colors with hex codes)
+- Font selection documented",sprint-0 (blue),,,,,Part 1: Mockups and Wireframes,,,,
+,,,,,,,Part 1: Mockups and Wireframes,Choose tool: Paper Figma Excalidraw or drawing app,,
+,,,,,,,Part 1: Mockups and Wireframes,Sketch/wireframe 5 required pages,,
+,,,,,,,Part 1: Mockups and Wireframes,Focus on layout and user flow not pixel-perfect design,,
+,,,,,,,Part 1: Mockups and Wireframes,Show navigation between pages,,
+,,,,,,,Part 1: Mockups and Wireframes,Identify where CRUD operations happen,,
+,,,,,,,Part 1: Mockups and Wireframes,Save mockups (photo export or screenshot),,
+,,,,,,,Part 2: Color Palette,Choose color palette (8-12 colors) using online tools,,
+,,,,,,,Part 2: Color Palette,Select 2-3 primary colors 3-4 neutrals 4 semantic colors,,
+,,,,,,,Part 2: Color Palette,Document color hex codes,,
+,,,,,,,Part 3: Font Selection,Choose font option: System fonts or Google Fonts (1-2 fonts max),,
+,,,,,,,Part 3: Font Selection,If using Google Fonts select: 1 font for headings and 1 font for body text,,
+,,,,,,,Part 3: Font Selection,Document font names and weights,,
+,,,,,,,Acceptance Criteria,All 5 pages have mockups/wireframes,,
+,,,,,,,Acceptance Criteria,Navigation flow is clear,,
+,,,,,,,Acceptance Criteria,Main features are visible in designs,,
+,,,,,,,Acceptance Criteria,Mockups saved and accessible,,
+,,,,,,,Acceptance Criteria,Color palette selected (8-12 colors with hex codes),,
+,,,,,,,Acceptance Criteria,Font selection documented,,
+Chore 06: UI Design System,"**Estimated Time:** 30-45 minutes
+
+## Task
+Choose UI component library and icon library for consistent design
+
+## Acceptance Criteria
+- Component library/framework chosen and documented
+- Icon library chosen (if needed)
+- Installation commands listed
+- All UI choices documented in README or DESIGN.md",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Choose ONE component library or CSS framework,,
+,,,,,,,Steps,Document your choice and reasoning,,
+,,,,,,,Steps,Choose icon library (if needed),,
+,,,,,,,Steps,Document all UI choices in README or DESIGN.md,,
+,,,,,,,Steps,List installation commands for later reference,,
+,,,,,,,Acceptance Criteria,Component library/framework chosen and documented,,
+,,,,,,,Acceptance Criteria,Icon library chosen (if needed),,
+,,,,,,,Acceptance Criteria,Installation commands listed,,
+,,,,,,,Acceptance Criteria,All UI choices documented in README or DESIGN.md,,
+Chore 07: Component Architecture,"**Estimated Time:** 1-2 hours
+
+## Task
+Design React component hierarchy and identify state management needs
+
+## Acceptance Criteria
+- Component tree drawn for all 5 pages
+- Reusable components identified (minimum 5)
+- Authentication state management planned
+- Global vs local state decisions documented
+- Component responsibilities clearly defined
+- State management approach chosen (Context API recommended)
+- Component plan saved and accessible",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Review your mockups from Planning Chore 5,,
+,,,,,,,Steps,Identify reusable components for each page,,
+,,,,,,,Steps,Draw component tree showing parent-child relationships,,
+,,,,,,,Steps,Identify what data each component needs (props vs state),,
+,,,,,,,Steps,Determine authentication state management,,
+,,,,,,,Steps,Plan application state: global vs local data,,
+,,,,,,,Steps,Identify shared state needs: loading error and form states,,
+,,,,,,,Steps,Choose state management approach (Context API recommended),,
+,,,,,,,Steps,Document your component plan,,
+,,,,,,,Acceptance Criteria,Component tree drawn for all 5 pages,,
+,,,,,,,Acceptance Criteria,Reusable components identified (minimum 5),,
+,,,,,,,Acceptance Criteria,Authentication state management planned,,
+,,,,,,,Acceptance Criteria,Global vs local state decisions documented,,
+,,,,,,,Acceptance Criteria,Component responsibilities clearly defined,,
+,,,,,,,Acceptance Criteria,State management approach chosen (Context API recommended),,
+,,,,,,,Acceptance Criteria,Component plan saved and accessible,,
+Chore 08: Write User Stories,"**Estimated Time:** 2-3 hours
+
+## Task
+Create user stories for each feature with acceptance criteria
+
+## Acceptance Criteria
+- All core features have user stories
+- Each story has acceptance criteria
+- Each story has time estimate
+- Stories are prioritized
+- Total estimate is 30-40 hours",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Use the User Stories Template,,
+,,,,,,,Steps,Write stories for authentication (registration login protected routes),,
+,,,,,,,Steps,Write stories for CRUD operations on main resource,,
+,,,,,,,Steps,Write stories for additional core features,,
+,,,,,,,Steps,Include acceptance criteria for each story,,
+,,,,,,,Steps,Estimate time for each story (in hours),,
+,,,,,,,Steps,Prioritize stories (1 = highest priority),,
+,,,,,,,Steps,Total estimated hours should be ~30-40 hours,,
+,,,,,,,Acceptance Criteria,All core features have user stories,,
+,,,,,,,Acceptance Criteria,Each story has acceptance criteria,,
+,,,,,,,Acceptance Criteria,Each story has time estimate,,
+,,,,,,,Acceptance Criteria,Stories are prioritized,,
+,,,,,,,Acceptance Criteria,Total estimate is 30-40 hours,,
+Chore 09: Design Database Schema,"**Estimated Time:** 1-2 hours
+
+## Task
+Design database models and relationships before coding
+
+## Acceptance Criteria
+- Minimum 2 models designed (User + main resource)
+- All fields have data types specified
+- Relationships between models defined
+- Required vs optional fields identified
+- Validation rules documented
+- Schema design saved and accessible",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Identify all data entities needed (User main resource related entities),,
+,,,,,,,Steps,Choose modeling tool: MongoDB Modeler Paper/whiteboard Draw.io Lucidchart or Excalidraw,,
+,,,,,,,Steps,Design User model with fields,,
+,,,,,,,Steps,Design main resource model with fields and validation rules,,
+,,,,,,,Steps,Define relationships between models,,
+,,,,,,,Steps,Identify required fields vs optional fields,,
+,,,,,,,Steps,Define data types for all fields,,
+,,,,,,,Steps,Save schema design (screenshot export or document),,
+,,,,,,,Steps,Verify minimum 2 models with relationships (rubric requirement),,
+,,,,,,,Acceptance Criteria,Minimum 2 models designed (User + main resource),,
+,,,,,,,Acceptance Criteria,All fields have data types specified,,
+,,,,,,,Acceptance Criteria,Relationships between models defined,,
+,,,,,,,Acceptance Criteria,Required vs optional fields identified,,
+,,,,,,,Acceptance Criteria,Validation rules documented,,
+,,,,,,,Acceptance Criteria,Schema design saved and accessible,,
+Chore 10: Sprint Planning,"**Estimated Time:** 30 minutes
+
+## Task
+Group user stories into Sprint 1 and Sprint 2
+
+## Acceptance Criteria
+- All stories assigned to Sprint 1 or Sprint 2
+- Sprint 1 focuses on backend
+- Sprint 2 focuses on frontend
+- Time estimates are balanced",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Review all user stories,,
+,,,,,,,Steps,Group into Sprint 1 (Backend/Database/Auth),,
+,,,,,,,Steps,Group into Sprint 2 (Frontend/Integration),,
+,,,,,,,Steps,Verify Sprint 1: 15-20 hours Sprint 2: 18-25 hours,,
+,,,,,,,Steps,Document sprint backlog,,
+,,,,,,,Acceptance Criteria,All stories assigned to Sprint 1 or Sprint 2,,
+,,,,,,,Acceptance Criteria,Sprint 1 focuses on backend,,
+,,,,,,,Acceptance Criteria,Sprint 2 focuses on frontend,,
+,,,,,,,Acceptance Criteria,Time estimates are balanced,,
+Chore 11: GitHub Repository,"**Estimated Time:** 15 minutes
+
+## Task
+Set up version control and create project folders
+
+## Project Structure
+your-project/
+├── client/         (React frontend)
+├── server/         (Express backend)
+├── .gitignore
+└── README.md
+
+## Acceptance Criteria
+- Repository exists on GitHub
+- Local clone is working
+- .gitignore includes node_modules/ .env .DS_Store
+- client/ and server/ folders created",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Create new GitHub repository (public),,
+,,,,,,,Steps,Initialize with README.md,,
+,,,,,,,Steps,Add .gitignore for Node.js and React,,
+,,,,,,,Steps,Clone repository to local machine,,
+,,,,,,,Steps,Create client/ folder in project root,,
+,,,,,,,Steps,Create server/ folder in project root,,
+,,,,,,,Steps,Verify Git is working: git status,,
+,,,,,,,Acceptance Criteria,Repository exists on GitHub,,
+,,,,,,,Acceptance Criteria,Local clone is working,,
+,,,,,,,Acceptance Criteria,.gitignore includes node_modules/ .env .DS_Store,,
+,,,,,,,Acceptance Criteria,client/ and server/ folders created,,
+Chore 12: Initialize React Frontend,"**Estimated Time:** 15-20 minutes
+
+## Task
+Set up React application with routing HTTP client and proper folder structure
+
+## Part 1: Create React App
+- Navigate to project root
+- Run: npm create vite@latest client -- --template react
+- Navigate to client folder: cd client
+- Install dependencies: npm install
+
+## Part 2: Install Core Dependencies
+- Install routing and HTTP client: npm install react-router axios
+
+## Part 3: Install Styling Framework and Icons (from Planning Chore 6)
+- Follow installation instructions based on your Planning Chore 6 decision
+
+## Part 4: Add Google Fonts (from Planning Chore 5)
+- If using Google Fonts follow the instructions at fonts.google.com
+- Add the link tag to index.html in head section
+- Update src/index.css with your chosen font-family
+
+## Part 5: Create Folder Structure
+- Navigate to src folder: cd src
+- Create project folders: mkdir components pages hooks context utils
+
+## Part 6: Test Setup
+- Navigate back to client folder: cd ..
+- Test: npm run dev
+- Verify React app opens in browser at http://localhost:5173
+- Stop the dev server (Ctrl+C)
+
+## Acceptance Criteria
+- React app created successfully with Vite
+- react-router installed
+- axios installed
+- Styling framework/library installed (from Planning Chore 6)
+- Icon library installed (if chosen in Planning Chore 6)
+- Google Fonts added (if chosen in Planning Chore 5)
+- All folders created (components pages hooks context utils)
+- App runs without errors
+- Default React page displays in browser at http://localhost:5173",sprint-0 (blue),,,,,Part 1: Create React App,,,,
+,,,,,,,Part 1: Create React App,Navigate to project root,,
+,,,,,,,Part 1: Create React App,Run: npm create vite@latest client -- --template react,,
+,,,,,,,Part 1: Create React App,Navigate to client folder: cd client,,
+,,,,,,,Part 1: Create React App,Install dependencies: npm install,,
+,,,,,,,Part 2: Install Core Dependencies,Install routing and HTTP client: npm install react-router axios,,
+,,,,,,,Part 3: Install Styling,Follow installation instructions based on your Planning Chore 6 decision,,
+,,,,,,,Part 4: Add Google Fonts,If using Google Fonts add link tag to index.html and update index.css,,
+,,,,,,,Part 5: Create Folder Structure,Navigate to src folder: cd src,,
+,,,,,,,Part 5: Create Folder Structure,Create project folders: mkdir components pages hooks context utils,,
+,,,,,,,Part 6: Test Setup,Navigate back to client folder: cd ..,,
+,,,,,,,Part 6: Test Setup,Test: npm run dev,,
+,,,,,,,Part 6: Test Setup,Verify React app opens in browser at http://localhost:5173,,
+,,,,,,,Part 6: Test Setup,Stop the dev server (Ctrl+C),,
+,,,,,,,Acceptance Criteria,React app created successfully with Vite,,
+,,,,,,,Acceptance Criteria,react-router installed,,
+,,,,,,,Acceptance Criteria,axios installed,,
+,,,,,,,Acceptance Criteria,Styling framework/library installed (from Planning Chore 6),,
+,,,,,,,Acceptance Criteria,Icon library installed (if chosen in Planning Chore 6),,
+,,,,,,,Acceptance Criteria,Google Fonts added (if chosen in Planning Chore 5),,
+,,,,,,,Acceptance Criteria,All folders created (components pages hooks context utils),,
+,,,,,,,Acceptance Criteria,App runs without errors,,
+,,,,,,,Acceptance Criteria,Default React page displays in browser at http://localhost:5173,,
+Chore 13: Initialize Express Backend,"**Estimated Time:** 15 minutes
+
+## Task
+Set up Express server install dependencies create folder structure and add a test route
+
+## Folder Structure
+server/
+├── models/         (Database schemas/models)
+├── controllers/    (Business logic for routes)
+├── routes/         (API route handlers)
+├── middleware/     (Authentication validation error handling)
+├── config/         (Database connection config files)
+├── utils/          (Helper functions validators token generators)
+├── server.js       (Main server file)
+├── .env            (Environment variables - NOT committed)
+├── .env.example    (Example env file - committed)
+└── package.json
+
+## Acceptance Criteria
+- package.json created in server folder
+- All core dependencies installed (express dotenv cors bcrypt jsonwebtoken)
+- All security dependencies installed (helmet express-rate-limit)
+- Database ORM installed (mongoose OR sequelize)
+- nodemon installed as dev dependency
+- Scripts added to package.json
+- All folders created (models controllers routes middleware config utils)
+- .env and .env.example files created
+- server.js created with test route
+- Server runs successfully on port 3001
+- Test route returns JSON response",sprint-0 (blue),,,,,Steps,,,,
+,,,,,,,Steps,Navigate to server folder: cd server,,
+,,,,,,,Steps,Initialize npm: npm init -y,,
+,,,,,,,Steps,Install backend dependencies: express dotenv cors bcrypt jsonwebtoken,,
+,,,,,,,Steps,Install security dependencies: helmet express-rate-limit,,
+,,,,,,,Steps,Install database dependency (mongoose OR sequelize),,
+,,,,,,,Steps,Install dev dependencies: nodemon,,
+,,,,,,,Steps,Update package.json scripts,,
+,,,,,,,Steps,Create folder structure: models routes middleware config controllers utils,,
+,,,,,,,Steps,Create .env file in server folder,,
+,,,,,,,Steps,Create .env.example file in server folder,,
+,,,,,,,Steps,Create server.js file with basic Express setup and test route,,
+,,,,,,,Steps,Test server: npm run dev,,
+,,,,,,,Steps,Verify server starts without errors,,
+,,,,,,,Steps,Test route in browser: http://localhost:3001/api/test,,
+,,,,,,,Steps,Stop the dev server (Ctrl+C),,
+,,,,,,,Acceptance Criteria,package.json created in server folder,,
+,,,,,,,Acceptance Criteria,All core dependencies installed,,
+,,,,,,,Acceptance Criteria,All security dependencies installed,,
+,,,,,,,Acceptance Criteria,Database ORM installed (mongoose OR sequelize),,
+,,,,,,,Acceptance Criteria,nodemon installed as dev dependency,,
+,,,,,,,Acceptance Criteria,Scripts added to package.json,,
+,,,,,,,Acceptance Criteria,All folders created,,
+,,,,,,,Acceptance Criteria,.env and .env.example files created,,
+,,,,,,,Acceptance Criteria,server.js created with test route,,
+,,,,,,,Acceptance Criteria,Server runs successfully on port 3001,,
+,,,,,,,Acceptance Criteria,Test route returns JSON response,,
+Chore 14: Database Setup,"**Estimated Time:** 20-30 minutes
+
+## Task
+Create database instance configure environment variables and verify connection
+
+## For MongoDB Atlas
+- Sign up for MongoDB Atlas
+- Create new cluster (free tier)
+- Create database user with username/password
+- Whitelist IP address (allow access from anywhere: 0.0.0.0/0)
+- Get connection string
+- Update .env file with actual connection string
+- Generate strong JWT secret (random string 32+ characters)
+- Update .env file with JWT secret
+- Create config/db.js file
+- Update server.js to connect to database
+- Test database connection: npm run dev
+- Verify console shows MongoDB connected successfully
+- Stop the dev server (Ctrl+C)
+
+## For Local MongoDB
+- Install MongoDB Community Edition
+- Start MongoDB service
+- Update .env with connection string
+- Follow same steps above to create config/db.js and update server.js
+- Test database connection
+
+## For PostgreSQL/MySQL (only applies to non-MongoDB users)
+- Install PostgreSQL or MySQL locally
+- Create new database
+- Note username password database name
+- Update .env with connection string
+- Create config/db.js with Sequelize connection
+- Update server.js to connect to database
+- Test database connection
+
+## Commit to GitHub
+- Navigate to project root
+- Stage all files: git add .
+- Check status: git status (verify .env is NOT staged)
+- Commit: git commit -m Initial project setup with client and server structure
+- Push to GitHub: git push origin main
+- Verify commit appears on GitHub
+
+## Acceptance Criteria
+- Database instance created (MongoDB Atlas or local)
+- .env file updated with actual DATABASE_URL
+- .env file updated with strong JWT_SECRET (32+ characters)
+- config/db.js created with connection logic
+- server.js updated to connect to database
+- Server starts successfully and connects to database
+- Console shows successful connection message
+- All files committed (except .env)
+- .env is NOT in Git
+- .env.example IS in Git
+- Commit pushed to GitHub",sprint-0 (blue),,,,,For MongoDB Atlas,,,,
+,,,,,,,For MongoDB Atlas,Sign up for MongoDB Atlas,,
+,,,,,,,For MongoDB Atlas,Create new cluster (free tier),,
+,,,,,,,For MongoDB Atlas,Create database user with username/password,,
+,,,,,,,For MongoDB Atlas,Whitelist IP address (0.0.0.0/0),,
+,,,,,,,For MongoDB Atlas,Get connection string,,
+,,,,,,,For MongoDB Atlas,Update .env file with actual connection string,,
+,,,,,,,For MongoDB Atlas,Generate strong JWT secret (32+ characters),,
+,,,,,,,For MongoDB Atlas,Update .env file with JWT secret,,
+,,,,,,,For MongoDB Atlas,Create config/db.js file,,
+,,,,,,,For MongoDB Atlas,Update server.js to connect to database,,
+,,,,,,,For MongoDB Atlas,Test database connection: npm run dev,,
+,,,,,,,For MongoDB Atlas,Verify console shows MongoDB connected successfully,,
+,,,,,,,For MongoDB Atlas,Stop the dev server (Ctrl+C),,
+,,,,,,,For Local MongoDB,Install MongoDB Community Edition,,
+,,,,,,,For Local MongoDB,Start MongoDB service,,
+,,,,,,,For Local MongoDB,Update .env with connection string,,
+,,,,,,,For Local MongoDB,Follow steps to create config/db.js and update server.js,,
+,,,,,,,For Local MongoDB,Test database connection,,
+,,,,,,,For PostgreSQL/MySQL,Install PostgreSQL or MySQL locally,,
+,,,,,,,For PostgreSQL/MySQL,Create new database,,
+,,,,,,,For PostgreSQL/MySQL,Note username password database name,,
+,,,,,,,For PostgreSQL/MySQL,Update .env with connection string,,
+,,,,,,,For PostgreSQL/MySQL,Create config/db.js with Sequelize connection,,
+,,,,,,,For PostgreSQL/MySQL,Update server.js to connect to database,,
+,,,,,,,For PostgreSQL/MySQL,Test database connection,,
+,,,,,,,Commit to GitHub,Navigate to project root,,
+,,,,,,,Commit to GitHub,Stage all files: git add .,,
+,,,,,,,Commit to GitHub,Check status: git status (verify .env is NOT staged),,
+,,,,,,,Commit to GitHub,Commit: git commit -m Initial project setup,,
+,,,,,,,Commit to GitHub,Push to GitHub: git push origin main,,
+,,,,,,,Commit to GitHub,Verify commit appears on GitHub,,
+,,,,,,,Acceptance Criteria,Database instance created (MongoDB Atlas or local),,
+,,,,,,,Acceptance Criteria,.env file updated with actual DATABASE_URL,,
+,,,,,,,Acceptance Criteria,.env file updated with strong JWT_SECRET (32+ characters),,
+,,,,,,,Acceptance Criteria,config/db.js created with connection logic,,
+,,,,,,,Acceptance Criteria,server.js updated to connect to database,,
+,,,,,,,Acceptance Criteria,Server starts successfully and connects to database,,
+,,,,,,,Acceptance Criteria,Console shows successful connection message,,
+,,,,,,,Acceptance Criteria,All files committed (except .env),,
+,,,,,,,Acceptance Criteria,.env is NOT in Git,,
+,,,,,,,Acceptance Criteria,.env.example IS in Git,,
+,,,,,,,Acceptance Criteria,Commit pushed to GitHub,,

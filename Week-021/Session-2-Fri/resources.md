@@ -1,0 +1,3 @@
+- [Axios Docs](https://github.com/axios/axios)
+- [MDN Cors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS)
+- [React Axios](https://www.digitalocean.com/community/tutorials/react-axios-react)
